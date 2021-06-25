@@ -3,7 +3,6 @@ const dragon = require("../../ayarlar.json");
 const db = require('quick.db')
 exports.run = async (client, msg, args) => { 
   let prefix = await db.fetch(`prefix.${msg.guild.id}`) || dragon.prefix 
-  let p = args[0];
     
 const bot = new Discord.MessageEmbed()    
 .setAuthor(`${client.user.username} Yardım Menüsü`,client.user.avatarURL())
