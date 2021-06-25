@@ -8,7 +8,7 @@ exports.run = async (client, msg, args) => {
     .duration(client.uptime)
     .format(" D [gün], H [saat], m [dakika], s [saniye]");
   const betastats = new Discord.MessageEmbed()
-  .setColor('#ffffff')
+  .setColor('0x36393E')
     .setImage("")
     .setTimestamp()
     .addField("<:blurpleowner:857917797707415552> **Botun Sahibi**", "<@852596827713962066> | <@780135880542650390>")

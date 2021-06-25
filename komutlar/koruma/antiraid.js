@@ -8,7 +8,7 @@ exports.run = async (client, message, args) => {
       return message.channel.send("<:blurpleigne:857930551314874408> Anti-raid zaten açılmış.");
     }
     db.set(`antiraidK_${message.guild.id}`, "anti-raid-aç");
-    message.reply("<:blurpleyes:857917858025439242>Anti-raid sistemi başarıyla açıldı");
+    message.reply("<:blurpleyes:857917858025439242> Anti-raid sistemi başarıyla açıldı");
   }
   if (args[0] == "kapat") {
     if (db.has(`antiraidK_${message.guild.id}`) === false) {
