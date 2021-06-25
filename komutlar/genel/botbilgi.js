@@ -11,17 +11,17 @@ exports.run = async (client, msg, args) => {
   .setColor('#ffffff')
     .setImage("")
     .setTimestamp()
-    .addField("<:redowner:849738273260699678> **Botun Sahibi**", "<@780135880542650390>")
-    .addField("<:redstats:849738276842766368> **Gecikme süreleri**","Mesaj Gecikmesi: {ping1} ms \nBot Gecikmesi: {ping2} ms"
+    .addField("<:blurpleowner:857917797707415552> **Botun Sahibi**", "<@852596827713962066> | <@780135880542650390>")
+    .addField("<:blurplestats:857922916942086154> **Gecikme süreleri**","Mesaj Gecikmesi: {ping1} ms \nBot Gecikmesi: {ping2} ms"
         .replace("{ping1}", new Date().getTime() - msg.createdTimestamp)
         .replace("{ping2}", client.ws.ping),true)
-    .addField("<:reduser:849726099105906688> **Kullanıcılar**",client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString(), true)
-    .addField("<:reddunya:849738271911444550> **Sunucular**", client.guilds.cache.size.toLocaleString(), true)
-    .addField("<:redrocket:849726094012710983> **Çalışma Süresi**", timezaman, true)
-    .addField("<:redshop:849726094907146280> **Kanallar**", client.channels.cache.size.toLocaleString(), true)
-    .addField("<:reddiscordjs:849750460956934167> **Discord.JS sürüm**", "v" + Discord.version, true)
-    .addField("<:redjs:849749857615085589> **Node.JS sürüm**", `${process.version}`, true)
-    .addField("<:redlink:849738273042858035> **Bot Davet**"," [Davet Et](https://discordapp.com/oauth2/authorize?client_id=" + client.user.id + "&scope=bot&permissions=8)");
+    .addField("<:blurpleuser:857907167898239007> **Kullanıcılar**",client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString(), true)
+    .addField("<:blurpledunya:857924089712869377> **Sunucular**", client.guilds.cache.size.toLocaleString(), true)
+    .addField("<:blurplerocket:857907158565519360> **Çalışma Süresi**", timezaman, true)
+    .addField("<:blurpleshop:857907163505885214> **Kanallar**", client.channels.cache.size.toLocaleString(), true)
+    .addField("<:blurplediscordjs:857922080628801537> **Discord.JS sürüm**", "v" + Discord.version, true)
+    .addField("<:blurplejs:857921650426249246> **Node.JS sürüm**", `${process.version}`, true)
+    .addField("<:blurplelink:857907168430391336> **Bot Davet**"," [Davet Et](https://discordapp.com/oauth2/authorize?client_id=" + client.user.id + "&scope=bot&permissions=8)");
   return msg.channel.send(betastats);
   };
 
