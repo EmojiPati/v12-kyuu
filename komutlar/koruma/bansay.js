@@ -9,15 +9,15 @@ exports.run = async (client, message, args) => {
      if(collection.first() == null)
      {
        const embed = new Discord.MessageEmbed()
-       .setTitle(`<:redno:849732347343798342>  **Banlanan Kullanıcı bulunamadı**`)
-       .setColor("#ffffff");
+       .setTitle(`<:blurpleno:857917856041271336>  **Banlanan Kullanıcı bulunamadı**`)
+       .setColor("0x36393E");
        message.channel.send({embed});
      }
      else
      {
        const embed = new Discord.MessageEmbed()
-       .setTitle("<:redlist:851373813634564127>  Banlistesi | Sunucudan Banlananlar")
-       .setColor("#ffffff");
+       .setTitle("<:blurplelist:857961317179457556>  Banlistesi | Sunucudan Banlananlar")
+       .setColor("0x36393E");
        for(userlist of collection)
        {
            var user = userlist[1];

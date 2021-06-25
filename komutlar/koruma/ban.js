@@ -18,17 +18,17 @@ exports.run = async (client, message, args) => {
   if (reason.length < 1) return message.channel.send('<:blurpleigne:857930551314874408>  **Lütfen Sebep Giriniz**');
   if (user.id === message.author.id) return message.channel.send('<:blurplecross:857907152760078387>  **Dostum Kendini Banlıyamazsın**');
   const embed = new Discord.MessageEmbed()
-  .setColor("#ffffff")
+  .setColor("0x36393E")
   .addField('<:blurplebanhammer:857959558672416810>  İşlem', 'Sunucudan Banlama')
-  .addField('<:reduser:849726099105906688>  Banlanan Üye', `${user.tag} (${user.id})`)
-  .addField('<:redstaff:849738273436729395>  Banlayan Yetkili', `${message.author.username}#${message.author.discriminator}`)
-  .addField('<:redsearch:849726094570946641>  Ban Sebebi', "```" + reason + "```")
+  .addField('<:blurpleuser:857907167898239007>  Banlanan Üye', `${user.tag} (${user.id})`)
+  .addField('<:blurplestaff:857907168707215382>  Banlayan Yetkili', `${message.author.username}#${message.author.discriminator}`)
+  .addField('<:blurplesearch:857907164013264906>  Ban Sebebi', "```" + reason + "```")
   modlog.send(embed);
-  user.send(`\`${message.guild.name}\` **<:redyes:849732347464515674> Adlı Sunucuda Yaptığınız Olumsuz Davranışlardan Dolayı Yasaklandınız** \n **Yetkilinin Girdiği Sebep:** \`${reason}\``)
+  user.send(`\`${message.guild.name}\` **<:blurpleyes:857917858025439242> Adlı Sunucuda Yaptığınız Olumsuz Davranışlardan Dolayı Yasaklandınız** \n **Yetkilinin Girdiği Sebep:** \`${reason}\``)
   message.guild.members.ban(user, 2);
   const embed2 = new Discord.MessageEmbed()
-  .setColor("#ffffff")
-  .setDescription(`<:redyes:849732347464515674>  **Kullanıcı Başarıyla Banlandı**`)
+  .setColor("0x36393E")
+  .setDescription(`<:blurpleyes:857917858025439242>  **Kullanıcı Başarıyla Banlandı**`)
   message.channel.send(embed2)
 };
 exports.conf = {
