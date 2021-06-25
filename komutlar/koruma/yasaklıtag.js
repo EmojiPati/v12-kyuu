@@ -18,10 +18,10 @@ if(!args[1]) return message.channel.send(`<:blurpleigne:857930551314874408> Bir 
   
 await db.set(`banned-tag.${message.guild.id}`, args[1])
   
-message.channel.send(new Discord.RichEmbed()
+message.channel.send(new Discord.MessageEmbed()
 .setDescription(`**<:blurpleyes:857917858025439242> ${args[1]}** tagı yasaklı olarak listeye eklendi.`)
 .setColor('0x36393E')
-.setAuthor(message.author.username, message.author.avatarURL)) 
+.setAuthor(message.author.username, message.author.avatarURL())) 
 }
   
   
@@ -33,10 +33,10 @@ if(!args[1]) return message.channel.send(`<:blurpleigne:857930551314874408> Bir 
   
 await db.delete(`banned-tag.${message.guild.id}`)
   
-message.channel.send(new Discord.RichEmbed()
+message.channel.send(new Discord.MessageEmbed()
 .setDescription(`**<:blurpleyes:857917858025439242> ${args[1]}** tagı artık yasaklı değil..`)
 .setColor('0x36393E')
-.setAuthor(message.author.username, message.author.avatarURL)) 
+.setAuthor(message.author.username, message.author.avatarURL())) 
 }
 
 };

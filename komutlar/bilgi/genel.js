@@ -7,7 +7,7 @@ exports.run = async (client, msg, args) => {
 const bot = new Discord.MessageEmbed()
 .setAuthor(`${client.user.username} Genel Yardım Menüsü`,client.user.avatarURL())
 .setColor('0x36393E')
-.setDescription(`<:redhypesquad:849726093488291892> Dragon botumuzu eklemek için \`${prefix}davet\` yazabilirsiniz.`)
+.setDescription(`<:blurplehypesquad:857920353179009044> Dragon botumuzu eklemek için \`${prefix}davet\` yazabilirsiniz.`)
 .addField(`> <:blurpleuser:857907167898239007> __Avatar__ » \`${prefix}avatar\` `,`➥ ***Etiketlenen Kullanıcının Avatarını Gösterir***`)
 .addField(`> <:blurpleuser:857907167898239007> __İstatistik__ » \`${prefix}istatistik\` `,`➥ ***Botun İstatiğini Gösterir***`)
 .addField(`> <:blurpleuser:857907167898239007> __Ping__ » \`${prefix}ping\` `,`➥ ***Botun Pingini Gösterir***`)
