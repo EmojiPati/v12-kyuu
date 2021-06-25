@@ -31,7 +31,7 @@ const botlar = message.guild.members.cache.filter(m => m.user.bot).map(bots => `
 const roller = message.guild.roles.cache.filter(a => a.name !== 'everyone' && !a.managed).sort((a, b) => a.position - b.position).map(c => c).reverse().splice(0, 10).join(' ')
 let emoji = message.guild.emojis.cache.map(emo => `${emo}`).splice(0, 10).join(' ')
  const embed = new Discord.MessageEmbed()
-.setColor('#FFFFFF')
+.setColor('0x36393E')
 .setAuthor('Sunucu Bilgi',message.guild.iconURL({ dynamic:true }))
 .addField('<:blurplestar:857907156099792917> Sunucu İsmi',`${message.guild.name} \`(${message.guild.id})\``,true)
 .addField('<:blurplestar:857907156099792917> Sunucu Sahibi',`<@${message.guild.owner.id}> \`(${message.guild.owner.id})\``,true)
