@@ -4,8 +4,8 @@ exports.run = async (client, msg, args) => {
   let p = args[0];
  
 let embed = new Discord.MessageEmbed()
-.setColor("#FFFFFF")
-.addField("<:blurpleinternet:857907157961801778> **__Gecikme Sürem__**", `**${client.ws.ping}** ms Olarak Hesaplandı.`,true)
+.setColor("0x36393E")
+.addField("<:blurpleinternet:857907157961801778>  **__Gecikme Sürem__**", `**${client.ws.ping}** ms Olarak Hesaplandı.`,true)
 msg.channel.send(embed)
 }
 
