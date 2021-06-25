@@ -1,11 +1,18 @@
 const Discord = require("discord.js");
-const ayarlar = require("./ayarlar.json");
-const fs = require("fs");
-const chalk = require("chalk");
-const moment = require("moment");
-const db = require("quick.db");
+const db = require('quick.db');
 const client = new Discord.Client();
-const ms = require("ms");
+require('discord-buttons')(client)
+const dragon = require("./ayarlar.json");
+const chalk = require("chalk");
+const fs = require("fs");
+const moment = require("moment");
+var prefix = dragon.prefix;
+require("./util/eventLoader")(client);
+
+
+
+console.log("Akıyor!!")
+
 require("./util/eventLoader")(client);
 
 
@@ -47,13 +54,11 @@ require("./util/eventLoader")(client);
       let permlvl = 0;
       if (message.member.hasPermission("BAN_MEMBERS")) permlvl = 2;
       if (message.member.hasPermission("ADMINISTRATOR")) permlvl = 3;
-      if (message.author.id === ayarlar.sahip) permlvl = 4;
+      if (message.author.id === dragon.sahip) permlvl = 4;
       return permlvl;
     };
-
-
-client.login(process.env.TOKEN)
-
+    
+client.login(process.env.TOKEN);
 
 //-----------------------KOMUTLAR-----------------------\\
 

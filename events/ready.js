@@ -6,8 +6,8 @@ const { prefix } = require('../ayarlar.json')
 module.exports = client => {
   var degisenOynuyor = [
     
-    `✔ » Aktif`,   //İSTEDİĞİNİZ KADAR YAPABİLİRSİNİZ SADECE SONRA , KOYMAYIN
-    `🐉 » Botumuzu Davet Etmek için d!davet`,
+    `✔ » Kuruluyor`,   //İSTEDİĞİNİZ KADAR YAPABİLİRSİNİZ SADECE SONRA , KOYMAYIN
+    `🐉 » Yakında Sizlerle Olacağım`,
     `🌐 » ${client.guilds.cache.size.toLocaleString()} İtopya | 🐲 » ${client.users.cache.size} Dragon'a Hizmet Veriyor`
   ]
   
@@ -17,6 +17,6 @@ module.exports = client => {
 
 }, 2 * 2500);
   
-  client.user.setStatus("dnd"); //dnd, idle, online, offline
+  client.user.setStatus("idle"); //dnd, idle, online, offline
   
 }
