@@ -169,7 +169,7 @@ client.on('messageDelete', async message   => { // mod-log
     const modlogkanal = message.guild.channels.cache.find(kanal => kanal.id === modlogs);    
 if (!modlogkanal) return;
   const embed = new Discord.MessageEmbed()
-  .setColor("#ffffff")
+  .setColor("0x36393E")
   .setTitle("MESAJ SİLİNDİ")
 .setDescription(`<:redyes:849732347464515674>  <@!${message.author.id}> **adlı kullanıcı tarafından** <#${message.channel.id}> **kanalına gönderilen mesaj silindi!** \n\nSilinen Mesaj: **${message.content}**`)
   .setFooter("Dragon Bot | Log Sistemi")
@@ -181,7 +181,7 @@ client.on('guildBanAdd', async message  => {
     const modlogkanal = message.guild.channels.cache.find(kanal => kanal.id === modlogs);    
 if (!modlogkanal) return;
   const embed = new Discord.MessageEmbed()
-  .setColor("#ffffff")
+  .setColor("0x36393E")
 
     .setDescription(`<:redyes:849732347464515674>  **Üye Sunucudan Yasaklandı!** \n<@!${message.user.id}>, ${message.user.tag}`)
         .setThumbnail(message.user.avatarURL)
@@ -195,7 +195,7 @@ client.on('channelCreate', async channel  => {
 if (!modlogkanal) return;
     if (channel.type === "text") {
                 let embed = new Discord.MessageEmbed()
-                    .setColor('#ffffff')
+                    .setColor('0x36393E')
                 .setTitle("METİN KANALI OLUŞTURULDU")
                 .setDescription(`<:redyes:849732347464515674>  ${channel.name} **Adlı Metin Kanalı Oluşturuldu!**`)
                 .setFooter(`Dragon Bot | Log Sistemi Kanal ID: ${channel.id}`)
@@ -203,7 +203,7 @@ if (!modlogkanal) return;
             };
             if (channel.type === "voice") {
                 let embed = new Discord.MessageEmbed()
-                .setColor('#ffffff')
+                .setColor('0x36393E')
 .setTitle("SES KANALI OLUŞTURULDU")
                 .setDescription(`<:redyes:849732347464515674>  ${channel.name} **Adlı Ses Kanalı Oluşturuldu!**`)
                 .setFooter(`Dragon Bot | Log Sistemi Kanal ID: ${channel.id}`)
@@ -218,14 +218,14 @@ client.on('channelDelete', async channel  => {
 if (!modlogkanal) return;
     if (channel.type === "text") {
                 let embed = new Discord.MessageEmbed()
-                    .setColor('#ffffff')
+                    .setColor('0x36393E')
                 .setDescription(`<:redyes:849732347464515674>  ${channel.name} **Adlın Metin Kanalı  Silindi**`)
                 .setFooter(`Dragon Bot | Log Sistemi Kanal ID: ${channel.id}`)
                 modlogkanal.send({embed});
             };
             if (channel.type === "voice") {
                 let embed = new Discord.MessageEmbed()
-                .setColor('#ffffff')
+                .setColor('0x36393E')
 .setTitle("SES KANALI SİLİNDİ")
                 .setDescription(`<:redyes:849732347464515674>  ${channel.name} **Adlı Ses Kanalı Silindi**`)
             .setFooter(`Dragon Bot | Log Sistemi  Kanal ID: ${channel.id}`)
@@ -239,7 +239,7 @@ client.on("messageUpdate", async (oldMsg, newMsg) => {
   var kanal = oldMsg.guild.channels.cache.get(db.fetch(`log_${oldMsg.guild.id}`).replace("<#", "").replace(">", ""))
   if (!kanal) return;
   const embed = new Discord.MessageEmbed()
-  .setColor("#ffffff")
+  .setColor("0x36393E")
   .addField("Kullanıcı", oldMsg.author.tag, true)
   .addField("Eski Mesaj",`  ${oldMsg.content}  `)
   .addField("Yeni Mesaj", `${newMsg.content}`)
@@ -354,7 +354,7 @@ if(user.user.username.includes(tag)) {
 if(sayı === null) {
 await db.add(`atıldın.${guild.id}.${user.id}`, 1)
 user.send(new Discord.MessageEmbed()
-.setColor('#ffffff')
+.setColor('0x36393E')
 .setAuthor(guild.name, guild.iconURL)
 .setDescription(`Sunucumuzun yasaklı tagında bulunduğunuz için atıldınız, tekrar giriş yapmayı denerseniz **yasaklanacaksınız**!`))
 await user.kick() }
@@ -362,7 +362,7 @@ await user.kick() }
 if(sayı === 1) {
 await db.delete(`atıldın.${guild.id}.${user.id}`)
 user.send(new Discord.MessageEmbed()
-.setColor('#ffffff')
+.setColor('0x36393E')
 .setAuthor(guild.name, guild.iconURL)
 .setDescription(`Sunucumuzun yasaklı tagında bulunduğunuz için atılmıştınız, tekrar giriş yapmayı denediğiniz için **${guild.name}** sunucusundan kalıcı olarak **yasaklandınız**!`))
 await user.ban() } }
