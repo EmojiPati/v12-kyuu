@@ -2,11 +2,12 @@ const Discord = require("discord.js");
 const db = require('quick.db');
 const client = new Discord.Client();
 require('discord-buttons')(client)
-const dragon = require("./ayarlar.json");
+const ayarlar = require("./ayarlar.json");
 const chalk = require("chalk");
 const fs = require("fs");
+const message = new Discord.Message();
 const moment = require("moment");
-var prefix = dragon.prefix;
+var prefix = ayarlar.prefix;
 require("./util/eventLoader")(client);
 
 
@@ -54,7 +55,7 @@ require("./util/eventLoader")(client);
       let permlvl = 0;
       if (message.member.hasPermission("BAN_MEMBERS")) permlvl = 2;
       if (message.member.hasPermission("ADMINISTRATOR")) permlvl = 3;
-      if (message.author.id === dragon.sahip) permlvl = 4;
+      if (message.author.id === ayarlar.sahip) permlvl = 4;
       return permlvl;
     };
     
@@ -62,3 +63,11 @@ client.login(process.env.TOKEN);
 
 //-----------------------KOMUTLAR-----------------------\\
 
+client.on('message', message => {
+let sahip = ayarlar.sahip;
+
+ if(message.content === 'sa') {
+    console.log('nediyon la gevşek')
+    message.channel.send('nediyon la gevşek');
+ } 
+});
