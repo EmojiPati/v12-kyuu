@@ -73,11 +73,11 @@ exports.run = async (client, message, args) => {
 				}
 				if (choice === 'saldır') {
 					const damage = Math.floor(Math.random() * (guard ? 10 : 100)) + 1;
-					await message.channel.send(`${user}, **<:redsword:851903478162259968> ${damage}** hasar vurdu!`);
+					await message.channel.send(`${user}, **<:bluesword:859149108185792552> ${damage}** hasar vurdu!`);
 					dealDamage(damage);
 					reset();
 				} else if (choice === 'savun') {
-					await message.channel.send(`<:redguard:849738272200458271> ${user}, kendisini süper kalkan ile savundu!`);
+					await message.channel.send(`<:blurpleguard:857907154357977128> ${user}, kendisini süper kalkan ile savundu!`);
 					guard = true;
 					reset(false);
 				} else if (choice === 'ultra güç') {
@@ -95,12 +95,12 @@ exports.run = async (client, message, args) => {
 					forfeit();
 					break;
 				} else {
-					await message.reply('<:redsearch:849726094570946641> Ne yapmak istediğini anlamadım.');
+					await message.reply('<:blurplesearch:857907164013264906> Ne yapmak istediğini anlamadım.');
 				}
 			}
 			this.fighting.delete(message.channel.id);
             const winner = userHP > oppoHP ? message.author : opponent;
-			return message.channel.send(`<:redvictory:851905280802816051> Oyun bitti! Tebrikler, **${winner}** kazandı! \n**${message.author.username}**: ${userHP} :heartpulse: \n**${opponent.username}**: ${oppoHP} :heartpulse:`);
+			return message.channel.send(`<:victory1:859149514379231242><:victory2:859149518573666324><:victory3:859149515444191262> Oyun bitti! Tebrikler, **${winner}** kazandı! \n**${message.author.username}**: ${userHP} :heartpulse: \n**${opponent.username}**: ${oppoHP} :heartpulse:`);
 		} catch (err) {
 			this.fighting.delete(message.channel.id);
 			throw err;
