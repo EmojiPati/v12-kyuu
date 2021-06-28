@@ -3,41 +3,40 @@ const ayarlar = require('../../ayarlar.json');
 const db = require('quick.db')
 exports.run = async (client, message, args) => { 
 
-    if (!message.guild) {
+      if (!message.guild) {
     const ozelmesajuyari = new Discord.MessageEmbed()
     .setColor('0x36393E')
     .setTimestamp()
     .setAuthor(message.author.username, message.author.avatarURL)
     .addField('**Komutları Özel Mesajlarda Kullanılamaz!**')
     return message.author.send(ozelmesajuyari); }
-  
   if (!message.guild) {
     const ozelmesajuyari = new Discord.MessageEmbed()
     .setColor('0x36393E')
     .setTimestamp()
     .setAuthor(message.author.username, message.author.avatarURL)
-    .addField('**Gif Komutları Özel Mesajlarda Kullanılamaz!**')
+    .addField('**Eğlence Komutları Özel Mesajlarda Kullanılamaz!**')
     return message.author.send(ozelmesajuyari); }
     if (message.channel.type !== 'dm') {
-      const araba = new Discord.MessageEmbed()
-    .setAuthor(message.author.username + "  yolu aç araba geliyor.")
+      const ağla = new Discord.MessageEmbed()
+    .setAuthor('Botu Ağlattın İyimi?')
     .setColor('0x36393E')
     .setTimestamp()
     .setDescription('')
-    .setImage(`https://cdn.discordapp.com/attachments/779099271441809420/780007024486121492/araba.gif`)
-    return message.channel.send(araba);
+        .setImage(`https://media3.giphy.com/media/2rtQMJvhzOnRe/giphy.gif?cid=790b76115d398a482f6177556b32d70a&rid=giphy.gif`)
+    return message.channel.send(ağla);
     }
 };
 
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ["car"],
+  aliases: ["cry"],
   permLevel: 0
 };
 
 exports.help = {
-  name: 'araba',
-  description: 'araba gifi atar',
-  usage: 'araba'
+  name: 'ağla',
+  description: 'Bot U Ağlatırsınız',
+  usage: 'ağla'
 };

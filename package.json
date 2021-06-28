@@ -16,7 +16,8 @@
     "moment": "^2.29.1",
     "moment-duration-format": "^2.3.2",
     "chalk": "^4.1.1",
-    "discord-buttons": "^3.2.1"
+    "discord-buttons": "^3.2.1",
+    "common-tags": "^1.8.0"
   },
   "engines": {
     "node": "12.x"
