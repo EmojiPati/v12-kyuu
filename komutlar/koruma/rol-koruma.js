@@ -13,7 +13,7 @@ exports.run = async (client, message, args) => {
       .setColor("0x36393E")
       .setTitle("Rol Koruma sistemi!")
       .setDescription(
-        "**<:blurpleigne:857930551314874408> Hatalı kullanım! örnek: ${prefix}rol-koruma aç && kapat**"
+        `**<:blurpleigne:857930551314874408> Hatalı kullanım! örnek: \`${prefix}rol-koruma aç && kapat\`**`
       );
 
     message.channel.send(embed);
