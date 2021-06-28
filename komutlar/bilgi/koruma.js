@@ -22,6 +22,7 @@ const bot = new Discord.MessageEmbed()
 .addField(`> <:blurpleguard:857907154357977128> __Temizle__ » \`${prefix}temizle\` `,`➥ ***İstediğiniz Kadar Mesajı Siler***`)
 .addField(`> <:blurpleguard:857907154357977128> __Ban Kaldır__ » \`${prefix}ban-kaldır\` `,`➥ ***Etiketlenen Üyenin Yasağını Kaldırır***`)
 .addField(`> <:blurpleguard:857907154357977128> __Yasaklı Tag__ » \`${prefix}yasaklı-tag\` `,`➥ ***Sunucunuzda Yasaklı Tag Ayarlar***`)
+.addField(`» <:blurplelink:857907168430391336> Linkler`, `[Bot Davet Linki](https://discordapp.com/oauth2/authorize?client_id=825659553370734632&scope=bot&permissions=8) **|** [Destek Sunucusu](https://discord.gg/8KmvJrdnDZ) **|** [Web Sitesi](https://discord.com/)`)//websiteniz yoksa  **|** [Web Sitesi]() yeri silebilirsiniz
 .setThumbnail(client.user.avatarURL)
 .setImage(dragon.banner)
 msg.channel.send(bot)

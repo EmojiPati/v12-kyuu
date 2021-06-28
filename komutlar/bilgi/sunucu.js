@@ -14,7 +14,7 @@ exports.run = async (client, msg, args) => {
 .addField(`> <:blurpleayarlar:857907152315744278> __Oto Cevap__ » \`${prefix}otocevap\` `,`➥ ***Sunucunuzda OtoCevap Ayarlar***`)
 .addField(`> <:blurpleayarlar:857907152315744278> __Sayaç__ » \`${prefix}sayaç\` `,`➥ ***Sunucunuzda Sayaç Ayarlar***`)
 .addField(`> <:blurpleayarlar:857907152315744278> __Sunucu Kur__ » \`${prefix}sunucu-kur\` `,`➥ ***Hazır Sunucu Kurar***`)
-.addField(`» <:blurplelink:857907168430391336> Linkler`, `[Bot Davet Linki](https://discordapp.com/oauth2/authorize?client_id=856882009451921468&scope=bot&permissions=8) **|** [Destek Sunucusu](https://discord.gg/8KmvJrdnDZ) **|** [Web Sitesi](https://discord.com/)`)//websiteniz yoksa  **|** [Web Sitesi]() yeri silebilirsiniz
+.addField(`» <:blurplelink:857907168430391336> Linkler`, `[Bot Davet Linki](https://discordapp.com/oauth2/authorize?client_id=825659553370734632&scope=bot&permissions=8) **|** [Destek Sunucusu](https://discord.gg/8KmvJrdnDZ) **|** [Web Sitesi](https://discord.com/)`)//websiteniz yoksa  **|** [Web Sitesi]() yeri silebilirsiniz
 .setThumbnail(client.user.avatarURL)
 .setImage(dragon.banner)
     msg.channel.send(bot)

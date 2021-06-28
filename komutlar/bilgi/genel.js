@@ -14,6 +14,7 @@ const bot = new Discord.MessageEmbed()
 .addField(`> <:blurpleuser:857907167898239007> __Prefix__ » \`${prefix}prefix ayarla\` `,`➥ ***Botun Prefixini Ayarlar***`)
 .addField(`> <:blurpleuser:857907167898239007> __Profil__ » \`${prefix}profil\` `,`➥ ***Etiketlenen Kullanıcının Profilini Gösterir***`)
 .addField(`> <:blurpleuser:857907167898239007> __Sunucu Bilgi__ » \`${prefix}sunucu-bilgi\` `,`➥ ***Sunucunun Bilgilerini Gösterir***`)
+.addField(`» <:blurplelink:857907168430391336> Linkler`, `[Bot Davet Linki](https://discordapp.com/oauth2/authorize?client_id=825659553370734632&scope=bot&permissions=8) **|** [Destek Sunucusu](https://discord.gg/8KmvJrdnDZ) **|** [Web Sitesi](https://discord.com/)`)//websiteniz yoksa  **|** [Web Sitesi]() yeri silebilirsiniz
 .setThumbnail(client.user.avatarURL)
 .setImage(dragon.banner)
      msg.channel.send(bot)
