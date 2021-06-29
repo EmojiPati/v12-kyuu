@@ -456,6 +456,12 @@ client.on("message", message => {
             
 
       // level up!
+        
+        
+        
+              let seviyelog = db.get(`seviyelog_${message.guild.id}`)
+    const seviyelogkanal = message.guild.channels.cache.find(kanal => kanal.id === seviyelog);   
+        
         if(level.xp >= nextXP) {
                 level.xp = 0;
                 level.level += 1;
@@ -467,9 +473,9 @@ client.on("message", message => {
               .setTimestamp();
         // using try catch if bot have perms to send EMBED_LINKS      
         try {
-        message.channel.send(embed);
+        seviyelogkanal.send(embed);
         } catch (err) {
-          message.channel.send(`<:blurplerocket:857907158565519360> **Tebrikler** ${message.author}! Artık "\`${level.level}\`" Levelsiniz`)
+          seviyelogkanal.send(`<:blurplerocket:857907158565519360> **Tebrikler** ${message.author}! Artık "\`${level.level}\`" Levelsiniz`)
         }
       };
       client.setLevel.run(level);
