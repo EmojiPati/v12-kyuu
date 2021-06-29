@@ -8,17 +8,17 @@ exports.run = async (client, message, args) => {
         let userArgs = userArray.slice(1);
         let user = message.mentions.members.first() || message.guild.members.cache.get(userArgs[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === userArgs.slice(0).join(" ") || x.user.username === userArgs[0])
 
-        if(!message.member.hasPermission("MANAGE_GUILD")) return message.reply(`You do not have permission to use this command!`);
+        if(!message.member.hasPermission("MANAGE_GUILD")) return message.reply(`<:blurplecross:857907152760078387> Bu Komudu Kullanmak İçin İzniniz Yok!`);
 
         const levelArgs = parseInt(args[1])
 
         client.getScore = sql.prepare("SELECT * FROM levels WHERE user = ? AND guild = ?");
         client.setScore = sql.prepare("INSERT OR REPLACE INTO levels (id, user, guild, xp, level, totalXP) VALUES (@id, @user, @guild, @xp, @level, @totalXP);");
         if(!user) {
-            return message.reply(`Lütfen bir kullanıcıdan bahsedin!`)
+            return message.reply(`<:blurpleigne:857930551314874408> Lütfen bir kullanıcıdan bahsedin!`)
         } else {
             if(isNaN(levelArgs) || levelArgs < 1) {
-                return message.reply(`Lütfen geçerli bir numara girin!`)
+                return message.reply(`<:blurpleigne:857930551314874408> Lütfen geçerli bir numara girin!`)
             } else {
                 let score = client.getScore.get(user.id, message.guild.id);
                 if(!score) {

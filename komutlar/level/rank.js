@@ -15,7 +15,7 @@ exports.run = async (client, message, args) => {
         const top10 = sql.prepare("SELECT * FROM levels WHERE guild = ? ORDER BY totalXP").all(message.guild.id);
  let score = client.getScore.get(user.id, message.guild.id);
  if (!score) {
-  return message.reply(`This user does not have an xp yet!`)
+  return message.reply(`Bu kullanıcının henüz bir xp'si yok!`)
  }
 const levelInfo = score.level
 const nextXP = levelInfo * 2 * 250 + 250

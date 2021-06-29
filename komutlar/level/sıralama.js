@@ -9,7 +9,7 @@ const client = new Discord.Client();
     const currentPage = parseInt(args[0]) || 1;
     const top10 = sql.prepare("SELECT * FROM levels WHERE guild = ? ORDER BY totalXP DESC;").all(message.guild.id);
     if(parseFloat(args[0])  > Math.ceil(top10.length / 10)) {
-      return message.reply(`Geçersiz sayfa numarası! Yalnızca ${Math.ceil(top10.length / 10)} sayfa var`)
+      return message.reply(`<:blurpleno:857917856041271336> Geçersiz sayfa numarası! Yalnızca ${Math.ceil(top10.length / 10)} sayfa var`)
     }
         const embed = new Discord.MessageEmbed()
         .setTitle(`${message.guild.name} Sıralaması`)
@@ -19,7 +19,7 @@ const client = new Discord.Client();
 
 
       if(top10.length < 1) {
-          embed.setDescription(`Skor tablosunda kullanıcı yok!`)
+          embed.setDescription(`<:blurpleno:857917856041271336> Skor tablosunda kullanıcı yok!`)
         }
       var state = {
         'querySet': top10,
