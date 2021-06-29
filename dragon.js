@@ -409,4 +409,64 @@ client.giveawaysManager = new GiveawaysManager(client, {
         reaction: "<:blurpletada:859401334523559956>"
     }
 });
-////////
+////////LEVELELLLLLLLLLLL//////////
+const SQLite = require("better-sqlite3")
+const sql = new SQLite('./mainDB.sqlite')  
+
+
+const levelTable = sql.prepare("SELECT count(*) FROM sqlite_master WHERE type='table' AND name = 'levels';").get();
+  if (!levelTable['count(*)']) {
+    sql.prepare("CREATE TABLE levels (id TEXT PRIMARY KEY, user TEXT, guild TEXT, xp INTEGER, level INTEGER, totalXP INTEGER);").run();
+  }
+
+  client.getLevel = sql.prepare("SELECT * FROM levels WHERE user = ? AND guild = ?");
+  client.setLevel = sql.prepare("INSERT OR REPLACE INTO levels (id, user, guild, xp, level, totalXP) VALUES (@id, @user, @guild, @xp, @level, @totalXP);");
+// Role table for levels
+  const roleTable = sql.prepare("SELECT count(*) FROM sqlite_master WHERE type='table' AND name = 'roles';").get();
+  if (!roleTable['count(*)']) {
+    sql.prepare("CREATE TABLE roles (guildID TEXT, roleID TEXT, level INTEGER);").run();
+  }
+// XP Messages 
+client.on("message", message => {
+  if (message.author.bot) return;
+  if (!message.guild) return;
+        // get level and set level
+        const level = client.getLevel.get(message.author.id, message.guild.id) 
+        if(!level) {
+          let insertLevel = sql.prepare("INSERT OR REPLACE INTO levels (id, user, guild, xp, level, totalXP) VALUES (?,?,?,?,?,?);");
+          insertLevel.run(`${message.author.id}-${message.guild.id}`, message.author.id, message.guild.id, 0, 0, 0)
+          return;
+        }
+      
+        const lvl = level.level;
+
+      // xp system
+        const generatedXp = Math.floor(Math.random() * 16);
+        const nextXP = level.level * 2 * 250 + 250
+        // message content or characters length has to be more than 4 characters also cooldown
+      if(talkedRecently.get(message.author.id)) {
+        return;
+      } else { // cooldown is 10 seconds
+            level.xp += generatedXp;
+            level.totalXP += generatedXp;
+            
+
+      // level up!
+        if(level.xp >= nextXP) {
+                level.xp = 0;
+                level.level += 1;
+        let embed = new Discord.MessageEmbed()
+              .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+              .setDescription(`**Congratulations** ${message.author}! You have now leveled up to **level ${level.level}**`)
+              .setColor("RANDOM")
+              .setThumbnail(message.author.displayAvatarURL({ dynamic: true }))
+              .setTimestamp();
+        // using try catch if bot have perms to send EMBED_LINKS      
+        try {
+        message.channel.send(embed);
+        } catch (err) {
+          message.channel.send(`Congratulations, ${message.author}! You have now leveled up to **Level ${level.level}**`)
+        }
+      };
+      client.setLevel.run(level);
+      
