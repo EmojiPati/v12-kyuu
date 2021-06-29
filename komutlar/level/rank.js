@@ -27,7 +27,7 @@ let rank = top10.sort((a, b) => {
 let ranking = rank.map(x => x.totalXP).indexOf(totalXP) + 1
 if(!message.guild.me.hasPermission("ATTACH_FILES")) return message.reply(`**Missing Permission**: ATTACH_FILES or MESSAGE ATTACHMENTS`);
  const { registerFont, createCanvas } = require('canvas')
-registerFont('newcomicbd.ttf', { family: 'New Comic Bd' })
+registerFont('new-comic-bd.otf', { family: 'New Comic Bd' })
 const canvas = createCanvas(1000, 333)
     const ctx = canvas.getContext("2d");
     const background = await loadImage('https://raw.githubusercontent.com/roefinoavrililo/Discord.JS-Leveling-Bot/master/img/wallpaper.png');
@@ -50,20 +50,20 @@ const canvas = createCanvas(1000, 333)
     ctx.fill();
     ctx.globalAlpha = 1;
 
-    ctx.font = '30px newcomicbd';
+    ctx.font = '30px new-comic-bd';
     ctx.textAlign = "center";
     ctx.fillStyle = "#beb1b1";
     ctx.fillText(`${xpInfo} / ${nextXP} XP`, 600, 260);
 
-   ctx.font = '35px newcomicbd';
+   ctx.font = '35px new-comic-bd';
     ctx.textAlign = "left";
     ctx.fillText(user.user.tag, 325, 125);
 
-    ctx.font = '40px newcomicbd';
+    ctx.font = '40px new-comic-bd';
     ctx.fillText("Level: ", 350, 170);
     ctx.fillText(levelInfo, 500, 170);
 
-    ctx.font = '40px newcomicbd';
+    ctx.font = '40px new-comic-bd';
     ctx.fillText("Rank: ", 700, 170);
     ctx.fillText(ranking, 830, 170);
 
