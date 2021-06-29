@@ -23,26 +23,7 @@ require("./util/eventLoader")(client);
     const log = message => {
       console.log(`[${moment().format("YYYY-MM-DD HH:mm:ss")}] ${message}`);
     };
-    client.commands = new Discord.Collection();
-    client.aliases = new Discord.Collection();
-    fs.readdir("./komutlar/", (err, files) => {
-       if (err) console.error(err);
-       files.forEach(f => {
-     fs.readdir(`./komutlar/${f}/`, (err, filess) => {
-       if (err) console.error(err);
-       log(`${f} Klasöründen ${filess.length} Komut Yüklenecek;`);
-       filess.forEach(fs => {
-         let props = require(`./komutlar/${f}/${fs}`);
-         log(`${props.help.name} // Yüklendi`);
-         client.commands.set(props.help.name, props);
-         props.conf.aliases.forEach(alias => {
-           client.aliases.set(alias, props.help.name);
-         });
-        });
-       });
-      });
-     });
-    
+
 
 
 
