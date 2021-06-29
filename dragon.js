@@ -291,7 +291,7 @@ client.on("message", async message => {
         if (!message.member.permissions.has('BAN_MEMBERS')) {
           message.delete();
           
-          return message.channel.send(`<:blurpleunlem:859355707069300767>  **Hey ${message.author} Dur! Bu Sunucuda Küfürü Engelliyorum!**`).then(message => message.delete(3000));
+          message.channel.send(`<:blurpleunlem:859355707069300767>  **Hey ${message.author} Dur! Bu Sunucuda Küfürü Engelliyorum!**`).then(message => message.delete(3000));
           
         }
       } catch(err) {
@@ -301,7 +301,7 @@ client.on("message", async message => {
 }
 if (!lus) return;
 });
-client.on("messageUpdate", async (newMessage, oldMessage) => {
+client.on("messageUpdate", async (oldMessage, newMessage) => {
   
   const lus = await db.fetch(`kufurE_${newMessage.guild.id}`)
   if (lus) {
@@ -311,7 +311,7 @@ client.on("messageUpdate", async (newMessage, oldMessage) => {
         if (!newMessage.member.permissions.has('BAN_MEMBERS')) {
          newMessage.delete();
           
-          return newMessage.channel.send(`<:blurpleunlem:859355707069300767>  **Hey ${newMessage.author} Dur! Bu Sunucuda Küfürü Engelliyorum!**`).then(message => message.delete(3000));
+          newMessage.channel.send(`<:blurpleunlem:859355707069300767>  **Hey ${newMessage.author} Dur! Bu Sunucuda Küfürü Engelliyorum!**`).then(message => message.delete(3000));
           
         }
       } catch(err) {
@@ -334,13 +334,13 @@ client.on("message", async message => {
   
   const lus = await db.fetch(`reklamengel_${message.guild.id}`)
   if (lus) {
-    const reklamengel = ["discord.app", "discord.gg", ".party", ".com", ".az", ".net", ".io", ".gg", ".me", "https", "http", ".com.tr", ".org", ".tr", ".gl", "glitch.me/", ".rf.gd", ".biz", "www.", "www", ".gg", ".tk", ".tr.ht", ".ml", ".ga", ".cf", ".cq"];
-    if (reklamengel.some(word => message.content.toLowerCase().includes(word))) {
+    let reklamengel = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+    if (reklamengel.test(message.content.replace(/ /gi, ""))) {
       try {
         if (!message.member.permissions.has('BAN_MEMBERS')) {
           message.delete();
           
-          return message.channel.send(`<:blurpleunlem:859355707069300767>  **Hey ${message.author} Dur! Bu Sunucuda Reklamı Engelliyorum!**`).then(message => message.delete(3000));
+          message.channel.send(`<:blurpleunlem:859355707069300767>  **Hey ${message.author} Dur! Bu Sunucuda Reklamı Engelliyorum!**`).then(message => message.delete(3000));
           
         }
       } catch(err) {
@@ -350,12 +350,12 @@ client.on("message", async message => {
 }
 if (!lus) return;
 });
-client.on("messageUpdate", async (newMessage, oldMessage) => {
+client.on("messageUpdate", async (oldMessage, newMessage) => {
   
   const lus = await db.fetch(`reklamengel_${newMessage.guild.id}`)
   if (lus) {
-    const reklamengel = ["discord.app", "discord.gg", ".party", ".com", ".az", ".net", ".io", ".gg", ".me", "https", "http", ".com.tr", ".org", ".tr", ".gl", "glitch.me/", ".rf.gd", ".biz", "www.", "www", ".gg", ".tk", ".tr.ht", ".ml", ".ga", ".cf", ".cq"];
-    if (reklamengel.some(word => newMessage.content.toLowerCase().includes(word))) {
+    const reklamengel = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+    if (reklamengel.test(newMessage.content.replace(/ /gi, ""))) {
       try {
         if (!newMessage.member.permissions.has('BAN_MEMBERS')) {
          newMessage.delete();

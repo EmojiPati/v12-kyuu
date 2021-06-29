@@ -2,9 +2,11 @@ const Discord = require('discord.js');
 const db = require('quick.db');
 const ayarlar = require('../../ayarlar.json');
 
-exports.run = async (client, message, args) => { 
+exports.run = async (client, message, args) => {
+  
+  if(!message.guild && !message.guild.id) return;
 
-  let prefix = await require('quick.db').fetch(`prefix.${message.guild.id}`) || ayarlar.prefix
+  let prefix = await require('quick.db').fetch(`prefix.${message.guild.id}`) || ayarlar.prefix;
 
   if (!message.member.permissions.has('ADMINISTRATOR')) return message.channel.send(`<:blurplecross:857907152760078387>  **Hey Sen** Evet Sen! Bu Komut İçin Yeterli Yetkin Yok!`)
 if (!args[0])  {
