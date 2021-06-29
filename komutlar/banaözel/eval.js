@@ -8,12 +8,12 @@ exports.run = async (client, message, args) => {
     let prefix = config.prefix;
     if(!message.content.startsWith(prefix)) return;
   
-  if (message.author.id !== "603948445362946084") {
-    return message.channel.send(":x: Forbidden: This Command is Owner-Only!")
+  if (message.author.id !== "852596827713962066") {
+    return message.channel.send("<:blurpleno:857917856041271336> Yasak: Bu Komut Yalnızca Sahibine Özeldir!")
   }
   
   if (!args[0]) {
-    message.channel.send("You need to evaluate _**SOMETHING**_ Please!")
+    message.channel.send("_**BİR ŞEY**_ Lütfen değerlendirmeniz gerekiyor!")
   }
   
   try {
@@ -35,7 +35,7 @@ exports.run = async (client, message, args) => {
     
   } catch (e) {
     let errorembed = new Discord.MessageEmbed()
-    .addField("\:x: Error!")
+    .addField("\<:blurpleno:857917856041271336> Error!")
     .setDescription(e)
     .setTimestamp()
     .setFooter(`${message.author.tag}`, client.user.displayAvatarURL())
@@ -45,12 +45,12 @@ exports.run = async (client, message, args) => {
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ["napcan"],
+  aliases: ["eval"],
   permLevel: 0,
 };
 
 exports.help = {
-  name: 'napionlan',
+  name: 'eval',
   description: '',
   usage: 'davet'
 };
