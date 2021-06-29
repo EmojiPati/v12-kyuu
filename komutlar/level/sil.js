@@ -16,7 +16,7 @@ exports.run = async (client, message, args) => {
         client.getScore = sql.prepare("SELECT * FROM levels WHERE user = ? AND guild = ?");
         client.setScore = sql.prepare("INSERT OR REPLACE INTO levels (id, user, guild, xp, level, totalXP) VALUES (@id, @user, @guild, @xp, @level, @totalXP);");
         if(!user) {
-            return message.reply(`Lütfen bir kullanıcıdan bahsedin!`)
+            return message.reply(`<:blurpleigne:857930551314874408> Lütfen bir kullanıcıdan bahsedin!`)
         } else {
             if(isNaN(levelArgs) || levelArgs < 1) {
                 return message.reply(`Lütfen geçerli bir numara girin!`)
@@ -39,7 +39,7 @@ exports.run = async (client, message, args) => {
                 const newTotalXP = levelArgs - 1
                 let embed = new Discord.MessageEmbed()
                 .setTitle(`Başarılı!`)
-                .setDescription(`${levelArgs} düzeyini ${user.toString()} kişisinden başarıyla kaldırdım!`)
+                .setDescription(`<:blurpleyes:857917858025439242> ${levelArgs} düzeyini ${user.toString()} kişisinden başarıyla kaldırdım!`)
                 .setColor("0x36393E");
                 score.totalXP -= newTotalXP * 2 * 250 + 250
                 client.setScore.run(score)

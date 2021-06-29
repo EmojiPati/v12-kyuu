@@ -38,7 +38,7 @@ exports.run = async (client, message, args) => {
                 return message.reply(`<:blurpleigne:857930551314874408> Lütfen ayarlamak için bir seviye sağlayın.`);
             } else {
                 if(!role) {
-                    return message.reply(`Belirlemek için bir rol sağlamadınız!`);
+                    return message.reply(`<:blurpleno:857917856041271336> Belirlemek için bir rol sağlamadınız!`);
                 } else {
                 let Role = client.getRole.get(message.guild.id, role.id, levelArgs) 
                 if(!Role) {
@@ -50,7 +50,7 @@ exports.run = async (client, message, args) => {
                     client.setRole.run(Role)
                     let embed = new Discord.MessageEmbed()
                     .setTitle(`Rol ayarlama başarılı!`)
-                    .setDescription(`${role}, ${levelArgs} seviyesi için ayarlandı`)
+                    .setDescription(`<:blurpleyes:857917858025439242> ${role}, ${levelArgs} seviyesi için ayarlandı`)
                     .setColor("0x36393E");
                      return message.channel.send(embed);
                  } else if(Role){
@@ -60,7 +60,7 @@ exports.run = async (client, message, args) => {
                     client.updateLevel.run(message.guild.id, role.id, levelArgs)
                      let embed = new Discord.MessageEmbed()
                      .setTitle(`Rol ayarlama başarılı!`)
-                     .setDescription(`${role}, ${levelArgs} seviyesi için güncellendi`)
+                     .setDescription(`<:blurpleyes:857917858025439242> ${role}, ${levelArgs} seviyesi için güncellendi`)
                      .setColor("0x36393E");
                       return message.channel.send(embed);
                  }
@@ -71,7 +71,7 @@ exports.run = async (client, message, args) => {
         if(method === 'göster') {
             const allRoles = sql.prepare(`SELECT * FROM roles WHERE guildID = ?`).all(message.guild.id)
             if(!allRoles) {
-                return message.reply(`Belirlenmiş rol yok!`)
+                return message.reply(`<:blurpleno:857917856041271336> Belirlenmiş rol yok!`)
             } else {
                 let embed = new Discord.MessageEmbed()
                 .setTitle(`${message.guild.name} Roles Level`)
@@ -100,7 +100,7 @@ exports.run = async (client, message, args) => {
                     client.deleteLevel.run(message.guild.id, levelArgs);
                     let embed = new Discord.MessageEmbed()
                     .setTitle(`Rol başarıyla belirlendi!`)
-                    .setDescription(`${levelArgs} seviyesi için rol ödülleri kaldırıldı.`)
+                    .setDescription(`<:blurpleyes:857917858025439242> ${levelArgs} seviyesi için rol ödülleri kaldırıldı.`)
                     .setColor("0x36393E");
                      return message.channel.send(embed);
                 }

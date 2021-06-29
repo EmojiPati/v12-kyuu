@@ -13,7 +13,7 @@ const bot = new Discord.MessageEmbed()
 .addField(`> <:blurplesettings:857907152315744278> __Sunucu Komutlar__ » \`${prefix}sunucu\` `,`➥ ***Sunucu Komutlarını Gösterir***`)
 .addField(`> <:blurplestar:857907156099792917> __Eğlence Komutlar__ » \`${prefix}eğlence\` `,`➥ ***Eğlence Komutlarını Gösterir***`)
 .addField(`> <:blurpleintegrasyon:857907154211045387> __Oyun Komutlar__ » \`${prefix}oyunlar\` `,`➥ ***Oyun Komutlarını Gösterir***`)
-.addField(`> <:blurpleplus:857907151573352479> __Eklenti Komutlar(EKLENECEK)__ » \`${prefix}eklenti\` `,`➥ ***Eklenti Komutlarını Gösterir***`)
+.addField(`> <:blurpleplus:857907151573352479> __Eklenti Komutlar)__ » \`${prefix}eklenti\` `,`➥ ***Eklenti Komutlarını Gösterir***`)
 .addField(`» <:blurplelink:857907168430391336> Linkler`, `[Bot Davet Linki](https://discordapp.com/oauth2/authorize?client_id=825659553370734632&scope=bot&permissions=8) **|** [Destek Sunucusu](https://discord.gg/8KmvJrdnDZ) **|** [Web Sitesi](https://discord.com/)`)//websiteniz yoksa  **|** [Web Sitesi]() yeri silebilirsiniz
 .setThumbnail(client.user.avatarURL)
 .setImage(dragon.banner)

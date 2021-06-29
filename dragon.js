@@ -461,7 +461,7 @@ client.on("message", message => {
                 level.level += 1;
         let embed = new Discord.MessageEmbed()
               .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-              .setDescription(`**Congratulations** ${message.author}! You have now leveled up to **level ${level.level}**`)
+              .setDescription(`<:blurplerocket:857907158565519360> **Tebrikler** ${message.author}! Artık "\`${level.level}\`" Levelsiniz`)
               .setColor("0x36393E")
               .setThumbnail(message.author.displayAvatarURL({ dynamic: true }))
               .setTimestamp();
@@ -469,7 +469,7 @@ client.on("message", message => {
         try {
         message.channel.send(embed);
         } catch (err) {
-          message.channel.send(`Congratulations, ${message.author}! You have now leveled up to **Level ${level.level}**`)
+          message.channel.send(`<:blurplerocket:857907158565519360> **Tebrikler** ${message.author}! Artık "\`${level.level}\`" Levelsiniz`)
         }
       };
       client.setLevel.run(level);

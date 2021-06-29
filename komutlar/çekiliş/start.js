@@ -47,8 +47,8 @@ exports.run = async (client, message, args) => {
         hostedBy: client.config.hostedBy ? message.author : null,
         // Messages
         messages: {
-            giveaway: (client.config.everyoneMention ? "@everyone\n\n" : "")+"<:tada:859401334523559956><:tada:859401334523559956> **ÇEKİLİŞ** <:tada:859401334523559956><:tada:859401334523559956>",
-            giveawayEnded: (client.config.everyoneMention ? "@everyone\n\n" : "")+"<:tada:859401334523559956><:tada:859401334523559956> **ÇEKİLİŞ BİTTİ** 🎉<:tada:859401334523559956><:tada:859401334523559956>",
+            giveaway: (client.config.everyoneMention ? "@everyone\n\n" : "")+"<:blurpletada:859401334523559956><:blurpletada:859401334523559956> **ÇEKİLİŞ** <:blurpletada:859401334523559956><:blurpletada:859401334523559956>",
+            giveawayEnded: (client.config.everyoneMention ? "@everyone\n\n" : "")+"<:blurpletada:859401334523559956><:blurpletada:859401334523559956> **ÇEKİLİŞ BİTTİ** <:blurpletada:859401334523559956><:blurpletada:859401334523559956>",
               timeRemaining: "Kalan Süre: **{duration}**!",
             inviteToParticipate: "Katılmak İçin 🎉 Emojisine Tıkla",
             winMessage: "Tebrikler, {winners}! **{prize}** Kazandınız!",

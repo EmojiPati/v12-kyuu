@@ -35,7 +35,7 @@ exports.run = async (client, message, args) => {
                 const newTotalXP = levelArgs - 1
                 let embed = new Discord.MessageEmbed()
                 .setTitle(`Başarılı!`)
-                .setDescription(`${levelArgs} level, ${user.toString()} kişisine başarıyla eklendi!`)
+                .setDescription(`<:blurpleyes:857917858025439242> ${levelArgs} level, ${user.toString()} kişisine başarıyla eklendi!`)
                 .setColor("0x36393E");
                 score.totalXP += newTotalXP * 2 * 250 + 250
                 client.setScore.run(score)
