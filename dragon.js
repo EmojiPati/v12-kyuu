@@ -409,6 +409,7 @@ client.giveawaysManager = new GiveawaysManager(client, {
         reaction: "<:blurpletada:859401334523559956>"
     }
 });
+////////
 ////////LEVELELLLLLLLLLLL//////////
 const talkedRecently = new Map();
 const SQLite = require("better-sqlite3")
