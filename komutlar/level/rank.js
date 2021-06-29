@@ -30,12 +30,12 @@ if(!message.guild.me.hasPermission("ATTACH_FILES")) return message.reply(`**Miss
 registerFont('new-comic-bd.otf', { family: 'New Comic Bd' })
 const canvas = createCanvas(1000, 333)
     const ctx = canvas.getContext("2d");
-    const background = await loadImage('https://raw.githubusercontent.com/roefinoavrililo/Discord.JS-Leveling-Bot/master/img/wallpaper.png');
+    const background = await loadImage('https://cdn.glitch.com/8b7ae704-e530-4e60-ae0c-b853c529d687%2FLevel%20Canvas.png');
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
     ctx.beginPath();
     ctx.lineWidth = 4;
-    ctx.strokeStyle = "#A3A3A3"
+    ctx.strokeStyle = "#a597fb"
     ctx.globalAlpha = 0.2;
     ctx.fillStyle = "#000000"
     ctx.fillRect(180, 216, 775, 65);
@@ -44,32 +44,32 @@ const canvas = createCanvas(1000, 333)
     ctx.strokeRect(180, 216, 775, 65);
     ctx.stroke();
 
-    ctx.fillStyle = "#838383";
+    ctx.fillStyle = "#4d9cfd";
     ctx.globalAlpha = 0.6;
     ctx.fillRect(200, 216, ((100 / (score.level * 2 * 250 + 250)) * score.xp) * 7.5, 65);
     ctx.fill();
     ctx.globalAlpha = 1;
 
-    ctx.font = '30px new-comic-bd';
+    ctx.font = '30px New Comic Bd';
     ctx.textAlign = "center";
     ctx.fillStyle = "#beb1b1";
     ctx.fillText(`${xpInfo} / ${nextXP} XP`, 600, 260);
 
-   ctx.font = '35px new-comic-bd';
+   ctx.font = '35px New Comic Bd';
     ctx.textAlign = "left";
     ctx.fillText(user.user.tag, 325, 125);
 
-    ctx.font = '40px new-comic-bd';
+    ctx.font = '40px New Comic Bd';
     ctx.fillText("Level: ", 350, 170);
     ctx.fillText(levelInfo, 500, 170);
 
-    ctx.font = '40px new-comic-bd';
+    ctx.font = '40px New Comic Bd';
     ctx.fillText("Rank: ", 700, 170);
     ctx.fillText(ranking, 830, 170);
 
     ctx.arc(170, 160, 120, 0, Math.PI * 2, true);
     ctx.lineWidth = 6;
-    ctx.strokeStyle = "#A3A3A3"
+    ctx.strokeStyle = "#a597fb"
     ctx.stroke();
     ctx.closePath();
     ctx.clip();
