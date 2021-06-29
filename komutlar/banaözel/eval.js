@@ -45,12 +45,12 @@ exports.run = async (client, message, args) => {
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ["invite"],
+  aliases: ["napcan"],
   permLevel: 0,
 };
 
 exports.help = {
-  name: 'davet',
+  name: 'napionlan',
   description: '',
   usage: 'davet'
 };

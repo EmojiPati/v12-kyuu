@@ -19,9 +19,9 @@ if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(
  
   message.channel.send(`╔▬▬▬▬▬▬▬▬Dragon Sayaç▬▬▬▬▬▬▬▬▬
 ║► <:blurpleyes:857917858025439242>  Sayaç Aktif Edildi.
-║► <:redstats:849738276842766368>  **${args[1]}** Olarak Güncelledim! 
+║► <:blurplestats:857922916942086154>  **${args[1]}** Olarak Güncelledim! 
 ║► <:blurpleigne:857930551314874408>  Kayıt Kanalını **${kanal}** Olarak Güncelledim! 
-║► <:redbildirim:849738265276055593>  ${args[1]} Kişi Olmaya Son :dragon: **${kalan}** :dragon: Kişi Kaldı!
+║► <:blurplezil:857907151174238208>  ${args[1]} Kişi Olmaya Son :dragon: **${kalan}** :dragon: Kişi Kaldı!
 ╚▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬`)
 
   

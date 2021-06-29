@@ -99,14 +99,7 @@ client.login(process.env.TOKEN);
 
 //-----------------------KOMUTLAR-----------------------\\
 
-client.on('message', message => {
-let sahip = ayarlar.sahip;
 
- if(message.content === 'sa') {
-    console.log('nediyon la gevşek')
-    message.channel.send('nediyon la gevşek');
- } 
-});
 //////////////////////////////
 client.on('message', async msg => {
 ayarlar.prefix 
