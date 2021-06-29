@@ -6,8 +6,8 @@ const { prefix } = require('../ayarlar.json')
 module.exports = client => {
   var degisenOynuyor = [
     
-    `✔ » Kuruluyor`,   //İSTEDİĞİNİZ KADAR YAPABİLİRSİNİZ SADECE SONRA , KOYMAYIN
-    `🐉 » Yakında Sizlerle Olacağım`,
+    `✔ » Yeniden Aktif`,   //İSTEDİĞİNİZ KADAR YAPABİLİRSİNİZ SADECE SONRA , KOYMAYIN
+    `🐉 » Yardım İçin d!yardım`,
     `🌐 » ${client.guilds.cache.size.toLocaleString()} İtopya | 🐲 » ${client.users.cache.size} Dragon'a Hizmet Veriyor`
   ]
   

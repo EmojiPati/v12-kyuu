@@ -162,11 +162,11 @@ client.on("guildMemberAdd", async member => {
 
   ///....
   if (!mesaj) {
-    return client.channels.cache.get(kanal).send("<:redplus:849726093660651570>  `"+ member.user.username + "`**Adlı Kullanıcı Aramıza Katıldı!** `" + sayaç + "` **Kişi Olmamıza** `" + sonuç + "` **Kişi Kaldı.** `" + member.guild.memberCount + "` **Kişiyiz!**");
+    return client.channels.cache.get(kanal).send("<:blurpleplus:857907151573352479>  `"+ member.user.username + "`**Adlı Kullanıcı Aramıza Katıldı!** `" + sayaç + "` **Kişi Olmamıza** `" + sonuç + "` **Kişi Kaldı.** `" + member.guild.memberCount + "` **Kişiyiz!**");
   }
 
   if (member.guild.memberCount == sayaç) {
-    return client.channels.get(kanal).send(`<:redyes:849732347464515674>  **Sayaç Sıfırlandı!** \`${member.guild.memberCount}\` **Kişiyiz!**`)
+    return client.channels.get(kanal).send(`<:blurpleyes:857917858025439242>  **Sayaç Sıfırlandı!** \`${member.guild.memberCount}\` **Kişiyiz!**`)
     await db.delete(`sayacK_${member.guild.id}`)
     await db.delete(`sayacS_${member.guild.id}`)
     await db.delete(`sayacHG_${member.guild.id}`)
@@ -190,7 +190,7 @@ client.on("guildMemberRemove", async member => {
     ///....
 
   if (!mesaj) {
-    return client.channels.cache.get(kanal).send("<:redeksi:849959179863195648>  `" + member.user.username + "` **Adlı Kullanıcı Aramızdan Ayrıldı.**`" + sayaç + "` **Kişi Olmamıza** `" + sonuç + "` **Kişi Kaldı.** `" + member.guild.memberCount + "` **Kişiyiz!**");
+    return client.channels.cache.get(kanal).send("<:blurpleeksi:859354146997665802>  `" + member.user.username + "` **Adlı Kullanıcı Aramızdan Ayrıldı.**`" + sayaç + "` **Kişi Olmamıza** `" + sonuç + "` **Kişi Kaldı.** `" + member.guild.memberCount + "` **Kişiyiz!**");
       }
 
   if (mesaj) {
@@ -207,7 +207,7 @@ if (!modlogkanal) return;
   const embed = new Discord.MessageEmbed()
   .setColor("0x36393E")
   .setTitle("MESAJ SİLİNDİ")
-.setDescription(`<:redyes:849732347464515674>  <@!${message.author.id}> **adlı kullanıcı tarafından** <#${message.channel.id}> **kanalına gönderilen mesaj silindi!** \n\nSilinen Mesaj: **${message.content}**`)
+.setDescription(`<:blurpleyes:857917858025439242>  <@!${message.author.id}> **adlı kullanıcı tarafından** <#${message.channel.id}> **kanalına gönderilen mesaj silindi!** \n\nSilinen Mesaj: **${message.content}**`)
   .setFooter("Dragon Bot | Log Sistemi")
   modlogkanal.send(embed);
   })
@@ -219,7 +219,7 @@ if (!modlogkanal) return;
   const embed = new Discord.MessageEmbed()
   .setColor("0x36393E")
 
-    .setDescription(`<:redyes:849732347464515674>  **Üye Sunucudan Yasaklandı!** \n<@!${message.user.id}>, ${message.user.tag}`)
+    .setDescription(`<:blurpleyes:857917858025439242>  **Üye Sunucudan Yasaklandı!** \n<@!${message.user.id}>, ${message.user.tag}`)
         .setThumbnail(message.user.avatarURL)
   .setFooter("Dragon Bot | Log Sistemi")
   modlogkanal.send(embed);
@@ -233,7 +233,7 @@ if (!modlogkanal) return;
                 let embed = new Discord.MessageEmbed()
                     .setColor('0x36393E')
                 .setTitle("METİN KANALI OLUŞTURULDU")
-                .setDescription(`<:redyes:849732347464515674>  ${channel.name} **Adlı Metin Kanalı Oluşturuldu!**`)
+                .setDescription(`<:blurpleyes:857917858025439242>  ${channel.name} **Adlı Metin Kanalı Oluşturuldu!**`)
                 .setFooter(`Dragon Bot | Log Sistemi Kanal ID: ${channel.id}`)
                 modlogkanal.send({embed});
             };
@@ -241,7 +241,7 @@ if (!modlogkanal) return;
                 let embed = new Discord.MessageEmbed()
                 .setColor('0x36393E')
 .setTitle("SES KANALI OLUŞTURULDU")
-                .setDescription(`<:redyes:849732347464515674>  ${channel.name} **Adlı Ses Kanalı Oluşturuldu!**`)
+                .setDescription(`<:blurpleyes:857917858025439242>  ${channel.name} **Adlı Ses Kanalı Oluşturuldu!**`)
                 .setFooter(`Dragon Bot | Log Sistemi Kanal ID: ${channel.id}`)
 
                 modlogkanal.send({embed});
@@ -255,7 +255,7 @@ if (!modlogkanal) return;
     if (channel.type === "text") {
                 let embed = new Discord.MessageEmbed()
                     .setColor('0x36393E')
-                .setDescription(`<:redyes:849732347464515674>  ${channel.name} **Adlın Metin Kanalı  Silindi**`)
+                .setDescription(`<:blurpleyes:857917858025439242>  ${channel.name} **Adlın Metin Kanalı  Silindi**`)
                 .setFooter(`Dragon Bot | Log Sistemi Kanal ID: ${channel.id}`)
                 modlogkanal.send({embed});
             };
@@ -263,7 +263,7 @@ if (!modlogkanal) return;
                 let embed = new Discord.MessageEmbed()
                 .setColor('0x36393E')
 .setTitle("SES KANALI SİLİNDİ")
-                .setDescription(`<:redyes:849732347464515674>  ${channel.name} **Adlı Ses Kanalı Silindi**`)
+                .setDescription(`<:blurpleyes:857917858025439242>  ${channel.name} **Adlı Ses Kanalı Silindi**`)
             .setFooter(`Dragon Bot | Log Sistemi  Kanal ID: ${channel.id}`)
                 modlogkanal.send({embed});
             }
@@ -276,9 +276,9 @@ client.on("messageUpdate", async (oldMsg, newMsg) => {
   if (!kanal) return;
   const embed = new Discord.MessageEmbed()
   .setColor("0x36393E")
-  .addField("Kullanıcı", oldMsg.author.tag, true)
-  .addField("Eski Mesaj",`  ${oldMsg.content}  `)
-  .addField("Yeni Mesaj", `${newMsg.content}`)
+  .addField("<:blurpleuser:857907167898239007> Kullanıcı", oldMsg.author.tag, true)
+  .addField("<:blurplechat:857907159269769236> Eski Mesaj",`  ${oldMsg.content}  `)
+  .addField("<:blurplechat:857907159269769236> Yeni Mesaj", `${newMsg.content}`)
   .setThumbnail(oldMsg.author.avatarURL)
   kanal.send(embed);  
         
@@ -298,7 +298,7 @@ client.on("message", async message => {
         if (!message.member.permissions.has('BAN_MEMBERS')) {
           message.delete();
           
-          return message.channel.send(`<:redunlem:851470229254307840>  **Hey ${message.author} Dur! Bu Sunucuda Küfürü Engelliyorum!**`).then(message => message.delete(3000));
+          return message.channel.send(`<:blurpleunlem:859355707069300767>  **Hey ${message.author} Dur! Bu Sunucuda Küfürü Engelliyorum!**`).then(message => message.delete(3000));
           
         }
       } catch(err) {
@@ -318,7 +318,7 @@ client.on("messageUpdate", async (newMessage, oldMessage) => {
         if (!newMessage.member.permissions.has('BAN_MEMBERS')) {
          newMessage.delete();
           
-          return newMessage.channel.send(`<:redunlem:851470229254307840>  **Hey ${newMessage.author} Dur! Bu Sunucuda Küfürü Engelliyorum!**`).then(message => message.delete(3000));
+          return newMessage.channel.send(`<:blurpleunlem:859355707069300767>  **Hey ${newMessage.author} Dur! Bu Sunucuda Küfürü Engelliyorum!**`).then(message => message.delete(3000));
           
         }
       } catch(err) {
@@ -347,7 +347,7 @@ client.on("message", async message => {
         if (!message.member.permissions.has('BAN_MEMBERS')) {
           message.delete();
           
-          return message.channel.send(`<:redunlem:851470229254307840>  **Hey ${message.author} Dur! Bu Sunucuda Reklamı Engelliyorum!**`).then(message => message.delete(3000));
+          return message.channel.send(`<:blurpleunlem:859355707069300767>  **Hey ${message.author} Dur! Bu Sunucuda Reklamı Engelliyorum!**`).then(message => message.delete(3000));
           
         }
       } catch(err) {
@@ -367,7 +367,7 @@ client.on("messageUpdate", async (newMessage, oldMessage) => {
         if (!newMessage.member.permissions.has('BAN_MEMBERS')) {
          newMessage.delete();
           
-          return newMessage.channel.send(`<:redunlem:851470229254307840>  **Hey ${newMessage.author} Dur! Bu Sunucuda Reklamı Engelliyorum!**`).then(message => message.delete(3000));
+          return newMessage.channel.send(`<:blurpleunlem:859355707069300767>  **Hey ${newMessage.author} Dur! Bu Sunucuda Reklamı Engelliyorum!**`).then(message => message.delete(3000));
           
         }
       } catch(err) {
@@ -392,7 +392,7 @@ await db.add(`atıldın.${guild.id}.${user.id}`, 1)
 user.send(new Discord.MessageEmbed()
 .setColor('0x36393E')
 .setAuthor(guild.name, guild.iconURL)
-.setDescription(`Sunucumuzun yasaklı tagında bulunduğunuz için atıldınız, tekrar giriş yapmayı denerseniz **yasaklanacaksınız**!`))
+.setDescription(`<:blurpleunlem:859355707069300767> Sunucumuzun yasaklı tagında bulunduğunuz için atıldınız, tekrar giriş yapmayı denerseniz **yasaklanacaksınız**!`))
 await user.kick() }
 
 if(sayı === 1) {
@@ -400,7 +400,7 @@ await db.delete(`atıldın.${guild.id}.${user.id}`)
 user.send(new Discord.MessageEmbed()
 .setColor('0x36393E')
 .setAuthor(guild.name, guild.iconURL)
-.setDescription(`Sunucumuzun yasaklı tagında bulunduğunuz için atılmıştınız, tekrar giriş yapmayı denediğiniz için **${guild.name}** sunucusundan kalıcı olarak **yasaklandınız**!`))
+.setDescription(`<:blurpleunlem:859355707069300767> Sunucumuzun yasaklı tagında bulunduğunuz için atılmıştınız, tekrar giriş yapmayı denediğiniz için **${guild.name}** sunucusundan kalıcı olarak **yasaklandınız**!`))
 await user.ban() } }
   
 })
