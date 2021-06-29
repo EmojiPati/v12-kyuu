@@ -1,29 +1,84 @@
 const Discord = require("discord.js");
-const db = require('quick.db');
-const client = new Discord.Client();
-require('discord-buttons')(client)
-const ayarlar = require("./ayarlar.json");
-const chalk = require("chalk");
-const fs = require("fs");
-const message = new Discord.Message();
-const moment = require("moment");
+const client = new Discord.Client({ disableMentions: 'everyone' });
+const ayarlar = require('./ayarlar.json');
+const fs = require('fs');
+const db = require('quick.db')
+const moment = require('moment');
+require('./util/eventLoader')(client);
+
 var prefix = ayarlar.prefix;
-require("./util/eventLoader")(client);
 
+const log = message => {
+  console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] ${message}`);
+};
 
-
-console.log("Akıyor!!")
-
-require("./util/eventLoader")(client);
-
-
-
-
-
-    const log = message => {
-      console.log(`[${moment().format("YYYY-MM-DD HH:mm:ss")}] ${message}`);
-    };
-
+client.commands = new Discord.Collection();
+client.aliases = new Discord.Collection();
+   fs.readdir("./komutlar/", (err, files) => {
+       if (err) console.error(err);
+       files.forEach(f => {
+     fs.readdir(`./komutlar/${f}/`, (err, filess) => {
+       if (err) console.error(err);
+       log(`${f} Klasöründen ${filess.length} Komut Yüklenecek;`);
+       filess.forEach(fs => {
+         let props = require(`./komutlar/${f}/${fs}`);
+         log(`${props.help.name} // Yüklendi`);
+         client.commands.set(props.help.name, props);
+         props.conf.aliases.forEach(alias => {
+           client.aliases.set(alias, props.help.name);
+         });
+        });
+       });
+      });
+     });
+client.reload = command => {
+  return new Promise((resolve, reject) => {
+    try {
+      delete require.cache[require.resolve(`./komutlar/${command}`)];
+      let cmd = require(`./komutlar/${command}`);
+      client.commands.delete(command);
+      client.aliases.forEach((cmd, alias) => {
+        if (cmd === command) client.aliases.delete(alias);
+      });
+      client.commands.set(command, cmd);
+      cmd.conf.aliases.forEach(alias => {
+        client.aliases.set(alias, cmd.help.name);
+      });
+      resolve();
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
+client.load = command => {
+  return new Promise((resolve, reject) => {
+    try {
+      let cmd = require(`./komutlar/${command}`);
+      client.commands.set(command, cmd);
+      cmd.conf.aliases.forEach(alias => {
+        client.aliases.set(alias, cmd.help.name);
+      });
+      resolve();
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
+client.unload = command => {
+  return new Promise((resolve, reject) => {
+    try {
+      delete require.cache[require.resolve(`./komutlar/${command}`)];
+      let cmd = require(`./komutlar/${command}`);
+      client.commands.delete(command);
+      client.aliases.forEach((cmd, alias) => {
+        if (cmd === command) client.aliases.delete(alias);
+      });
+      resolve();
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
 
 
 
@@ -54,8 +109,8 @@ let sahip = ayarlar.sahip;
 });
 //////////////////////////////
 client.on('message', async msg => {
-  let prefix = await db.fetch(`prefix.${msg.guild.id}`) || ayarlar.prefix 
-  if(msg.content == `<@!825659553370734632>`) return msg.channel.send(`> **Dragon | Prefix**\n\n> <:blurplestaff:857907168707215382> **Sanırım beni etiketlediniz.**\n > <:redhypesquad:849726093488291892> Buyurun prefix(ön ek)im \`${prefix}\``);
+ayarlar.prefix 
+  if(msg.content == `<@!825659553370734632>`) return msg.channel.send(`> **Dragon | Prefix**\n\n> <:blurplestaff:857907168707215382> **Sanırım beni etiketlediniz.**\n > <:blurplehypesquad:857920353179009044> Buyurun prefix(ön ek)im \`${prefix}\``);
 });
 
 
@@ -68,7 +123,7 @@ client.on("guildMemberAdd", async member => {
   if (!rol) return;
 
   if (!mesaj) {
-    client.channels.cache.get(kanal).send("<:reduser:849726099105906688>  `" + member.user.username + "`** Hoş Geldin! Otomatik Rolün Verildi Seninle Beraber** `" + member.guild.memberCount + "` **Kişiyiz!**");
+    client.channels.cache.get(kanal).send("<:blurpleuser:857907167898239007>  `" + member.user.username + "`** Hoş Geldin! Otomatik Rolün Verildi Seninle Beraber** `" + member.guild.memberCount + "` **Kişiyiz!**");
     return member.roles.add(rol);
   }
 
