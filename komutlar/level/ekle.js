@@ -46,12 +46,12 @@ exports.run = async (client, message, args) => {
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ["eval"],
+  aliases: ["level-add"],
   permLevel: 0,
 };
 
 exports.help = {
-  name: 'eval',
+  name: 'level-ekle',
   description: '',
   usage: 'davet'
 };
