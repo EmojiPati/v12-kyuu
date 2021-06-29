@@ -410,9 +410,12 @@ client.giveawaysManager = new GiveawaysManager(client, {
     }
 });
 ////////LEVELELLLLLLLLLLL//////////
+const talkedRecently = new Map();
 const SQLite = require("better-sqlite3")
 const sql = new SQLite('./mainDB.sqlite')  
 
+const { join } = require("path")
+const { readdirSync } = require("fs");
 
 const levelTable = sql.prepare("SELECT count(*) FROM sqlite_master WHERE type='table' AND name = 'levels';").get();
   if (!levelTable['count(*)']) {
@@ -458,7 +461,7 @@ client.on("message", message => {
         let embed = new Discord.MessageEmbed()
               .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
               .setDescription(`**Congratulations** ${message.author}! You have now leveled up to **level ${level.level}**`)
-              .setColor("RANDOM")
+              .setColor("0x36393E")
               .setThumbnail(message.author.displayAvatarURL({ dynamic: true }))
               .setTimestamp();
         // using try catch if bot have perms to send EMBED_LINKS      
@@ -469,4 +472,20 @@ client.on("message", message => {
         }
       };
       client.setLevel.run(level);
-      
+          // level up, time to add level roles
+            const member = message.member;
+            let Roles = sql.prepare("SELECT * FROM roles WHERE guildID = ? AND level = ?")
+            
+            let roles = Roles.get(message.guild.id, lvl)
+            if(!roles) return;
+            if(lvl >= roles.level) {
+            if(roles) {
+            if (member.roles.cache.get(roles.roleID)) {
+              return;
+            }
+               if(!message.guild.me.hasPermission("MANAGE_ROLES")) {
+                 return
+               }
+             member.roles.add(roles.roleID);
+            }}
+      }})
