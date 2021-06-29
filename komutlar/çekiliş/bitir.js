@@ -4,12 +4,12 @@ exports.run = async (client, message, args) => {
 
     // If the member doesn't have enough permissions
     if(!message.member.hasPermission('MANAGE_MESSAGES') && !message.member.roles.cache.some((r) => r.name === "Giveaways")){
-        return message.channel.send(':x: Çekilişleri yeniden düzenlemek için iletileri yönetme izinlerine sahip olmanız gerekir.');
+        return message.channel.send('<:blurplecross:857907152760078387> Çekilişleri yeniden düzenlemek için iletileri yönetme izinlerine sahip olmanız gerekir.');
     }
 
     // If no message ID or giveaway name is specified
     if(!args[0]){
-        return message.channel.send(':x: Geçerli bir mesaj kimliği belirtmelisiniz!');
+        return message.channel.send('<:blurplecross:857907152760078387> Geçerli bir mesaj kimliği belirtmelisiniz!');
     }
 
     // try to found the giveaway with prize then with ID
@@ -21,7 +21,7 @@ exports.run = async (client, message, args) => {
 
     // If no giveaway was found
     if(!giveaway){
-        return message.channel.send('`'+ args.join(' ') + '` için bir çekiliş bulunamadı.');
+        return message.channel.send('<:blurplecross:857907152760078387> `'+ args.join(' ') + '` için bir çekiliş bulunamadı.');
     }
 
     // Edit the giveaway
@@ -31,14 +31,14 @@ exports.run = async (client, message, args) => {
     // Success message
     .then(() => {
         // Success message
-        message.channel.send('Çekiliş '+(client.giveawaysManager.options.updateCountdownEvery/1000)+' saniyeden daha kısa sürede sona erecek...');
+        message.channel.send('<:blurpletada:859401334523559956> Çekiliş '+(client.giveawaysManager.options.updateCountdownEvery/1000)+' saniyeden daha kısa sürede sona erecek...');
     })
     .catch((e) => {
         if(e.startsWith(`Giveaway with message ID ${giveaway.messageID} is already ended.`)){
-            message.channel.send('Bu çekiliş zaten bitti!');
+            message.channel.send('<:blurplecross:857907152760078387> Bu çekiliş zaten bitti!');
         } else {
             console.error(e);
-            message.channel.send('Bi hata oluştu...');
+            message.channel.send('<:blurplecross:857907152760078387> Bi hata oluştu...');
         }
     });
 
