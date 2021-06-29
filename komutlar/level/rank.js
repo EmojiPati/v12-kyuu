@@ -29,7 +29,7 @@ if(!message.guild.me.hasPermission("ATTACH_FILES")) return message.reply(`**Miss
  
 const canvas = createCanvas(1000, 333)
     const ctx = canvas.getContext("2d");
-    const background = await loadImage('../../img/wallpaper.png');
+    const background = await loadImage('https://raw.githubusercontent.com/roefinoavrililo/Discord.JS-Leveling-Bot/master/img/wallpaper.png');
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
     ctx.beginPath();
