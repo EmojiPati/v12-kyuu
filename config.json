@@ -3,10 +3,10 @@
     "hostedBy": true,
     "botsCanWin": false,
 
-    "embedColor": "Please enter the color that will be used for giveaway embeds and the help menu (HEX or HTML colors only)",
-    "embedColorEnd": "Please enter the color that will be used for ended giveaways (HEX or HTML colors only)",
-    "reaction": "Please enter the unicode emoji or the custom emoji id that will be used to join the giveaway",
-    "giveawayEmoji": "Please enter the unicode emoji or the custom emoji code that will be used in messages"
+    "embedColor": "0x36393E",
+    "embedColorEnd": "0x36393E",
+    "reaction": "<:blurpletada:859401334523559956>",
+    "giveawayEmoji": "<:blurpletada:859401334523559956>"
 
 
 }

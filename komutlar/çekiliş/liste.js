@@ -7,16 +7,16 @@ exports.run = async (client, message, args) => {
     const giveaways3 = giveaways2.forEach((thisGiveaway)=>{
         let winners = ''
         if(thisGiveaway.winnerCount == 1){
-            winners = 'winner'
+            winners = 'kazanan'
         }else{
-            winners = 'winners'
+            winners = 'kazananlar'
         }
-        giveaways.push(`\`${thisGiveaway.messageID}\` | <#${thisGiveaway.channelID}> | **${thisGiveaway.winnerCount}** ${winners} | Prize: **${thisGiveaway.prize}** | [Giveaway Link](https://discord.com/channels/${message.guild.id}/${thisGiveaway.channelID}/${thisGiveaway.messageID})`)
+        giveaways.push(`\`${thisGiveaway.messageID}\` | <#${thisGiveaway.channelID}> | **${thisGiveaway.winnerCount}** ${winners} | Ödül: **${thisGiveaway.prize}** | [Çekiliş Link](https://discord.com/channels/${message.guild.id}/${thisGiveaway.channelID}/${thisGiveaway.messageID})`)
     })
     const embed = new Discord.MessageEmbed()
     .setColor(client.config.embedColor)
-    .setTitle('Current Giveaways')
-    .setDescription(giveaways.join('\n') || 'No giveaways are currently running')
+    .setTitle('Mevcut Çekilişler')
+    .setDescription(giveaways.join('\n') || 'Şu anda hiçbir çekiliş yok')
     message.channel.send(embed)
 
 };

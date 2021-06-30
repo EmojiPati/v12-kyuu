@@ -9,7 +9,7 @@ exports.run = async (client, message, args) => {
 
     // If the member doesn't have enough permissions
     if(!message.member.roles.cache.some((r) => r.name === client.config.giveawayRole)){
-        return message.channel.send(`:x: You need to have the ${client.config.giveawayRole} role to do that.`);
+        return message.channel.send(`<:blurpleno:857917856041271336> You need to have the ${client.config.giveawayRole} role to do that.`);
     }
 
     // Giveaway channel
@@ -17,18 +17,18 @@ exports.run = async (client, message, args) => {
         await message.channel.send(`>>> ${client.config.giveawayEmoji} Please mention the channel that the giveaway should be in.\nEnter \`cancel\` to cancel.`)
         await message.channel.awaitMessages(m => m.author.id == message.author.id,
         {max: 1, time: 1800000}).then(collected => {
-            if (collected.first().content.toLowerCase() == 'cancel') {
-                message.channel.send('**Command Canceled**')
+            if (collected.first().content.toLowerCase() == 'iptal') {
+                message.channel.send('**Komut İptal Edildi**')
                 status = 1
                 return
             }else{
                 giveawayChannel = collected.first().mentions.channels.first()
             if(!giveawayChannel){
-                message.reply('No channel was mentioned\nPlease try the command again.')
+                message.reply('Hiçbir kanaldan bahsedilmedi\nLütfen komutu tekrar deneyin.')
                 status = 1
             }}
         }).catch(() => {
-            message.reply('No answer after 30 minutes, please try the command again.');
+            message.reply('30 dakika sonra olmazsa lütfen komutu tekrar deneyin.');
             status = 1
     })
     }
@@ -38,20 +38,20 @@ exports.run = async (client, message, args) => {
         await message.channel.send(`>>> ${client.config.giveawayEmoji} How long should the giveaway last?\nEnter \`cancel\` to cancel.`)
         await message.channel.awaitMessages(m => m.author.id == message.author.id,
         {max: 1, time: 1800000}).then(collected => {
-            if (collected.first().content.toLowerCase() == 'cancel') {
-                message.channel.send('**Command Canceled**')
+            if (collected.first().content.toLowerCase() == 'iptal') {
+                message.channel.send('**Komut İptal Edildi**')
                 status = 1
                 return
             }else
             if(isNaN(ms(collected.first().content.toLowerCase()))){
-                message.channel.send(':x: You have to specify a valid duration!');
+                message.channel.send('<:blurpleno:857917856041271336> Geçerli bir süre belirtmelisiniz!');
                 status = 1
                 return
             }else{
                 giveawayDuration = collected.first().content
             }
         }).catch(() => {
-            message.reply('No answer after 30 minutes, please try the command again.');
+            message.reply('30 dakika sonra olmazsa lütfen komutu tekrar deneyin.');
             status = 1
     })
     }
@@ -61,25 +61,25 @@ exports.run = async (client, message, args) => {
         await message.channel.send(`>>> ${client.config.giveawayEmoji} How many winners should there be?\n**Max 10**\nEnter \`cancel\` to cancel.`)
         await message.channel.awaitMessages(m => m.author.id == message.author.id,
         {max: 1, time: 1800000}).then(collected => {
-            if (collected.first().content.toLowerCase() == 'cancel') {
-                message.channel.send('**Command Canceled**')
+            if (collected.first().content.toLowerCase() == 'iptal') {
+                message.channel.send('**Komut İptal Edildi**')
                 status = 1
                 return
             }else
             if(isNaN(collected.first().content.toLowerCase()) || (parseInt(collected.first().content.toLowerCase()) <= 0)){
-                message.channel.send(':x: You have to specify a valid number of winners!');
+                message.channel.send('<:blurpleno:857917856041271336> Geçerli bir kazanan sayısı belirtmelisiniz!');
                 status = 1
                 return
             }else 
             if(collected.first().content.toLowerCase() > 10){
-                message.channel.send(':x: You must have less than 10 winners!');
+                message.channel.send('<:blurpleno:857917856041271336> 10 dan az kazananınız olmalı!');
                 status = 1
                 return
             }else{
                 giveawayNumberWinners = collected.first().content
             }
         }).catch(() => {
-            message.reply('No answer after 30 minutes, please try the command again.');
+            message.reply('30 dakika sonra olmazsa lütfen komutu tekrar deneyin.');
             status = 1
     })
     }
@@ -89,15 +89,15 @@ exports.run = async (client, message, args) => {
         await message.channel.send(`>>> ${client.config.giveawayEmoji} What should the giveaway prize be?\nEnter \`cancel\` to cancel.`)
         await message.channel.awaitMessages(m => m.author.id == message.author.id,
         {max: 1, time: 1800000}).then(collected => {
-            if (collected.first().content.toLowerCase() == 'cancel') {
-                message.channel.send('**Command Canceled**')
+            if (collected.first().content.toLowerCase() == 'iptal') {
+                message.channel.send('**Komut İptal Edildi**')
                 status = 1
                 return
             }else{
                 giveawayPrize = collected.first().content
             }
         }).catch(() => {
-            message.reply('No answer after 30 minutes, please try the command again.');
+            message.reply('30 dakika sonra olmazsa lütfen komutu tekrar deneyin.');
             status = 1
     })
     }
@@ -115,27 +115,27 @@ exports.run = async (client, message, args) => {
             hostedBy: client.config.hostedBy ? message.author : null,
             // Messages
             messages: {
-                giveaway: (client.config.everyoneMention ? "@everyone\n\n" : "")+ client.config.giveawayEmoji + " **GIVEAWAY** " + client.config.giveawayEmoji,
-                giveawayEnded: (client.config.everyoneMention ? "@everyone\n\n" : "")+ client.config.giveawayEmoji + "** GIVEAWAY ENDED **" + client.config.giveawayEmoji,
-                timeRemaining: "Time remaining: **{duration}**!",
-                inviteToParticipate: "React with " + client.config.reaction + " to participate!",
-                winMessage: client.config.giveawayEmoji + " {winners} won **{prize}**!",
+                giveaway: (client.config.everyoneMention ? "@everyone\n\n" : "")+ client.config.giveawayEmoji + " **ÇEKİLİŞ** " + client.config.giveawayEmoji,
+                giveawayEnded: (client.config.everyoneMention ? "@everyone\n\n" : "")+ client.config.giveawayEmoji + "** ÇEKİLİŞ BİTTİ **" + client.config.giveawayEmoji,
+                timeRemaining: "Kalan Süre: **{duration}**!",
+                inviteToParticipate: "Katılmak İçin " + client.config.reaction + " Emojisine Tıkla!",
+                winMessage: client.config.giveawayEmoji + " {winners} **{prize}** kazandın!",
                 embedFooter: client.config.botName,
-                noWinner: "Giveaway cancelled, no valid participations.",
-                hostedBy: "Hosted by: {user}",
-                winners: "winner(s)",
-                endedAt: "Ended at",
+                noWinner: "Çekiliş iptal edildi, geçerli katılım yok.",
+                hostedBy: "Çekilişi Yapan: {user}",
+                winners: "kazanan(lar)",
+                endedAt: "Şu tarihte sona erdi:",
                 units: {
-                    seconds: "seconds",
-                    minutes: "minutes",
-                    hours: "hours",
-                    days: "days",
+                    seconds: "saniye",
+                    minutes: "dakika",
+                    hours: "saat",
+                    days: "gün",
                     pluralS: false // Not needed, because units end with a S so it will automatically removed if the unit value is lower than 2
                 }
             }
         });
 
-        message.channel.send(`${client.config.giveawayEmoji} Giveaway started in <#${giveawayChannel.id}>`);
+        message.channel.send(`${client.config.giveawayEmoji} Çekilişi <#${giveawayChannel.id}> içinde başladı`);
     }
 
     async function main(){

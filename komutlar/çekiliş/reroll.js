@@ -4,12 +4,12 @@ exports.run = async (client, message, args) => {
 
     // If the member doesn't have enough permissions
     if(!message.member.roles.cache.some((r) => r.name === client.config.giveawayRole)){
-        return message.channel.send(`:x: You need to have the ${client.config.giveawayRole} role to do that.`);
+        return message.channel.send(`<:blurpleno:857917856041271336> You need to have the ${client.config.giveawayRole} role to do that.`);
     }
 
     // If no message ID or giveaway name is specified
     if(!args[0]){
-        return message.channel.send(':x: You have to specify a valid message ID!');
+        return message.channel.send('<:blurpleno:857917856041271336> Geçerli bir mesaj kimliği belirtmelisiniz!');
     }
 
     // try to found the giveaway with prize then with ID
@@ -21,25 +21,25 @@ exports.run = async (client, message, args) => {
 
     // If no giveaway was found
     if(!giveaway){
-        message.channel.send(`:x: No giveaway found for \`${messageID}\`, please check you have the right message and try again.`);
+        message.channel.send(`<:blurpleno:857917856041271336> No giveaway found for \`${messageID}\`, please check you have the right message and try again.`);
     }
 
     // Reroll the giveaway
     client.giveawaysManager.reroll(giveaway.messageID, {
         messages: {
-            congrat: client.config.giveawayEmoji + 'New winner(s) : {winners}! Congratulations!'
+            congrat: client.config.giveawayEmoji + 'Yeni kazanan(lar) : {winners}! Tebrikler!'
         }
     })
     .then(() => {
         // Success message
-        message.channel.send('✅ Giveaway rerolled!');
+        message.channel.send('<:blurpleyes:857917858025439242> çekiliş yeniden düzenlendi!');
     })
     .catch((e) => {
         if(e.startsWith(`Giveaway with message ID ${giveaway.messageID} is not ended.`)){
-            message.channel.send('This giveaway is not ended!');
+            message.channel.send('Bu çekiliş bitmedi!');
         } else {
             console.error(e);
-            message.channel.send(':x: There was an error');
+            message.channel.send('<:blurpleno:857917856041271336> Bir hata oluştu');
         }
     });
 

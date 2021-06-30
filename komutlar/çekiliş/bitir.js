@@ -4,12 +4,12 @@ exports.run = async (client, message, args) => {
 
     // If the member doesn't have enough permissions
     if(!message.member.roles.cache.some((r) => r.name === client.config.giveawayRole)){
-        return message.channel.send(`:x: You need to have the ${client.config.giveawayRole} role to do that.`);
+        return message.channel.send(`<:blurpleno:857917856041271336> You need to have the ${client.config.giveawayRole} role to do that.`);
     }
 
     // If no message ID or giveaway name is specified
     if(!args[0]){
-        return message.channel.send(':x: Geçerli bir mesaj kimliği belirtmelisiniz!');
+        return message.channel.send('<:blurpleno:857917856041271336> Geçerli bir mesaj kimliği belirtmelisiniz!');
     }
 
     // try to found the giveaway with prize then with ID
@@ -21,7 +21,7 @@ exports.run = async (client, message, args) => {
 
     // If no giveaway was found
     if(!giveaway){
-        return message.channel.send(':x: `'+ args.join(' ') + '` için çekiliş bulunamadı.');
+        return message.channel.send('<:blurpleno:857917856041271336> `'+ args.join(' ') + '` için çekiliş bulunamadı.');
     }
 
     // Edit the giveaway
@@ -31,14 +31,14 @@ exports.run = async (client, message, args) => {
     // Success message
     .then(() => {
         // Success message
-        message.channel.send('✅ Çekiliş '+(client.giveawaysManager.options.updateCountdownEvery/1000)+' saniyeden daha kısa sürede sona erecek...');
+        message.channel.send('<:blurpleyes:857917858025439242> Çekiliş '+(client.giveawaysManager.options.updateCountdownEvery/1000)+' saniyeden daha kısa sürede sona erecek...');
     })
     .catch((e) => {
         if(e.startsWith(`Giveaway with message ID ${giveaway.messageID} is already ended.`)){
             message.channel.send('Bu çekiliş zaten sona erdi!');
         } else {
             console.error(e);
-            message.channel.send(':x: Bir hata oluştu');
+            message.channel.send('<:blurpleno:857917856041271336> Bir hata oluştu');
         }
     });
 

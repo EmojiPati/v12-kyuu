@@ -416,13 +416,13 @@ client.giveawaysManager = new GiveawaysManager(client, {
 
 client.giveawaysManager.on("giveawayReactionAdded", (giveaway, member, reaction) => {
     if (member.id !== client.user.id){
-        console.log(`${member.user.tag} entered giveaway #${giveaway.messageID} (${reaction.emoji.name})`);
+        console.log(`${member.user.tag}, #${giveaway.messageID} çekilişine girdi (${reaction.emoji.name})`);
     }
 });
 
 client.giveawaysManager.on("giveawayReactionRemoved", (giveaway, member, reaction) => {
     if (member.id !== client.user.id){
-        console.log(`${member.user.tag} left giveaway #${giveaway.messageID} (${reaction.emoji.name})`);
+        console.log(`${member.user.tag} #${giveaway.messageID} çekilişinden ayrıldı (${reaction.emoji.name})`);
     }
 });
 ////////

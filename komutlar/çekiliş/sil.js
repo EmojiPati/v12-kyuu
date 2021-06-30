@@ -4,18 +4,18 @@ exports.run = async (client, message, args) => {
 
     // If the member doesn't have enough permissions
     if(!message.member.roles.cache.some((r) => r.name === client.config.giveawayRole)){
-        return message.channel.send(`:x: You need to have the ${client.config.giveawayRole} role to do that.`);
+        return message.channel.send(`<:blurpleno:857917856041271336> You need to have the ${client.config.giveawayRole} role to do that.`);
     }
 
     if(!args[0]){
-        return message.channel.send(':x: You have to specify a valid message ID!');
+        return message.channel.send('<:blurpleno:857917856041271336> Geçerli bir mesaj kimliği belirtmelisiniz!');
     }
 
     let messageID = args[0];
         client.giveawaysManager.delete(messageID).then(() => {
-            message.channel.send("✅ Giveaway deleted!");
+            message.channel.send("<:blurpleyes:857917858025439242> Çekiliş Silindi!");
         }).catch((err) => {
-            message.channel.send(":x: No giveaway found for \`${messageID}\`, please check you have the right message and try again.");
+            message.channel.send("<:blurpleno:857917856041271336> \`${messageID}\` için çekiliş bulunamadı, lütfen doğru mesajı alıp almadığınızı kontrol edin ve tekrar deneyin.");
         });
 
 };
