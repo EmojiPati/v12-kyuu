@@ -473,9 +473,9 @@ client.on("message", message => {
               .setTimestamp();
         // using try catch if bot have perms to send EMBED_LINKS      
         try {
-        seviyelogkanal.send(embed);
+        message.channel.send(embed);
         } catch (err) {
-          seviyelogkanal.send(`<:blurplerocket:857907158565519360> **Tebrikler** ${message.author}! Artık "\`${level.level}\`" Levelsiniz`)
+          message.channel.send(`<:blurplerocket:857907158565519360> **Tebrikler** ${message.author}! Artık "\`${level.level}\`" Levelsiniz`)
         }
       };
       client.setLevel.run(level);
