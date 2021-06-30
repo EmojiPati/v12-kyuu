@@ -3,9 +3,8 @@ const ms = require('ms');
 exports.run = async (client, message, args) => {
 
     // If the member doesn't have enough permissions
-    if(!message.member.roles.cache.some((r) => r.name === client.config.giveawayRole)){
-        return message.channel.send(`<:blurpleno:857917856041271336> You need to have the ${client.config.giveawayRole} role to do that.`);
-    }
+           if(!message.member.hasPermission("MANAGE_GUILD")) return message.reply(`<:blurplecross:857907152760078387> Bu komutu kullanma izniniz yok!`);
+
 
     // If no message ID or giveaway name is specified
     if(!args[0]){
@@ -21,7 +20,7 @@ exports.run = async (client, message, args) => {
 
     // If no giveaway was found
     if(!giveaway){
-        message.channel.send(`<:blurpleno:857917856041271336> No giveaway found for \`${messageID}\`, please check you have the right message and try again.`);
+        message.channel.send(`<:blurpleno:857917856041271336> \`${messageID}\` için çekiliş bulunamadı, lütfen doğru mesajı alıp almadığınızı kontrol edin ve tekrar deneyin.`);
     }
 
     // Reroll the giveaway
@@ -35,7 +34,7 @@ exports.run = async (client, message, args) => {
         message.channel.send('<:blurpleyes:857917858025439242> çekiliş yeniden düzenlendi!');
     })
     .catch((e) => {
-        if(e.startsWith(`Giveaway with message ID ${giveaway.messageID} is not ended.`)){
+        if(e.startsWith(`${giveaway.messageID} mesaj kimliğine sahip çekiliş sona ermedi.`)){
             message.channel.send('Bu çekiliş bitmedi!');
         } else {
             console.error(e);

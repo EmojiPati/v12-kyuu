@@ -3,9 +3,8 @@ const ms = require('ms');
 exports.run = async (client, message, args) => {
 
     // If the member doesn't have enough permissions
-    if(!message.member.roles.cache.some((r) => r.name === client.config.giveawayRole)){
-        return message.channel.send(`<:blurpleno:857917856041271336> You need to have the ${client.config.giveawayRole} role to do that.`);
-    }
+        if(!message.member.hasPermission("MANAGE_GUILD")) return message.reply(`<:blurplecross:857907152760078387> Bu komutu kullanma izniniz yok!`);
+
 
     // If no message ID or giveaway name is specified
     if(!args[0]){
@@ -34,7 +33,7 @@ exports.run = async (client, message, args) => {
         message.channel.send('<:blurpleyes:857917858025439242> Çekiliş '+(client.giveawaysManager.options.updateCountdownEvery/1000)+' saniyeden daha kısa sürede sona erecek...');
     })
     .catch((e) => {
-        if(e.startsWith(`Giveaway with message ID ${giveaway.messageID} is already ended.`)){
+        if(e.startsWith(`${giveaway.messageID} mesaj kimliğine sahip çekiliş zaten sona erdi.`)){
             message.channel.send('Bu çekiliş zaten sona erdi!');
         } else {
             console.error(e);

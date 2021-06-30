@@ -8,13 +8,12 @@ exports.run = async (client, message, args) => {
     let status = ''
 
     // If the member doesn't have enough permissions
-    if(!message.member.roles.cache.some((r) => r.name === client.config.giveawayRole)){
-        return message.channel.send(`<:blurpleno:857917856041271336> You need to have the ${client.config.giveawayRole} role to do that.`);
-    }
+        if(!message.member.hasPermission("MANAGE_GUILD")) return message.reply(`<:blurplecross:857907152760078387> Bu komutu kullanma izniniz yok!`);
+
 
     // Giveaway channel
     async function part1(){
-        await message.channel.send(`>>> ${client.config.giveawayEmoji} Please mention the channel that the giveaway should be in.\nEnter \`cancel\` to cancel.`)
+        await message.channel.send(`>>> ${client.config.giveawayEmoji} Lütfen çekilişin olması gereken kanalı belirtin.\nGiriş iptal etmek için \`iptal\`.`)
         await message.channel.awaitMessages(m => m.author.id == message.author.id,
         {max: 1, time: 1800000}).then(collected => {
             if (collected.first().content.toLowerCase() == 'iptal') {
@@ -35,7 +34,7 @@ exports.run = async (client, message, args) => {
 
     // Giveaway duration
     async function part2(){
-        await message.channel.send(`>>> ${client.config.giveawayEmoji} How long should the giveaway last?\nEnter \`cancel\` to cancel.`)
+        await message.channel.send(`>>> ${client.config.giveawayEmoji} Çekiliş ne kadar sürmeli?\nİptal etmek için \`iptal\` girin.`)
         await message.channel.awaitMessages(m => m.author.id == message.author.id,
         {max: 1, time: 1800000}).then(collected => {
             if (collected.first().content.toLowerCase() == 'iptal') {
@@ -58,7 +57,7 @@ exports.run = async (client, message, args) => {
 
     // Number of winners
     async function part3(){
-        await message.channel.send(`>>> ${client.config.giveawayEmoji} How many winners should there be?\n**Max 10**\nEnter \`cancel\` to cancel.`)
+        await message.channel.send(`>>> ${client.config.giveawayEmoji} Kaç kazanan olmalı?\n**En fazla 10**\nİptal etmek için \`iptal\` girin.`)
         await message.channel.awaitMessages(m => m.author.id == message.author.id,
         {max: 1, time: 1800000}).then(collected => {
             if (collected.first().content.toLowerCase() == 'iptal') {
@@ -86,7 +85,7 @@ exports.run = async (client, message, args) => {
 
     // Giveaway prize
     async function part4(){
-        await message.channel.send(`>>> ${client.config.giveawayEmoji} What should the giveaway prize be?\nEnter \`cancel\` to cancel.`)
+        await message.channel.send(`>>> ${client.config.giveawayEmoji} Çekiliş ödülü ne olmalı?\nİptal etmek için \`iptal\` girin.`)
         await message.channel.awaitMessages(m => m.author.id == message.author.id,
         {max: 1, time: 1800000}).then(collected => {
             if (collected.first().content.toLowerCase() == 'iptal') {

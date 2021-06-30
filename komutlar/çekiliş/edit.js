@@ -1,9 +1,8 @@
 exports.run = async (client, message, args) => {
 
     // If the member doesn't have enough permissions
-    if(!message.member.roles.cache.some((r) => r.name === client.config.giveawayRole)){
-        return message.channel.send(`<:blurpleno:857917856041271336> You need to have the ${client.config.giveawayRole} role to do that.`);
-    }
+        if(!message.member.hasPermission("MANAGE_GUILD")) return message.reply(`<:blurplecross:857907152760078387> Bu komutu kullanma izniniz yok!`);
+
 
     // If no message ID or giveaway name is specified
     if(!args[0]){
@@ -27,7 +26,7 @@ exports.run = async (client, message, args) => {
             const numberOfSecondsMax = client.giveawaysManager.options.updateCountdownEvery / 1000;
             message.channel.send('<:blurpleyes:857917858025439242> Çekiliş ödülü, ' + numberOfSecondsMax + ' saniyeden daha kısa sürede güncellenecektir..');
         }).catch((err) => {
-            message.channel.send(`<:blurpleno:857917856041271336> No giveaway found for \`${args[0]}\`, please check you have the right message and try again.`);
+            message.channel.send(`<:blurpleno:857917856041271336> \`${args[0]}\` için çekiliş bulunamadı, lütfen doğru mesajı alıp almadığınızı kontrol edin ve tekrar deneyin.`);
         });
     }else
     if(args[1] === 'kazanan'){
@@ -43,7 +42,7 @@ exports.run = async (client, message, args) => {
             const numberOfSecondsMax = client.giveawaysManager.options.updateCountdownEvery / 1000;
             message.channel.send('<:blurpleyes:857917858025439242> Çekiliş kazanan sayısı ' + numberOfSecondsMax + ' saniyeden daha kısa sürede güncellenecektir.');
         }).catch((err) => {
-            message.channel.send(`<:blurpleno:857917856041271336> No giveaway found for \`${args[0]}\`, please check you have the right message and try again.`);
+            message.channel.send(`<:blurpleno:857917856041271336> \`${args[0]}\` için çekiliş bulunamadı, lütfen doğru mesajı alıp almadığınızı kontrol edin ve tekrar deneyin.`);
         });
     }else{
         return message.channel.send('<:blurpleno:857917856041271336> Ödülü veya kazananları düzenlemeniz gerekiyor!');
