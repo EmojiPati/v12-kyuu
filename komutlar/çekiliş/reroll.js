@@ -3,13 +3,13 @@ const ms = require('ms');
 exports.run = async (client, message, args) => {
 
     // If the member doesn't have enough permissions
-    if(!message.member.hasPermission('MANAGE_MESSAGES') && !message.member.roles.cache.some((r) => r.name === "Giveaways")){
-        return message.channel.send('<:blurplecross:857907152760078387> Çekilişi yeniden düzenlemek için iletileri yönetme izinlerine sahip olmanız gerekir.');
+    if(!message.member.roles.cache.some((r) => r.name === client.config.giveawayRole)){
+        return message.channel.send(`:x: You need to have the ${client.config.giveawayRole} role to do that.`);
     }
 
     // If no message ID or giveaway name is specified
     if(!args[0]){
-        return message.channel.send('<:blurplecross:857907152760078387> Geçerli bir mesaj kimliği belirtmelisiniz!');
+        return message.channel.send(':x: You have to specify a valid message ID!');
     }
 
     // try to found the giveaway with prize then with ID
@@ -21,21 +21,25 @@ exports.run = async (client, message, args) => {
 
     // If no giveaway was found
     if(!giveaway){
-        return message.channel.send('<:blurplecross:857907152760078387> `'+ args.join(' ') +'` için bir çekiliş bulunamadı.');
+        message.channel.send(`:x: No giveaway found for \`${messageID}\`, please check you have the right message and try again.`);
     }
 
     // Reroll the giveaway
-    client.giveawaysManager.reroll(giveaway.messageID)
+    client.giveawaysManager.reroll(giveaway.messageID, {
+        messages: {
+            congrat: client.config.giveawayEmoji + 'New winner(s) : {winners}! Congratulations!'
+        }
+    })
     .then(() => {
         // Success message
-        message.channel.send('<:blurpleyes:857917858025439242> Çekiliş yeniden seçildi!');
+        message.channel.send('✅ Giveaway rerolled!');
     })
     .catch((e) => {
         if(e.startsWith(`Giveaway with message ID ${giveaway.messageID} is not ended.`)){
-            message.channel.send('<:blurplecross:857907152760078387> Çekiliş Bitmedi!');
+            message.channel.send('This giveaway is not ended!');
         } else {
             console.error(e);
-            message.channel.send('<:blurplecross:857907152760078387> Bi Hata Oluştu...');
+            message.channel.send(':x: There was an error');
         }
     });
 

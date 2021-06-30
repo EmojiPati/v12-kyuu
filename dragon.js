@@ -398,15 +398,31 @@ await user.ban() } }
   
 })
 //////ÇEKİLİŞ
+const config = require('./config.json');
+client.config = config;
 // Init discord giveaways
 const { GiveawaysManager } = require('discord-giveaways');
 client.giveawaysManager = new GiveawaysManager(client, {
-    storage: "./database.json",
-    updateCountdownEvery: 3000,
+    storage: "./giveaways.json",
+    updateCountdownEvery: 10000,
     default: {
-        botsCanWin: false,
-        embedColor: "0x36393E",
-        reaction: "<:blurpletada:859401334523559956>"
+        botsCanWin: config.botsCanWin,
+        embedColor: config.embedColor,
+        embedColorEnd: config.embedColorEnd,
+        reaction: config.reaction
+    }
+});
+// We now have a client.giveawaysManager property to manage our giveaways!
+
+client.giveawaysManager.on("giveawayReactionAdded", (giveaway, member, reaction) => {
+    if (member.id !== client.user.id){
+        console.log(`${member.user.tag} entered giveaway #${giveaway.messageID} (${reaction.emoji.name})`);
+    }
+});
+
+client.giveawaysManager.on("giveawayReactionRemoved", (giveaway, member, reaction) => {
+    if (member.id !== client.user.id){
+        console.log(`${member.user.tag} left giveaway #${giveaway.messageID} (${reaction.emoji.name})`);
     }
 });
 ////////
