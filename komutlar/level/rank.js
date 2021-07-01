@@ -35,7 +35,7 @@ const canvas = createCanvas(1000, 333)
 
     ctx.beginPath();
     ctx.lineWidth = 4;
-    ctx.strokeStyle = "#a597fb"
+    ctx.strokeStyle = "#A3A3A3"
     ctx.globalAlpha = 0.2;
     ctx.fillStyle = "#000000"
     ctx.fillRect(180, 216, 775, 65);
@@ -44,7 +44,7 @@ const canvas = createCanvas(1000, 333)
     ctx.strokeRect(180, 216, 775, 65);
     ctx.stroke();
 
-    ctx.fillStyle = "#4d9cfd";
+    ctx.fillStyle = "#838383";
     ctx.globalAlpha = 0.6;
     ctx.fillRect(200, 216, ((100 / (score.level * 2 * 250 + 250)) * score.xp) * 7.5, 65);
     ctx.fill();
@@ -69,7 +69,7 @@ const canvas = createCanvas(1000, 333)
 
     ctx.arc(170, 160, 120, 0, Math.PI * 2, true);
     ctx.lineWidth = 6;
-    ctx.strokeStyle = "#a597fb"
+    ctx.strokeStyle = "#A3A3A3"
     ctx.stroke();
     ctx.closePath();
     ctx.clip();
