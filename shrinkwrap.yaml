@@ -8,6 +8,7 @@ dependencies:
   discord.js: 12.5.3
   express: 4.17.1
   fs: 0.0.2
+  humanize-duration: 3.27.0
   js-beautify: 1.14.0
   moment: 2.29.1
   moment-duration-format: 2.3.2
@@ -742,6 +743,10 @@ packages:
       node: '>= 6'
     resolution:
       integrity: sha512-EkYm5BcKUGiduxzSt3Eppko+PiNWNEpa4ySk9vTC6wDsQJW9rHSa+UhGNJoRYp7bz6Ht1eaRIa6QaJqO5rCFbA==
+  /humanize-duration/3.27.0:
+    dev: false
+    resolution:
+      integrity: sha512-qLo/08cNc3Tb0uD7jK0jAcU5cnqCM0n568918E7R2XhMr/+7F37p4EY062W/stg7tmzvknNn9b/1+UhVRzsYrQ==
   /iconv-lite/0.4.24:
     dependencies:
       safer-buffer: 2.1.2
@@ -1618,6 +1623,7 @@ specifiers:
   discord.js: ^12.5.3
   express: ^4.17.1
   fs: ^0.0.2
+  humanize-duration: ^3.27.0
   js-beautify: ^1.14.0
   moment: ^2.29.1
   moment-duration-format: ^2.3.2
