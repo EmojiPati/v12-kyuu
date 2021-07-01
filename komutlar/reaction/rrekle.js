@@ -4,34 +4,34 @@
  exports.run = async (client, message, args, db, prefix) => {
     if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send(`**YOU MUST HAVE PERMISSIONS.**`)
     let channel = message.mentions.channels.first();
-    if(!channel) return message.channel.send(`${prefix}rradd <#channeL> <MESSAGEID> <ROLE> <EMOJI>`)
-        if(!args[1]) return message.channel.send(`${prefix}rradd ${channel} <MESSAGEID> <ROLE> <EMOJI>`)        
+    if(!channel) return message.channel.send(`${prefix}reaksiyon-ekle <#kanal> <MESSAGEID> <ROL> <EMOJI>`)
+        if(!args[1]) return message.channel.send(`${prefix}reaksiyon-ekle ${channel} <MESSAGEID> <ROL> <EMOJI>`)        
     
     let messageid = client.channels.cache.get(`${channel.id}`).messages.fetch(`${args[1]}`)
-     if(!messageid) return message.channel.send(`**That's not an vaild message iD** `)
+     if(!messageid) return message.channel.send(`**Bu geçerli bir mesaj kimliği değil** `)
     
-    if(isNaN(args[1])) return message.channel.send(`Message ID Must Be ANumber`)
+    if(isNaN(args[1])) return message.channel.send(`Mesaj Kimliği Bir Sayı Olmalıdır`)
     let role = message.mentions.roles.first();
-    if(!role) return message.channel.send(`${prefix}rradd ${channel} ${args[1]} <@role> <Emoji> `)
+    if(!role) return message.channel.send(`${prefix}reaksiyon-ekle ${channel} ${args[1]} <@rol> <Emoji> `)
     let check = message.guild.roles.cache.find(r => r.name === `${role.name}`)
-    if(!check) return message.channel.send(`invaild role!`)
-    if(!args[3]) return message.channel.send(`${prefix}rradd ${channel} ${args[1]} ${role.name} <EMOJI> `)
+    if(!check) return message.channel.send(`Geçersiz Rol!`)
+    if(!args[3]) return message.channel.send(`${prefix}reaksiyon-ekle ${channel} ${args[1]} ${role.name} <EMOJI> `)
     function isCustomEmoji(emoji) {
         return emoji.split(":").length == 1 ? false : true;
       }
       if (isCustomEmoji(args[3])) {
       let customemoji = Discord.Util.parseEmoji(args[3]);
     let emojicheck = client.emojis.cache.find(emoji => emoji.id === `${customemoji.id}`);
-    if(!emojicheck) return message.channel.send(`this emoji is invaild!`)
+    if(!emojicheck) return message.channel.send(`Bu Emoji Yanlış!`)
   let embed = new Discord.MessageEmbed()
  .setThumbnail(message.guild.iconURL())
- .setTitle(`${yes} Reaction Role Sucsses!`)
+ .setTitle(`${yes} Reaksiyon Rol Başarılı!`)
  .setDescription(`**Done!**
  
- **${msg} [Go To Message](https://discord.com/channels/${message.guild.id}/${channel.id}/${args[1]})
- ${mention} Role : ${role}
+ **${msg} [Mesaja Git](https://discord.com/channels/${message.guild.id}/${channel.id}/${args[1]})
+ ${mention} Rol : ${role}
  ${attention} [Emoji](https://cdn.discordapp.com/emojis/${emojicheck.id}.png?v=1) : ${emojicheck}
- ${channele} Channel : ${channel}**
+ ${channele} Kanal : ${channel}**
  `)
  .setTimestamp()
  .setFooter(message.guild.name , message.guild.iconURL())
@@ -57,13 +57,13 @@
      db.set(`message_${message.guild.id}_${args[3]}`, args[1])
      let embed = new Discord.MessageEmbed()
      .setThumbnail(message.guild.iconURL())
-     .setTitle(`${yes} Reaction Role Sucsses!`)
+     .setTitle(`${yes} Reaksiyon Rol Başarılı!`)
      .setDescription(`**Done!**
      
-     **${msg} [Go To Message](https://discord.com/channels/${message.guild.id}/${channel.id}/${args[1]})
-     ${mention} Role : ${role}
+     **${msg} [Mesaja Git](https://discord.com/channels/${message.guild.id}/${channel.id}/${args[1]})
+     ${mention} Rol : ${role}
      ${attention} Emoji: ${args[3]}
-     ${channele} Channel : ${channel}**
+     ${channele} Kanal : ${channel}**
      `)
      .setTimestamp()
      .setFooter(message.guild.name , message.guild.iconURL())
