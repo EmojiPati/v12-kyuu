@@ -472,15 +472,17 @@ client.on("message", message => {
             
 
       // level up!
+
         
-        
-        
-              let seviyelog = db.get(`seviyelog_${message.guild.id}`)
-    const seviyelogkanal = message.guild.channels.cache.find(kanal => kanal.id === seviyelog);   
         
         if(level.xp >= nextXP) {
                 level.xp = 0;
                 level.level += 1;
+          
+                     let levellogs = db.get(`levellog_${message.guild.id}`)
+    const levellogkanal = message.guild.channels.cache.find(kanal => kanal.id === levellogs);    
+if (!levellogkanal) return; 
+          
         let embed = new Discord.MessageEmbed()
               .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
               .setDescription(`<:blurplerocket:857907158565519360> **Tebrikler** ${message.author}! Artık "\`${level.level}\`" Levelsiniz`)
@@ -489,9 +491,9 @@ client.on("message", message => {
               .setTimestamp();
         // using try catch if bot have perms to send EMBED_LINKS      
         try {
-        message.channel.send(embed);
+        levellogkanal.send(embed);
         } catch (err) {
-          message.channel.send(`<:blurplerocket:857907158565519360> **Tebrikler** ${message.author}! Artık "\`${level.level}\`" Levelsiniz`)
+          levellogkanal.send(`<:blurplerocket:857907158565519360> **Tebrikler** ${message.author}! Artık "\`${level.level}\`" Levelsiniz`)
         }
       };
       client.setLevel.run(level);
