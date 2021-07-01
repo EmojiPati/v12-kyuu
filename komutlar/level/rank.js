@@ -30,7 +30,7 @@ if(!message.guild.me.hasPermission("ATTACH_FILES")) return message.reply(`**Miss
 registerFont('new-comic-bd.otf', { family: 'New Comic Bd' })
 const canvas = createCanvas(1000, 333)
     const ctx = canvas.getContext("2d");
-    const background = await loadImage('https://cdn.glitch.com/8b7ae704-e530-4e60-ae0c-b853c529d687%2Frankwallp.png?v=1625148185808');
+    const background = await loadImage('https://cdn.glitch.com/8b7ae704-e530-4e60-ae0c-b853c529d687%2Frankwallp.png?v=1625148936400');
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
     ctx.beginPath();
