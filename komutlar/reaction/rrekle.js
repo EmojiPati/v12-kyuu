@@ -1,12 +1,12 @@
  const Discord = require("discord.js")
  const { attention, yes, mention, channele, msg } = require('../../emojis.json')
  const ayarlar = require('../../ayarlar.json')
- let prefix = ayarlar.prefix
+ var prefix = ayarlar.prefix
  exports.run = async (client, message, args, db, prefix) => {
     if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send(`**Gerekli İzinlere Sahip Değilsin.**`)
     let channel = message.mentions.channels.first();
-    if(!channel) return message.channel.send(`<:blurpleigne:857930551314874408>   **Belirttiğin Sayı Çok Küçük Veya O Sayıya Zaten Ulaşmışsın!**\n**__Doğru Kullanım__** : \`${prefix}eraksiyon-ekle <#Kanal> <MesajId> <>\``)
-        if(!args[1]) return message.channel.send(`<:blurpleigne:857930551314874408>  **Doğru kullanım:**   ${prefix}reaksiyon-ekle ${channel} <MESSAGEID> <ROL> <EMOJI>`)        
+    if(!channel) return message.channel.send(`<:blurpleigne:857930551314874408>  **__Doğru Kullanım__** : \`${prefix}reaksiyon-ekle <#Kanal> <MesajId> <Rol> <Emoji>\``)
+        if(!args[1]) return message.channel.send(`<:blurpleigne:857930551314874408>  **__Doğru Kullanım__** : \`${prefix}reaksiyon-ekle ${channel} <MesajId> <Rol> <Emoji>\``)        
     
     let messageid = client.channels.cache.get(`${channel.id}`).messages.fetch(`${args[1]}`)
      if(!messageid) return message.channel.send(`**Bu geçerli bir mesaj kimliği değil** `)
