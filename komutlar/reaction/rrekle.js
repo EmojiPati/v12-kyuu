@@ -3,7 +3,7 @@
  const ayarlar = require('../../ayarlar.json')
  let prefix = ayarlar.prefix
  exports.run = async (client, message, args, db, prefix) => {
-    if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send(`**YOU MUST HAVE PERMISSIONS.**`)
+    if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send(`**Gerekli İzinlere Sahip Değilsin.**`)
     let channel = message.mentions.channels.first();
     if(!channel) return message.channel.send(`${prefix}reaksiyon-ekle <#kanal> <MESSAGEID> <ROL> <EMOJI>`)
         if(!args[1]) return message.channel.send(`${prefix}reaksiyon-ekle ${channel} <MESSAGEID> <ROL> <EMOJI>`)        
