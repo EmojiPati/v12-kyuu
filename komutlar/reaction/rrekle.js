@@ -5,8 +5,8 @@
  exports.run = async (client, message, args, db, prefix) => {
     if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send(`**Gerekli İzinlere Sahip Değilsin.**`)
     let channel = message.mentions.channels.first();
-    if(!channel) return message.channel.send(`${prefix}reaksiyon-ekle <#kanal> <MESSAGEID> <ROL> <EMOJI>`)
-        if(!args[1]) return message.channel.send(`${prefix}reaksiyon-ekle ${channel} <MESSAGEID> <ROL> <EMOJI>`)        
+    if(!channel) return message.channel.send(`<:blurpleigne:857930551314874408>   **Belirttiğin Sayı Çok Küçük Veya O Sayıya Zaten Ulaşmışsın!**\n**__Doğru Kullanım__** : \`${prefix}eraksiyon-ekle <#Kanal> <MesajId> <>\``)
+        if(!args[1]) return message.channel.send(`<:blurpleigne:857930551314874408>  **Doğru kullanım:**   ${prefix}reaksiyon-ekle ${channel} <MESSAGEID> <ROL> <EMOJI>`)        
     
     let messageid = client.channels.cache.get(`${channel.id}`).messages.fetch(`${args[1]}`)
      if(!messageid) return message.channel.send(`**Bu geçerli bir mesaj kimliği değil** `)
