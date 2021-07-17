@@ -516,7 +516,7 @@ if (!levellogkanal) return;
       }})
 
 //////////////////////REAKSİYON SİSTEMİ////////////////////////////
-const emotfe = require('./emojis.json');
+const emotfe = require('./emoji.json');
 
 
 client.on('messageReactionAdd', async (reaction, user) => {

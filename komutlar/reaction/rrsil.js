@@ -1,5 +1,5 @@
  const Discord = require("discord.js")
- const { attention, yes, mention, channele, msg } = require('../../emojis.json')
+ const { attention, yes, mention, channele, msg } = require('../../emoji.json')
  exports.run = async (client, message, args, db, prefix) => {
     if(!args[0]) return message.channel.send(`<:blurpleigne:857930551314874408>  **__Doğru Kullanım__** : \`${prefix}reaksiyon-sil <MesajId> <Emoji>\``)
     let channel = await db.get(`rrremove_${message.guild.id}_${args[0]}2`)

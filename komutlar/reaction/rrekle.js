@@ -1,5 +1,5 @@
  const Discord = require("discord.js")
- const { attention, yes, mention, channele, msg } = require('../../emojis.json')
+ const { attention, yes, mention, channele, msg } = require('../../emoji.json')
  const ayarlar = require('../../ayarlar.json')
  const db = require('quick.db')
  exports.run = async (client, message, args, db, ) => {
