@@ -1,8 +1,9 @@
  const Discord = require("discord.js")
  const { attention, yes, mention, channele, msg } = require('../../emojis.json')
  const ayarlar = require('../../ayarlar.json')
- const prefix = ayarlar.prefix
- exports.run = async (client, message, args, db, prefix) => {
+ const db = require('quick.db')
+ exports.run = async (client, message, args, db, ) => {
+   let prefix = ayarlar.prefix   
     if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send(`**Gerekli İzinlere Sahip Değilsin.**`)
     let channel = message.mentions.channels.first();
     if(!channel) return message.channel.send(`<:blurpleigne:857930551314874408>  **__Doğru Kullanım__** : \`${prefix}reaksiyon-ekle <#Kanal> <MesajId> <Rol> <Emoji>\``)

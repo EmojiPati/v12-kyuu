@@ -1,15 +1,15 @@
  const Discord = require("discord.js")
  const { attention, yes, mention, channele, msg } = require('../../emojis.json')
  exports.run = async (client, message, args, db, prefix) => {
-    if(!args[0]) return message.channel.send(`${prefix}rrdelete (messageid) (emoji)`)
+    if(!args[0]) return message.channel.send(`<:blurpleigne:857930551314874408>  **__Doğru Kullanım__** : \`${prefix}reaksiyon-sil <MesajId> <Emoji>\``)
     let channel = await db.get(`rrremove_${message.guild.id}_${args[0]}2`)
     let messageid = await db.get(`rerremove_${message.guild.id}_${args[0]}`)
 
-    if(!channel) return message.channel.send(`**Message ID Not Found**`)
-    if(!messageid) return message.channel.send(`**MessageID Not Found**`)
+    if(!channel) return message.channel.send(`**Message ID Bulunamadı**`)
+    if(!messageid) return message.channel.send(`**Message ID Bulunamadı**`)
     let a = client.channels.cache.get(channel).messages.fetch(args[0])
-   if(!a) return message.channel.send(`**That's Message ID Invaild**`)
-   if(!args[1]) return message.channel.send(`${prefix}rrdelete (mesageid) (emoji)`)
+   if(!a) return message.channel.send(`**Bu Message ID Yanlış**`)
+   if(!args[1]) return message.channel.send(`<:blurpleigne:857930551314874408>  **__Doğru Kullanım__** : \`${prefix}reaksiyon-sil <MesajId> <Emoji>`)
    function isCustomEmoji(emoji) {
       return emoji.split(":").length == 1 ? false : true;
     }
@@ -17,20 +17,20 @@
 
    let customemoji = Discord.Util.parseEmoji(args[1]);
     let emojicheck = client.emojis.cache.find(emoji => emoji.id === `${customemoji.id}`);
-   if(!emojicheck) return message.channel.send(`this emoji is invaild!`)
+   if(!emojicheck) return message.channel.send(`Bu Emoji ID Yanlış!`)
 
    let emote = await db.get(`rrremove_${message.guild.id}_${args[0]}_${args[1]}`)
-   if(!emote) return message.channel.send(`theres no emojis with ${emojicheck} on ${args[0]}`)
+   if(!emote) return message.channel.send(`${args[0]} üzerinde ${emojicheck} ile emoji yok`)
    client.channels.cache.get(channel).messages.fetch(args[0]).then(darkcodes => {
 darkcodes.reactions.cache.get(`${emojicheck.id}`).remove() 
    })
 
    let embed = new Discord.MessageEmbed()
         .setAuthor(message.author.username, message.author.displayAvatarURL())
-        .setDescription(`**Sucsses**
-        Removed  **${msg} [Go To Message](https://discord.com/channels/${message.guild.id}/${channel}/${args[0]})**
-      ${attention} Reaciton Cleared 
-      ${attention} Reaciton Role Removed.`)
+        .setDescription(`**Başarılı**
+         Silindi  **${msg} [Mesaja Git](https://discord.com/channels/${message.guild.id}/${channel}/${args[0]})**
+      ${attention} Reaksiyon Silindi 
+      ${attention} Reaksiyon Rolü Silindi.`)
         .setFooter(message.guild.name , message.guild.iconURL())
         .setTimestamp()
         message.channel.send(embed)
@@ -49,10 +49,10 @@ client.channels.cache.get(channel).messages.fetch(args[0]).then(darkcodes => {
    
       let embed = new Discord.MessageEmbed()
            .setAuthor(message.author.username, message.author.displayAvatarURL())
-           .setDescription(`**Sucsses**
-           Removed  **${msg} [Go To Message](https://discord.com/channels/${message.guild.id}/${channel}/${args[0]})**
-         ${attention} Reaciton Cleared 
-         ${attention} Reaciton Role Removed.`)
+           .setDescription(`**Başarılı**
+           Silindi  **${msg} [Mesaja Git](https://discord.com/channels/${message.guild.id}/${channel}/${args[0]})**
+         ${attention} Reaksiyon Silindi
+         ${attention} Reaksiyon Rolü Silindi.`)
            .setFooter(message.guild.name , message.guild.iconURL())
            .setTimestamp()
            message.channel.send(embed)
