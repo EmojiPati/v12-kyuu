@@ -1,7 +1,7 @@
  const Discord = require("discord.js")
  const { attention, yes, mention, channele, msg } = require('../../emojis.json')
  const ayarlar = require('../../ayarlar.json')
- var prefix = ayarlar.prefix
+ const prefix = ayarlar.prefix
  exports.run = async (client, message, args, db, prefix) => {
     if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send(`**Gerekli İzinlere Sahip Değilsin.**`)
     let channel = message.mentions.channels.first();
