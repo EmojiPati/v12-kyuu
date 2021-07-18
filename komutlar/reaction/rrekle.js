@@ -2,7 +2,8 @@
  const { attention, yes, mention, channele, msg } = require('../../emoji.json')
  const ayarlar = require('../../ayarlar.json')
  const db = require('quick.db')
- exports.run = async (client, message, args, db, ) => {
+ exports.run = async (client, message, args) => {
+   
    let prefix = ayarlar.prefix   
     if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send(`**Gerekli İzinlere Sahip Değilsin.**`)
     let channel = message.mentions.channels.first();

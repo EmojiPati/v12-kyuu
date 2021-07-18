@@ -205,15 +205,15 @@ if (!modlogkanal) return;
   modlogkanal.send(embed);
   })
 
-client.on('guildBanAdd', async message  => {
-      let modlogs = db.get(`log_${message.guild.id}`)
-    const modlogkanal = message.guild.channels.cache.find(kanal => kanal.id === modlogs);    
+client.on('guildBanAdd', async (guild, user) => {
+      let modlogs = db.get(`log_${guild.id}`)
+    const modlogkanal = guild.channels.cache.find(kanal => kanal.id === modlogs);    
 if (!modlogkanal) return;
   const embed = new Discord.MessageEmbed()
   .setColor("0x36393E")
 
-    .setDescription(`<:blurpleyes:857917858025439242>  **Üye Sunucudan Yasaklandı!** \n<@!${message.user.id}>, ${message.user.tag}`)
-        .setThumbnail(message.user.avatarURL)
+    .setDescription(`<:blurpleyes:857917858025439242>  **Üye Sunucudan Yasaklandı!** \n<@!${user.id}>, ${user.tag}`)
+        .setThumbnail(user.avatarURL)
   .setFooter("Dragon Bot | Log Sistemi")
   modlogkanal.send(embed);
   })
@@ -331,6 +331,8 @@ if (!lus) return;
 //////////////////REKLAM ENGEL
 
 client.on("message", async message => {
+  
+// logdaki cannot read proprt
   
   const lus = await db.fetch(`reklamengel_${message.guild.id}`)
   if (lus) {
