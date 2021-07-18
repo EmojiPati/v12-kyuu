@@ -332,7 +332,7 @@ if (!lus) return;
 
 client.on("message", async message => {
   
-// logdaki cannot read proprt
+  if(!message.guild) return;
   
   const lus = await db.fetch(`reklamengel_${message.guild.id}`)
   if (lus) {
