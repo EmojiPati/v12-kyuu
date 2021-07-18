@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const dragon = require("../../ayarlar.json");
 const db = require('quick.db')
+const { user, hypequa }
 exports.run = async (client, msg, args) => { 
   let prefix = await db.fetch(`prefix.${msg.guild.id}`) || dragon.prefix 
     
