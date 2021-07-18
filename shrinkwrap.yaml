@@ -3,7 +3,7 @@ dependencies:
   canvas: 2.8.0
   chalk: 4.1.1
   common-tags: 1.8.0
-  discord-buttons: 3.2.1
+  discord-buttons: 4.0.0
   discord-giveaways: 4.5.1
   discord.js: 12.5.3
   express: 4.17.1
@@ -427,10 +427,10 @@ packages:
     hasBin: true
     resolution:
       integrity: sha1-+hN8S9aY7fVc1c0CrFWfkaTEups=
-  /discord-buttons/3.2.1:
+  /discord-buttons/4.0.0:
     dev: false
     resolution:
-      integrity: sha512-UN5xOLG0TwTX6Qr/hjdSyP63HxOYxs5saxfdJ/vijSqjfa/yVPgxO2InKF0l8rpsDOVMsLWGDFLI3+Ax97/LOg==
+      integrity: sha512-E/eQX4Ktj7nKwNDsTfCezBNCu73FtPWJfQcpKohfl0jct/ucMUO+7uhL2MhGsZr4SCfojk7OzccAznuntB564w==
   /discord-giveaways/4.5.1:
     dependencies:
       deepmerge: 4.2.2
@@ -1618,7 +1618,7 @@ specifiers:
   canvas: ^2.8.0
   chalk: ^4.1.1
   common-tags: ^1.8.0
-  discord-buttons: ^3.2.1
+  discord-buttons: ^4.0.0
   discord-giveaways: ^4.5.1
   discord.js: ^12.5.3
   express: ^4.17.1

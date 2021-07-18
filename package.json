@@ -16,7 +16,7 @@
     "moment": "^2.29.1",
     "moment-duration-format": "^2.3.2",
     "chalk": "^4.1.1",
-    "discord-buttons": "^3.2.1",
+    "discord-buttons": "^4.0.0",
     "common-tags": "^1.8.0",
     "js-beautify": "^1.14.0",
     "beautify": "^0.0.8",
