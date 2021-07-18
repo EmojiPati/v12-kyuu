@@ -1,13 +1,14 @@
-const discord = require('discord.js'); //Define the discord.js module
-const client = new discord.Client(); //Creating discord.js client (constructor)
-require('discord-buttons')(client);
-exports.run = async (message, client) => {
+const discord = require('discord.js');
+const disbut = require('discord-buttons');
+
+exports.run = async (client, message, args) => {
+const disbut = require("discord-buttons");
   let button = new disbut.MessageButton()
-  .setLabel("This is a button!")
-  .setID("myid")
+  .setLabel("Süleyman ile Demir'in süper müper butonu")
+  .setID("denemebuton")
   .setStyle("blurple");
 
-message.channel.send("Message with a button!", button);}
+message.channel.send("Butonlu muhtişim bir mesaj", button);}
 
 
 exports.conf = {

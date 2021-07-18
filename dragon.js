@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client({ disableMentions: 'everyone' });
+require('discord-buttons')(client);
 const ayarlar = require('./ayarlar.json');
 const fs = require('fs');
 const db = require('quick.db')
