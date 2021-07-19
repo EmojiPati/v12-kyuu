@@ -11,7 +11,7 @@ exports.run = async(client, message, args) => {
   let mutel = await db.fetch(`isimkadınRol.${message.guild.id}`);
   let yetkili = await db.fetch(`isimyetkiliRol.${message.guild.id}`);
   let kayitsiz = await db.fetch(`isimkayıtsızRol.${message.guild.id}`);
-
+  let logkanal = await db.fetch(`kayıtlog_${message.guild.id}`)
   if (!yetkili) return
   if (!mutel) return
   if(!message.member.roles.cache.has(yetkili)) {
@@ -88,7 +88,7 @@ exports.run = async(client, message, args) => {
   .setColor("0x36393E")
     .setFooter(`Komutu kullanan yetkili : ${message.author.username} - Dragon Bot`)  
   .setThumbnail(client.user.avatarURL()())
-  message.channel.send(embed22)
+  logkanal.send(embed22)
   message.guild.members.cache.get(kisi.id).setNickname(`${isim} ${yaş}`)
     kisi.roles.add(mutel).then(y => y.roles.remove(kayitsiz))
 

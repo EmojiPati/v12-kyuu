@@ -13,7 +13,7 @@ exports.run = async(client, message, args) => {
   let mutel = await db.fetch(`isimerkekRol.${message.guild.id}`);
   let yetkili = await db.fetch(`isimyetkiliRol.${message.guild.id}`);
   let kayitsiz = await db.fetch(`isimkayıtsızRol.${message.guild.id}`);
-  let modlog = await db.fetch(`isimkayıtlog.${message.guild.id}`);
+  let logkanal = await db.fetch(`kayıtlog_${message.guild.id}`)
 //EMİRHAN SARAÇ
 
   if (!yetkili) return
@@ -97,7 +97,7 @@ exports.run = async(client, message, args) => {
   `)
     .setFooter(`Komutu kullanan yetkili : ${message.author.username} - Dragon Bot`)  
   .setThumbnail(client.user.avatarURL())
-  message.channel.send(embed22)
+  logkanal.send(embed22)
   message.guild.members.cache.get(kisi.id).setNickname(`${isim} ${yaş}`)
     kisi.roles.add(mutel).then(y => y.roles.remove(kayitsiz))
 
