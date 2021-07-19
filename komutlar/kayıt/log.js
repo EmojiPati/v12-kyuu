@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
 const db = require('quick.db')
-
+const { attention, igne, no, yes2, user, mention } = require('../../emoji.json')
 exports.run = async (client, message, args) => { 
 
   if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`<:blurplecross:857907152760078387>  **Bu komutu kullanabilmek için** "\`Yönetici\`" **yetkisine sahip olmalısın.**`);

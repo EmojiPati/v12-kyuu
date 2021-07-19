@@ -2,12 +2,13 @@ const Discord = require('discord.js');
 const db = require('quick.db');
 //EMİRHAN SARAÇ
 
+const { attention, igne, no, yes2, user, mention } = require('../../emoji.json')
 
 exports.run = async (client, message, params, args) => {
    	          const ayarlar = require('../../ayarlar.json')
 				    let prefix = await require('quick.db').fetch(`prefix.${message.guild.id}`) || ayarlar.prefix
 
-                    if (!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('Bu komutu kullanabilmek için "Sunucuyu Yönet" Yetkisine Sahip Olmalısın!')  
+                    if (!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send(`${attention} Bu komutu kullanabilmek için "Sunucuyu Yönet" Yetkisine Sahip Olmalısın!`)  
                     let özellik = await db.fetch(`isimerkekRol.${message.guild.id}`);
                     if(!özellik) {
                        const hata = new Discord.MessageEmbed()

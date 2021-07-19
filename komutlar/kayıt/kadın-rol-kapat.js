@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const db = require('quick.db');
-
+const { attention, igne, no, yes2, user, mention } = require('../../emoji.json')
 //EMİRHAN SARAÇ
 
 exports.run = async (client, message, params, args) => {

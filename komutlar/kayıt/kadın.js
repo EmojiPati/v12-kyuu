@@ -18,19 +18,19 @@ exports.run = async(client, message, args) => {
   if(!message.member.roles.cache.has(yetkili)) {
     const hata = new Discord.MessageEmbed()
     .setAuthor('HATA', message.author.avatarURL()())
-    .setDescription(`Bu komut için yetersiz izniniz bulunuyor! Yetkili rolüne sahip olmalısınız!`) 
+    .setDescription(`${attention} Bu komut için yetersiz izniniz bulunuyor! Yetkili rolüne sahip olmalısınız!`) 
     .setColor('0x36393E')
     .setTimestamp()
     return message.channel.send(hata)
       }
 
-      if (message.channel.id != kayıtkanal) return message.reply(`Lütfen Kayıtı <#${kayıtkanal}> Kanalında Yapınız`)
+      if (message.channel.id != kayıtkanal) return message.reply(`${attention} Lütfen Kayıtı <#${kayıtkanal}> Kanalında Yapınız`)
 
     let kisi = message.mentions.members.first()
     if (!kisi) {
       const hata = new Discord.MessageEmbed()
       .setAuthor('HATA', message.author.avatarURL()())
-      .setDescription(`Lütfen bir kullanıcıyı etiketleyin!\n\n**Örnek Kullanım:** \n\`\`\`${prefix}k @kullanıcı İsim Yaş\`\`\` `) 
+      .setDescription(`${igne} Lütfen bir kullanıcıyı etiketleyin!\n\n**Örnek Kullanım:** \n\`\`\`${prefix}k @kullanıcı İsim Yaş\`\`\` `) 
       .setColor('0x36393E')
       .setTimestamp()
       return message.channel.send(hata)
@@ -40,7 +40,7 @@ exports.run = async(client, message, args) => {
     if(!isim) {
       const hata = new Discord.MessageEmbed()
       .setAuthor('HATA', message.author.avatarURL()())
-      .setDescription(`Bir isim girmelisin. Kullanıcın iki ismi varsa lütfen bir tanesini giriniz!\n\n**Örnek Kullanım:** \n\`\`\`${prefix}k @kullanıcı İsim Yaş\`\`\` `) 
+      .setDescription(`${igne} Bir isim girmelisin. Kullanıcın iki ismi varsa lütfen bir tanesini giriniz!\n\n**Örnek Kullanım:** \n\`\`\`${prefix}k @kullanıcı İsim Yaş\`\`\` `) 
       .setColor('0x36393E')
       .setTimestamp()
       return message.channel.send(hata)
@@ -48,7 +48,7 @@ exports.run = async(client, message, args) => {
     if(isim.length > 12) {
       const hata = new Discord.MessageEmbed()
       .setAuthor('HATA', message.author.avatarURL()())
-      .setDescription(`Lütfen doğru bir isim giriniz! Girdiğiniz isim çok uzun!\n\n**Örnek Kullanım:** \n\`\`\`${prefix}k @kullanıcı İsim Yaş\`\`\` `) 
+      .setDescription(`${no} Lütfen doğru bir isim giriniz! Girdiğiniz isim çok uzun!\n\n**Örnek Kullanım:** \n\`\`\`${prefix}k @kullanıcı İsim Yaş\`\`\` `) 
       .setColor('0x36393E')
       .setTimestamp()
       return message.channel.send(hata)
@@ -58,7 +58,7 @@ exports.run = async(client, message, args) => {
       
         const hata = new Discord.MessageEmbed()
         .setAuthor('HATA', message.author.avatarURL()())
-        .setDescription(`Bir yaş girmelisin!\n\n**Örnek Kullanım:** \n\`\`\`${prefix}k @kullanıcı İsim Yaş\`\`\` `) 
+        .setDescription(`${igne} Bir yaş girmelisin!\n\n**Örnek Kullanım:** \n\`\`\`${prefix}k @kullanıcı İsim Yaş\`\`\` `) 
         .setColor('0x36393E')
         .setTimestamp()
         return message.channel.send(hata)
@@ -67,7 +67,7 @@ exports.run = async(client, message, args) => {
     if(yaş.length > 2) {
       const hata = new Discord.MessageEmbed()
       .setAuthor('HATA', message.author.avatarURL()())
-      .setDescription(`Lütfen doğru bir yaş giriniz! Girdiğiniz yaş çok büyük!\n\n**Örnek Kullanım:** \n\`\`\`${prefix}k @kullanıcı İsim Yaş\`\`\` `) 
+      .setDescription(`${no} Lütfen doğru bir yaş giriniz! Girdiğiniz yaş çok büyük!\n\n**Örnek Kullanım:** \n\`\`\`${prefix}k @kullanıcı İsim Yaş\`\`\` `) 
       .setColor('0x36393E')
       .setTimestamp()
       return message.channel.send(hata)
@@ -76,7 +76,7 @@ exports.run = async(client, message, args) => {
     if (kisi.id === message.author.id) { 
       const hata = new Discord.MessageEmbed()
       .setAuthor('HATA', message.author.avatarURL()())
-      .setDescription(`Kendinizi kayıt edemezsiniz!`) 
+      .setDescription(`${no} Kendinizi kayıt edemezsiniz!`) 
       .setColor('0x36393E')
       .setTimestamp()
       return message.channel.send(hata)
@@ -84,12 +84,12 @@ exports.run = async(client, message, args) => {
  const kayıtlogkanal = message.guild.channels.cache.find(kanal => kanal.id === logkanal);    
 if (!kayıtlogkanal) return;
         const embed22 = new Discord.MessageEmbed()
-        .setTitle(`Mükemmel!`)
-  .setDescription(`**${kisi} Kullanıcısına <@&${mutel}> Rolü Verildi!**
+        .setTitle(`${yes} Mükemmel!`)
+  .setDescription(`${user} **${kisi} Kullanıcısına <@&${mutel}> Rolü Verildi!**
   \`\`\`${isim} ${yaş} Olarak Kayıt Edildin!\`\`\`
   `)
   .setColor("0x36393E")
-    .setFooter(`Komutu kullanan yetkili : ${message.author.username} - Dragon Bot`)  
+    .setFooter(`${mention} Komutu kullanan yetkili : ${message.author.username} - Dragon Bot`)  
   .setThumbnail(client.user.avatarURL())
   kayıtlogkanal.send(embed22)
   message.guild.members.cache.get(kisi.id).setNickname(`${isim} ${yaş}`)

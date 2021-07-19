@@ -96,11 +96,11 @@ exports.run = async(client, message, args) => {
  const kayıtlogkanal = message.guild.channels.cache.find(kanal => kanal.id === logkanal);    
 if (!kayıtlogkanal) return;
         const embed22 = new Discord.MessageEmbed()
-        .setTitle(`Mükemmel!`)
-  .setDescription(`**${kisi} Kullanıcısına <@&${mutel}> Rolü Verildi!**
+        .setTitle(`${yes} Mükemmel!`)
+  .setDescription(`${user} **${kisi} Kullanıcısına <@&${mutel}> Rolü Verildi!**
   \`\`\`${isim} ${yaş} Olarak Kayıt Edildin!\`\`\`
   `)
-    .setFooter(`Komutu kullanan yetkili : ${message.author.username} - Dragon Bot`)  
+    .setFooter(`${mention} Komutu kullanan yetkili : ${message.author.username} - Dragon Bot`)  
   .setThumbnail(client.user.avatarURL())
  kayıtlogkanal.send(embed22)
   message.guild.members.cache.get(kisi.id).setNickname(`${isim} | ${yaş}`)

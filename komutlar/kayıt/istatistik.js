@@ -4,9 +4,9 @@ const ayarlar = require("../../ayarlar.json")
 exports.run = async(client, message, args) => {
 				    let prefix = await require('quick.db').fetch(`prefix.${message.guild.id}`) || ayarlar.prefix
 //EMİRHAN SARAÇ
-
-  const user = message.mentions.users.first() || message.author;
-  if (!user)
+const { attention, igne, no, yes2, user, mention } = require('../../emoji.json')
+  const users = message.mentions.users.first() || message.author;
+  if (!users)
     return message.channel.send(
       new Discord.MessageEmbed()
         .setColor("0x36393E")
@@ -14,10 +14,10 @@ exports.run = async(client, message, args) => {
         .setDescription("Lütfen birisini etiketle!")
     );
 
-  let erkek = db.get(`erkekpuan_${message.guild.id}_${user.id}`);
-  let kız = db.get(`kadınpuan_${message.guild.id}_${user.id}`);
+  let erkek = db.get(`erkekpuan_${message.guild.id}_${users.id}`);
+  let kız = db.get(`kadınpuan_${message.guild.id}_${users.id}`);
 
-  message.channel.send(`${user} Adlı Kullanıcı Bu Sunucuda: \n\n**Toplam \`  ${kız || "0"}  \` Kadın Kaydetmiş!** \n**Toplam \`  ${erkek || "0"}  \`  Erkek Kaydetmiş!** `);
+  message.channel.send(`${users} Adlı Kullanıcı Bu Sunucuda: \n\n**Toplam \`  ${kız || "0"}  \` Kadın Kaydetmiş!** \n**Toplam \`  ${erkek || "0"}  \`  Erkek Kaydetmiş!** `);
 };//EMİRHAN SARAÇ
 
 exports.conf = {

@@ -2,7 +2,7 @@ const emirhan = require('discord.js')
 const sarac = require('quick.db');
 const ayarlar = require('../../ayarlar.json')
 //EMİRHAN SARAÇ
-
+const { attention, igne, no, yes2, user, mention } = require('../../emoji.json')
 exports.run = async (client, message, args) => {
       let prefix = await require('quick.db').fetch(`prefix.${message.guild.id}`) || ayarlar.prefix
 
