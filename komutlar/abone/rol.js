@@ -4,7 +4,7 @@ const { attention, igne, no2, yes2, user, mention } = require('../../emoji.json'
 exports.run = async (client, message, args) => { 
 
   if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`${attention} **Bu komutu kullanabilmek için** "\`Yönetici\`" **yetkisine sahip olmalısın.**`);
-let logka = message.mentions.member.first();
+let logka = message.mentions.roles.first()
 let logkanal = await db.fetch(`abonerol_${message.guild.id}`)  
   if (args[0] === "sıfırla" || args[0] === "kapat") {
     if(!logkanal) return message.channel.send(`${no2} **Abone Rolü Zaten ayarlı değil**`);

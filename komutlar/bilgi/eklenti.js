@@ -13,6 +13,8 @@ const bot = new Discord.MessageEmbed()
 .addField(`> ${rocket} __Seviye Sistemi__ » \`${prefix}seviye-sistemi\` `,`➥ ***Gelişmiş Seviye Sistemi***`)
 .addField(`> ${compass} __Reaksiyon Sistemi__ » \`${prefix}reaksiyon-sistemi\` `,`➥ ***Gelişmiş React Sistemi***`)
 .addField(`> ${list} __Kayıt Sistemi__ » \`${prefix}kayıt-sistemi\` `,`➥ ***Gelişmiş Kayıt Sistemi***`)
+.addField(`> ${list} __Minecraft__ » \`${prefix}minecraft\` `,`➥ ***Gelişmiş Minecraft Sistemi***`)
+.addField(`> ${list} __Abone Sistemi__ » \`${prefix}abone-sistemi\` `,`➥ ***Gelişmiş Abone Sistemi***`)
 .addField(`» ${link} Linkler`, `[Bot Davet Linki](https://discordapp.com/oauth2/authorize?client_id=825659553370734632&scope=bot&permissions=8) **|** [Destek Sunucusu](https://discord.gg/8KmvJrdnDZ) **|** [Web Sitesi](https://discord.com/)`)//websiteniz yoksa  **|** [Web Sitesi]() yeri silebilirsiniz
 .setThumbnail(client.user.avatarURL)
 .setImage(dragon.banner)
