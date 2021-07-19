@@ -13,7 +13,7 @@ const bot = new Discord.MessageEmbed()
 .addField(`> <:blurpleintegrasyon:857907154211045387> __Yazan Kazanır__ » \`${prefix}writer-wins\` `,`➥ ***Botun verdiği kelimeyi ilk yazan kazanır.!***`)
 .addField(`» <:blurplelink:857907168430391336> Linkler`, `[Bot Davet Linki](https://discordapp.com/oauth2/authorize?client_id=825659553370734632&scope=bot&permissions=8) **|** [Destek Sunucusu](https://discord.gg/8KmvJrdnDZ) **|** [Web Sitesi](https://discord.com/)`)//websiteniz yoksa  **|** [Web Sitesi]() yeri silebilirsiniz
 .setThumbnail(client.user.avatarURL)
-.setImage(dragon.tr_banner)
+.setImage(dragon.banner)
 msg.channel.send(bot)
 };
 
