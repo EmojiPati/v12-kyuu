@@ -14,7 +14,8 @@ exports.run = async(client, message, args) => {
   let yetkili = await db.fetch(`isimyetkiliRol.${message.guild.id}`);
   let kayitsiz = await db.fetch(`isimkayıtsızRol.${message.guild.id}`);
   let logkanal = await db.fetch(`kayıtlog_${message.guild.id}`)
-   
+     let kayıtkanal = await db.fetch(`kayıtkanal_${message.guild.id}`)
+
 //EMİRHAN SARAÇ
 
   if (!yetkili) return
@@ -28,6 +29,8 @@ exports.run = async(client, message, args) => {
     return message.channel.send(hata)
       }
 //EMİRHAN SARAÇ
+      if (message.channel.id != kayıtkanal) return message.reply(`Lütfen Kayıtı <#${kayıtkanal}> Kanalında Yapınız`)
+
 
     let kisi = message.mentions.members.first()
     if (!kisi) {
