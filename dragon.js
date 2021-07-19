@@ -99,11 +99,27 @@ client.unload = command => {
 client.login(process.env.TOKEN);
 
 //-----------------------KOMUTLAR-----------------------\\
-const {  }
+const { online, dnd, idle, streaming, offline } = require('./emoji.json')
 client.on('message', async message => {
   ayarlar.prefix
   if(client.user.setStatus === "idle") {
-    return message.replace(`Bot Boşta`)
+    return message.replace(`${idle} Bot Boşta`)
+  }
+
+  if(client.user.setStatus === "online") {
+    return message.replace(`${online} Bot Online`)
+  }
+
+  if(client.user.setStatus === "dnd") {
+    return message.replace(`${dnd} Bot Rahatsız Etmeyin Modunda`)
+  }
+
+  if(client.user.setStatus === "streaming") {
+    return message.replace(`${streaming} Bot Yayıncı Modunda`)
+  }
+
+  if(client.user.setStatus === "offline") {
+    return message.replace(`${offline} Bot Kapalı`)
   }
 })
 
