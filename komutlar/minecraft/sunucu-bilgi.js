@@ -22,8 +22,8 @@ exports.run = async (client, message, args) => {//hamzamertakbaba#3361
             .addField(`${squid} Ping`, Data.ping, true)
             .addField(`${dragon} Oyuncu Sayısı`, `${Data.players}/${Data.max_players}`, true)
             .addField(`${bee} Versiyon`, Data.version, true)
-            .setImage(`http://status.mclive.eu/Dragon Bot/${args[0]}/25565/banner.png`)
-            .setFooter(" \`${saat}\ DragonBot 2021.");
+            .setImage(`http://status.mclive.eu/DragonBot/${args[0]}/25565/banner.png`)
+            .setFooter("DragonBot 2021.");
         message.channel.send(embed)
     }
 
