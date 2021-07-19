@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const Database = require("../Helpers/Database");
+const Database = require("../../Helpers/Database");
 const vt = new Database("Database", "Voice");
 const mdb = new Database("Database", "Message");
 const moment = require("moment");
@@ -35,8 +35,8 @@ exports.run = async (client, message, args) => {
     messageList = messageList.length > 10 ? messageList.splice(0, 10) : messageList;
     messageList = messageList.map((md, index)=> `\`${index + 1}.\` ${client.channels.cache.has(md.Id) ? client.channels.cache.get(md.Id).toString() : "#deleted-channel"}: \`${md.Total} message\``).join("\n║");
     let embed = new Discord.MessageEmbed();
-      embed.setColor('RANDOM')
-    .setFooter('Lrows')
+      embed.setColor('0x36393E')
+    .setFooter('DragonBot')
     .setThumbnail(message.author.avatarURL({dynamic: true}))
     .addField("Kullanıcı Bilgileri;",` 
     ╔═══════════◥◣❖◢◤════════════╗
@@ -66,14 +66,12 @@ exports.run = async (client, message, args) => {
 };
 
 exports.conf = {
-    commands: ["ben"],
-    enabled: true,
-    guildOnly: true
-};
+  enabled: true,
+  guildOnly: true,
+  aliases: ["me"],
+  permLevel: 0
+}
 
-exports.help = { 
-    name: 'ben', 
-    description: 'Provides information about your statistics on the server.',
-    usage: '[p]me',
-    kategori: 'User'
+exports.help = {
+  name: 'ben'
 };
