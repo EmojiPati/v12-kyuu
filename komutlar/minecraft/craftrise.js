@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const fetch = require("node-fetch");
-
+const { no, list, link } = require('../../emoji.json')
 exports.run = async (client, message, args) => {
   var kullaniciadi = args.slice(0).join(' ')
 
@@ -22,7 +22,7 @@ exports.run = async (client, message, args) => {
       return response.json().then(data => {
         if (data.status == "404") {
           const usernameerr = new Discord.MessageEmbed()
-            .setDescription('Bu kullanıcı adı ile bir hesap yok. Geçerli bir isim girmeyi deneyin!')
+            .setDescription(`${no} Bu kullanıcı adı ile bir hesap yok. Geçerli bir isim girmeyi deneyin!`)
           message.channel.stopTyping();
           return message.channel.send(usernameerr)
         }
