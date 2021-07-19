@@ -27,14 +27,14 @@ exports.run = async (client, message, args) => {
   if (!message.guild.roles.cache.get(newRole)) {
     const hata = new emirhan.MessageEmbed()
     .setAuthor('HATA', message.author.avatarURL())
-    .setDescription(`Etiketlediğiniz rol bulunamadı, etiketlediğiniz rolün etiketlenebilirliğinin aktif olduğundan emin olunuz- Gnarge 2020`) 
+    .setDescription(`Etiketlediğiniz rol bulunamadı, etiketlediğiniz rolün etiketlenebilirliğinin aktif olduğundan emin olunuz`) 
     .setColor('0x36393E')
     .setTimestamp()
     return message.channel.send(hata)
       } 
 const embed = new emirhan.MessageEmbed()
 .setAuthor(`Başarılı!`, message.author.avatarURL())
-.setDescription(`İsim kayıt sistemin de kullanılacak olan **yetkili** rolü <@&${newRole}> olarak seçildi! - Gnarge 2020`)
+.setDescription(`İsim kayıt sistemin de kullanılacak olan **yetkili** rolü <@&${newRole}> olarak seçildi!`)
 .setTimestamp()
 .setColor("0x36393E")
 //EMİRHAN SARAÇ

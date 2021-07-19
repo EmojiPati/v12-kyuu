@@ -97,7 +97,7 @@ exports.run = async(client, message, args) => {
   `)
     .setFooter(`Komutu kullanan yetkili : ${message.author.username} - Dragon Bot`)  
   .setThumbnail(client.user.avatarURL())
-  logkanal.send(embed22)
+  message.channel.send(embed22)
   message.guild.members.cache.get(kisi.id).setNickname(`${isim} ${yaş}`)
     kisi.roles.add(mutel).then(y => y.roles.remove(kayitsiz))
 
