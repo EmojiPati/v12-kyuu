@@ -6,7 +6,7 @@ const prefix = dragon.prefix
 exports.run = async (client, msg, args) => { 
     
 const bot = new Discord.MessageEmbed()
-.setAuthor(`${client.user.username} Eklenti Menüsü`,client.user.avatarURL())
+.setAuthor(`${client.user.username} Abone Menüsü`,client.user.avatarURL())
 .setColor('0x36393E')
 .setDescription(`${hypesquad} Dragon botumuzu eklemek için \`${prefix}davet\` yazabilirsiniz.`)
 .addField(`> ${yt} __Abone__ » \`${prefix}abone\` `,`➥ ***Gerekli Şartları Karşılayana Abone Rolü Verir***`)
@@ -22,10 +22,10 @@ const bot = new Discord.MessageEmbed()
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: ["addons"],
+  aliases: ["abonesistemi"],
   permLevel: 0
 }
 
 exports.help = {
-  name: 'eklenti'
+  name: 'abone-sistemi'
 };

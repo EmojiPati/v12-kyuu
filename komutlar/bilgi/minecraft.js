@@ -6,7 +6,7 @@ const prefix = dragon.prefix
 exports.run = async (client, msg, args) => { 
 
 const bot = new Discord.MessageEmbed()    
-.setAuthor(`${client.user.username} Oyun Menüsü`,client.user.avatarURL())
+.setAuthor(`${client.user.username} Minecraft Menüsü`,client.user.avatarURL())
 .setColor('#00AA00')
 .setDescription(`${borazan} Dragon botumuzu eklemek için \`${prefix}davet\` yazabilirsiniz.`)
 .addField(`> ${cimen} __Craftrise İstatistik__ » \`${prefix}craftrise\` `,`➥ ***Belirtilen Kullanıcının Craftrise daki İstatistiğini Gösterir***`)

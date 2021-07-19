@@ -5,7 +5,7 @@ const prefix = dragon.prefix
 exports.run = async (client, msg, args) => { 
     
 const bot = new Discord.MessageEmbed()
-.setAuthor(`${client.user.username} Level Menüsü`,client.user.avatarURL())
+.setAuthor(`${client.user.username} Çekiliş Menüsü`,client.user.avatarURL())
 .setColor('0x36393E')
 .setDescription(`<:blurplehypesquad:857920353179009044> Dragon botumuzu eklemek için \`${prefix}davet\` yazabilirsiniz.`)
 .addField(`> <:blurpletada:859401334523559956> __Çekiliş Başlat__ » \`${prefix}çekiliş-başlat\` `,`➥ ***Manuel olarak bir çekiliş başlatır.***`)
