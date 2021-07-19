@@ -32,5 +32,10 @@
     "portal": "<a:portal:866681890035073044>",
     "silverfish": "<a:silverfish:866681860170842133>",
     "yt": "<:youtube:866718033262149702>",
-    "stats": "<:blurplestats:857922916942086154>"
+    "stats": "<:blurplestats:857922916942086154>",
+    "idle": "<:idle:823144200131444766>",
+    "dnd": "<:dnd:823144309120958485>",
+    "online": "<:online:823144122239156266>",
+    "streaming": "<:streaming:823144266083467284>",
+    "offline": "<:offline:823144977785815041>"
 }

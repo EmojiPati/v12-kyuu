@@ -99,7 +99,13 @@ client.unload = command => {
 client.login(process.env.TOKEN);
 
 //-----------------------KOMUTLAR-----------------------\\
-
+const {  }
+client.on('message', async message => {
+  ayarlar.prefix
+  if(client.user.setStatus === "idle") {
+    return message.replace(`Bot Boşta`)
+  }
+})
 
 //////////////////////////////
 client.on('message', async msg => {
