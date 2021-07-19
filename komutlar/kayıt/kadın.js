@@ -79,7 +79,8 @@ exports.run = async(client, message, args) => {
       .setTimestamp()
       return message.channel.send(hata)
         }
-
+ const kayıtlogkanal = message.guild.channels.cache.find(kanal => kanal.id === logkanal);    
+if (!kayıtlogkanal) return;
         const embed22 = new Discord.MessageEmbed()
         .setTitle(`Mükemmel!`)
   .setDescription(`**${kisi} Kullanıcısına <@&${mutel}> Rolü Verildi!**
@@ -87,8 +88,8 @@ exports.run = async(client, message, args) => {
   `)
   .setColor("0x36393E")
     .setFooter(`Komutu kullanan yetkili : ${message.author.username} - Dragon Bot`)  
-  .setThumbnail(client.user.avatarURL()())
-  logkanal.send(embed22)
+  .setThumbnail(client.user.avatarURL())
+  kayıtlogkanal.send(embed22)
   message.guild.members.cache.get(kisi.id).setNickname(`${isim} ${yaş}`)
     kisi.roles.add(mutel).then(y => y.roles.remove(kayitsiz))
 
