@@ -3,7 +3,7 @@ const db = require('quick.db')
 const ms = require("ms");
 //EMİRHAN SARAÇ
 
-
+const { attention, igne, no, yes, user, mention } = require('../../emoji.json')
 exports.run = async(client, message, args) => {
               const ayarlar = require('../../ayarlar.json')
 				    let prefix = await require('quick.db').fetch(`prefix.${message.guild.id}`) || ayarlar.prefix
@@ -19,7 +19,7 @@ exports.run = async(client, message, args) => {
     const hata = new Discord.MessageEmbed()
     .setAuthor('HATA', message.author.avatarURL()())
     .setDescription(`Bu komut için yetersiz izniniz bulunuyor! Yetkili rolüne sahip olmalısınız!`) 
-    .setColor('0x36393E0x36393E')
+    .setColor('0x36393E')
     .setTimestamp()
     return message.channel.send(hata)
       }

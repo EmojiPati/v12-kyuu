@@ -3,7 +3,7 @@ const db = require('quick.db')
 const ms = require("ms");
 //EMİRHAN SARAÇ
 
-
+const { attention, igne, no, yes, user, mention } = require('../../emoji.json')
 exports.run = async(client, message, args) => {
               const ayarlar = require('../../ayarlar.json')
 				    let prefix = await require('quick.db').fetch(`prefix.${message.guild.id}`) || ayarlar.prefix
@@ -23,20 +23,20 @@ exports.run = async(client, message, args) => {
   if(!message.member.roles.cache.has(yetkili)) {
     const hata = new Discord.MessageEmbed()
     .setAuthor('HATA', message.author.avatarURL())
-    .setDescription(`Bu komut için yetersiz izniniz bulunuyor! Yetkili rolüne sahip olmalısınız!`) 
+    .setDescription(`${attention} Bu komut için yetersiz izniniz bulunuyor! Yetkili rolüne sahip olmalısınız!`) 
     .setColor('0x36393E')
     .setTimestamp()
     return message.channel.send(hata)
       }
 //EMİRHAN SARAÇ
-      if (message.channel.id != kayıtkanal) return message.reply(`Lütfen Kayıtı <#${kayıtkanal}> Kanalında Yapınız`)
+      if (message.channel.id != kayıtkanal) return message.reply(`${attention} Lütfen Kayıtı <#${kayıtkanal}> Kanalında Yapınız`)
 
 
     let kisi = message.mentions.members.first()
     if (!kisi) {
       const hata = new Discord.MessageEmbed()
       .setAuthor('HATA', message.author.avatarURL())
-      .setDescription(`Lütfen bir kullanıcıyı etiketleyin!\n\n**Örnek Kullanım:** \n\`\`\`${prefix}e @kullanıcı İsim Yaş\`\`\` `) 
+      .setDescription(`${igne} Lütfen bir kullanıcıyı etiketleyin!\n\n**Örnek Kullanım:** \n\`\`\`${prefix}e @kullanıcı İsim Yaş\`\`\` `) 
       .setColor('0x36393E')
       .setTimestamp()
       return message.channel.send(hata)
@@ -47,7 +47,7 @@ exports.run = async(client, message, args) => {
     if(!isim){
       const hata = new Discord.MessageEmbed()
       .setAuthor('HATA', message.author.avatarURL())
-      .setDescription(`Bir isim girmelisin. Kullanıcın iki ismi varsa lütfen bir tanesini giriniz!\n\n**Örnek Kullanım:** \n\`\`\`${prefix}e @kullanıcı İsim Yaş\`\`\` `) 
+      .setDescription(`${igne} Bir isim girmelisin. Kullanıcın iki ismi varsa lütfen bir tanesini giriniz!\n\n**Örnek Kullanım:** \n\`\`\`${prefix}e @kullanıcı İsim Yaş\`\`\` `) 
       .setColor('0x36393E')
       .setTimestamp()
       return message.channel.send(hata)
@@ -55,7 +55,7 @@ exports.run = async(client, message, args) => {
     if(isim.length > 12) {
       const hata = new Discord.MessageEmbed()
       .setAuthor('HATA', message.author.avatarURL())
-      .setDescription(`Lütfen doğru bir isim giriniz! Girdiğiniz isim çok uzun!\n\n**Örnek Kullanım:** \n\`\`\`${prefix}e @kullanıcı İsim Yaş\`\`\` `) 
+      .setDescription(`${no} Lütfen doğru bir isim giriniz! Girdiğiniz isim çok uzun!\n\n**Örnek Kullanım:** \n\`\`\`${prefix}e @kullanıcı İsim Yaş\`\`\` `) 
       .setColor('0x36393E')
       .setTimestamp()
       return message.channel.send(hata)
@@ -66,7 +66,7 @@ exports.run = async(client, message, args) => {
 
       const hata = new Discord.MessageEmbed()
       .setAuthor('HATA', message.author.avatarURL())
-      .setDescription(`Bir yaş girmelisin!\n\n**Örnek Kullanım:** \n\`\`\`${prefix}e @kullanıcı İsim Yaş\`\`\` `) 
+      .setDescription(`${igne} Bir yaş girmelisin!\n\n**Örnek Kullanım:** \n\`\`\`${prefix}e @kullanıcı İsim Yaş\`\`\` `) 
       .setColor('0x36393E')
       .setTimestamp()
       return message.channel.send(hata)
@@ -75,7 +75,7 @@ exports.run = async(client, message, args) => {
     if(yaş.length > 2) {
       const hata = new Discord.MessageEmbed()
       .setAuthor('HATA', message.author.avatarURL())
-      .setDescription(`Lütfen doğru bir yaş giriniz! Girdiğiniz yaş çok büyük!\n\n**Örnek Kullanım:** \n\`\`\`${prefix}e @kullanıcı İsim Yaş\`\`\` `) 
+      .setDescription(`${no} Lütfen doğru bir yaş giriniz! Girdiğiniz yaş çok büyük!\n\n**Örnek Kullanım:** \n\`\`\`${prefix}e @kullanıcı İsim Yaş\`\`\` `) 
       .setColor('0x36393E')
       .setTimestamp()
       return message.channel.send(hata)
@@ -85,7 +85,7 @@ exports.run = async(client, message, args) => {
     if (kisi.id === message.author.id) { 
       const hata = new Discord.MessageEmbed()
       .setAuthor('HATA', message.author.avatarURL())
-      .setDescription(`Kendinizi kayıt edemezsiniz!`) 
+      .setDescription(`${no} Kendinizi kayıt edemezsiniz!`) 
       .setColor('0x36393E')
       .setTimestamp()
       return message.channel.send(hata)
