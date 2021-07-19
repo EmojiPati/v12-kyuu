@@ -1,12 +1,12 @@
 const emirhan = require('discord.js')
 const sarac = require('quick.db');
 const ayarlar = require('../../ayarlar.json')
-const { attention, igne, no, yes2, user, mention } = require('../../emoji.json')
+const { attention, igne, no2, yes2, user, mention } = require('../../emoji.json')
 exports.run = async (client, message, args) => {
       let prefix = await require('quick.db').fetch(`prefix.${message.guild.id}`) || ayarlar.prefix
 //EMİRHAN SARAÇ
 
-    if (!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send(`Bu komutu kullanabilmek için \`Sunucuyu Yönet\` Yetkisine Sahip Olmalısın!`)  
+    if (!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send(`${attention} Bu komutu kullanabilmek için \`Sunucuyu Yönet\` Yetkisine Sahip Olmalısın!`)  
 
    let rol = message.mentions.roles.first() || message.guild.roles.cache.get(args.join(' '))
   let newRole;
@@ -14,7 +14,7 @@ exports.run = async (client, message, args) => {
   if (!rol){
     const hata = new emirhan.MessageEmbed()
     .setAuthor('HATA', message.author.avatarURL())
-    .setDescription(`Rol belirtmeniz gerekiyor! \n\n**Örnek Kullanım:** \n\`\`\`${prefix}isim-yetkili-role @roletiket\`\`\``) 
+    .setDescription(`${igne} Rol belirtmeniz gerekiyor! \n\n**Örnek Kullanım:** \n\`\`\`${prefix}kayıt-yetkili-role @roletiket\`\`\``) 
     .setColor('0x36393E')
     .setTimestamp()
     return message.channel.send(hata)
@@ -27,14 +27,14 @@ exports.run = async (client, message, args) => {
   if (!message.guild.roles.cache.get(newRole)) {
     const hata = new emirhan.MessageEmbed()
     .setAuthor('HATA', message.author.avatarURL())
-    .setDescription(`Etiketlediğiniz rol bulunamadı, etiketlediğiniz rolün etiketlenebilirliğinin aktif olduğundan emin olunuz`) 
+    .setDescription(`${no2} Etiketlediğiniz rol bulunamadı, etiketlediğiniz rolün etiketlenebilirliğinin aktif olduğundan emin olunuz`) 
     .setColor('0x36393E')
     .setTimestamp()
     return message.channel.send(hata)
       } 
 const embed = new emirhan.MessageEmbed()
 .setAuthor(`Başarılı!`, message.author.avatarURL())
-.setDescription(`İsim kayıt sistemin de kullanılacak olan **yetkili** rolü <@&${newRole}> olarak seçildi!`)
+.setDescription(`${yes2} İsim kayıt sistemin de kullanılacak olan **yetkili** rolü <@&${newRole}> olarak seçildi!`)
 .setTimestamp()
 .setColor("0x36393E")
 //EMİRHAN SARAÇ
