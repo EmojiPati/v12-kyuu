@@ -30,7 +30,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'mcbaşarım',
+  name: 'mc-başarım',
   description: 'Minecraft başarımı gönderir.',
   usage: 'başarım Title|Text (/achievement Achievement Get|Used a Command!)'
 };
