@@ -11,7 +11,7 @@ exports.run = (client, message, args) => {
  } else {
  const mcbody = new Discord.MessageEmbed()
    .setColor('#00AA00')
-   .setTitle(` Oyuncu: ` + mesaj)
+   .setTitle(`${jeb} Oyuncu: ` + mesaj)
    .setImage(body)
  message.channel.send(mcbody);
  }
