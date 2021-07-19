@@ -3,7 +3,7 @@ const db = require('quick.db');
 
 
 exports.run = async (client, message, params, args) => {
-   	          const ayarlar = require('../ayarlar.json')
+   	          const ayarlar = require('../../ayarlar.json')
 				    let prefix = await require('quick.db').fetch(`prefix.${message.guild.id}`) || ayarlar.prefix
 
                     if (!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('Bu komutu kullanabilmek için "Sunucuyu Yönet" Yetkisine Sahip Olmalısın!')  
@@ -18,7 +18,7 @@ exports.run = async (client, message, params, args) => {
     .setAuthor(`Başarılı!`, message.author.avatarURL())
     .setDescription(`Tüm ayarlar kapatıldı!`)
     .setTimestamp()
-    .setColor("GREEN")
+    .setColor("0x36393E")
     //EMİRHAN SARAÇ
 
      return message.channel.send(embed)
@@ -33,7 +33,7 @@ exports.conf = {
 };
 
 exports.help = {
- name: 'isim-kayıt-kapat',
+ name: 'kayıt-kapat',
  description: 'Sayaçı kapatırsınız.',
  usage: 'sayaç'
 };

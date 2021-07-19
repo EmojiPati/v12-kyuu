@@ -3,7 +3,7 @@ const sarac = require('quick.db')
 
 
 exports.run = async(client, message, args) => {
-          const ayarlar = require('../ayarlar.json')
+          const ayarlar = require('../../ayarlar.json')
 				    let prefix = await require('quick.db').fetch(`prefix.${message.guild.id}`) || ayarlar.prefix
             if (!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('Bu komutu kullanabilmek için "Sunucuyu Yönet" Yetkisine Sahip Olmalısın!')  
 
@@ -13,7 +13,7 @@ exports.run = async(client, message, args) => {
     const hata = new emirhan.MessageEmbed()
     .setAuthor('HATA', message.author.avatarURL())
     .setDescription(`Rol belirtmeniz gerekiyor! \n\n**Örnek Kullanım:** \n\`\`\`${prefix}isim-kadın-role @roletiket\`\`\``) 
-    .setColor('RED')
+    .setColor('0x36393E')
     .setTimestamp()
     return message.channel.send(hata)
       
@@ -24,7 +24,7 @@ exports.run = async(client, message, args) => {
   .setAuthor(`Başarılı!`, message.author.avatarURL())
   .setDescription(`İsim kayıt sisteminde kullanılacak olan **kadın** rolü: <@&${rol.id}> olarak seçildi!`)
   .setTimestamp()
-  .setColor("GREEN")
+  .setColor("0x36393E")
   
    return message.channel.send(embed)
   
@@ -33,12 +33,12 @@ exports.run = async(client, message, args) => {
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['isim-kadın-rol','isimkadınrole','isimkadınrol'],
+  aliases: ['kayıt-kadın-rol'],
   permLevel: 0
 };
 
 exports.help = {
-  name: 'isim-kadın-role',
+  name: 'kayıt-kadın-role',
   description: 'Kişi susturulunca verilecek rolü ayarlarsınız.',
   usage: 'mute-rol',
 };//EMİRHAN SARAÇ

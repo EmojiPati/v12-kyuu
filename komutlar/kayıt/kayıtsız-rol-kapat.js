@@ -3,7 +3,7 @@ const db = require('quick.db');
 
 
 exports.run = async (client, message, params, args) => {
-   	          const ayarlar = require('../ayarlar.json')
+   	          const ayarlar = require('../../ayarlar.json')
 				    let prefix = await require('quick.db').fetch(`prefix.${message.guild.id}`) || ayarlar.prefix
 
                     if (!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('Bu komutu kullanabilmek için "Sunucuyu Yönet" Yetkisine Sahip Olmalısın!')  
@@ -13,7 +13,7 @@ exports.run = async (client, message, params, args) => {
           //EMİRHAN SARAÇ
              .setAuthor('HATA', message.author.avatarURL())
                        .setDescription(`Kayıtsız rolü zaten ayarlanmamış bu yüzden kapatamazsın!`) 
-                       .setColor('RED')
+                       .setColor('0x36393E')
                        .setTimestamp()
                        return message.channel.send(hata)
                          }
@@ -24,7 +24,7 @@ exports.run = async (client, message, params, args) => {
     .setAuthor(`Başarılı!`, message.author.avatarURL())
     .setDescription(`Kayıtsız rolü başarıyla verilerden silindi!`)
     .setTimestamp()
-    .setColor("GREEN")
+    .setColor("0x36393E")
     //EMİRHAN SARAÇ
 
      return message.channel.send(embed)
@@ -34,12 +34,12 @@ exports.run = async (client, message, params, args) => {
 
 exports.conf = {
   kategori: 'ayarlar',
- aliases: [],
+ aliases: ['kayıt-kayıtsız-rol-kapat'],
  permLevel: 0
 };
 
 exports.help = {
- name: 'isim-kayıtsız-role-kapat',
+ name: 'kayıt-kayıtsız-role-kapat',
  description: 'Sayaçı kapatırsınız.',
  usage: 'sayaç'
 };

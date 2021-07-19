@@ -15,7 +15,7 @@ exports.run = async (client, message, args) => {
     const hata = new emirhan.MessageEmbed()
     .setAuthor('HATA', message.author.avatarURL())
     .setDescription(`Rol belirtmeniz gerekiyor! \n\n**Örnek Kullanım:** \n\`\`\`${prefix}isim-kayıtsız-role @roletiket\`\`\``) 
-    .setColor('RED')
+    .setColor('0x36393E')
     .setTimestamp()
     return message.channel.send(hata)
       }//EMİRHAN SARAÇ
@@ -28,7 +28,7 @@ exports.run = async (client, message, args) => {
     const hata = new emirhan.MessageEmbed()
     .setAuthor('HATA', message.author.avatarURL())
     .setDescription(`Etiketlediğiniz rol bulunamadı, etiketlediğiniz rolün etiketlenebilirliğinin aktif olduğundan emin olunuz`) 
-    .setColor('RED')
+    .setColor('0x36393E')
     .setTimestamp()
     return message.channel.send(hata)
       } //EMİRHAN SARAÇ
@@ -37,7 +37,7 @@ const embed = new emirhan.MessageEmbed()
 .setAuthor(`Başarılı!`, message.author.avatarURL())
 .setDescription(`İsim kayıt sisteminde kullanılacak olan **kayıtsız** rolü: <@&${newRole}> olarak seçildi!`)
 .setTimestamp()
-.setColor("GREEN")
+.setColor("0x36393E")
 
  return message.channel.send(embed)
 //EMİRHAN SARAÇ
@@ -49,12 +49,12 @@ const embed = new emirhan.MessageEmbed()
 exports.conf = {
     enabled: true,
     guildOnly: true,
-    aliases: ['isimkayıtsız','isimkayıtsızrole','isimkayıtsızrol','isim-kayıtsız-rol'],
+    aliases: ['kayıt-kayıtsız-rol'],
     permLevel: 0
 }
 
 exports.help = {
-    name: 'isim-kayıtsız-role',
+    name: 'kayıt-kayıtsız-role',
     description: 'Sunucuya giren kullanıcıya seçtiğiniz rolü otomatik verir.',
     usage: 'teyit-kayıtsız-rol'
 }

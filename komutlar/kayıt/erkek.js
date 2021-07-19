@@ -5,7 +5,7 @@ const ms = require("ms");
 
 
 exports.run = async(client, message, args) => {
-              const ayarlar = require('../ayarlar.json')
+              const ayarlar = require('../../ayarlar.json')
 				    let prefix = await require('quick.db').fetch(`prefix.${message.guild.id}`) || ayarlar.prefix
 //EMİRHAN SARAÇ
 //EMİRHAN SARAÇ
@@ -22,7 +22,7 @@ exports.run = async(client, message, args) => {
     const hata = new Discord.MessageEmbed()
     .setAuthor('HATA', message.author.avatarURL())
     .setDescription(`Bu komut için yetersiz izniniz bulunuyor! Yetkili rolüne sahip olmalısınız!`) 
-    .setColor('RED')
+    .setColor('0x36393E')
     .setTimestamp()
     return message.channel.send(hata)
       }
@@ -33,7 +33,7 @@ exports.run = async(client, message, args) => {
       const hata = new Discord.MessageEmbed()
       .setAuthor('HATA', message.author.avatarURL())
       .setDescription(`Lütfen bir kullanıcıyı etiketleyin!\n\n**Örnek Kullanım:** \n\`\`\`${prefix}e @kullanıcı İsim Yaş\`\`\` `) 
-      .setColor('RED')
+      .setColor('0x36393E')
       .setTimestamp()
       return message.channel.send(hata)
         }
@@ -44,7 +44,7 @@ exports.run = async(client, message, args) => {
       const hata = new Discord.MessageEmbed()
       .setAuthor('HATA', message.author.avatarURL())
       .setDescription(`Bir isim girmelisin. Kullanıcın iki ismi varsa lütfen bir tanesini giriniz!\n\n**Örnek Kullanım:** \n\`\`\`${prefix}e @kullanıcı İsim Yaş\`\`\` `) 
-      .setColor('RED')
+      .setColor('0x36393E')
       .setTimestamp()
       return message.channel.send(hata)
         }
@@ -52,7 +52,7 @@ exports.run = async(client, message, args) => {
       const hata = new Discord.MessageEmbed()
       .setAuthor('HATA', message.author.avatarURL())
       .setDescription(`Lütfen doğru bir isim giriniz! Girdiğiniz isim çok uzun!\n\n**Örnek Kullanım:** \n\`\`\`${prefix}e @kullanıcı İsim Yaş\`\`\` `) 
-      .setColor('RED')
+      .setColor('0x36393E')
       .setTimestamp()
       return message.channel.send(hata)
         }
@@ -63,7 +63,7 @@ exports.run = async(client, message, args) => {
       const hata = new Discord.MessageEmbed()
       .setAuthor('HATA', message.author.avatarURL())
       .setDescription(`Bir yaş girmelisin!\n\n**Örnek Kullanım:** \n\`\`\`${prefix}e @kullanıcı İsim Yaş\`\`\` `) 
-      .setColor('RED')
+      .setColor('0x36393E')
       .setTimestamp()
       return message.channel.send(hata)
         
@@ -72,7 +72,7 @@ exports.run = async(client, message, args) => {
       const hata = new Discord.MessageEmbed()
       .setAuthor('HATA', message.author.avatarURL())
       .setDescription(`Lütfen doğru bir yaş giriniz! Girdiğiniz yaş çok büyük!\n\n**Örnek Kullanım:** \n\`\`\`${prefix}e @kullanıcı İsim Yaş\`\`\` `) 
-      .setColor('RED')
+      .setColor('0x36393E')
       .setTimestamp()
       return message.channel.send(hata)
         }
@@ -82,7 +82,7 @@ exports.run = async(client, message, args) => {
       const hata = new Discord.MessageEmbed()
       .setAuthor('HATA', message.author.avatarURL())
       .setDescription(`Kendinizi kayıt edemezsiniz!`) 
-      .setColor('RED')
+      .setColor('0x36393E')
       .setTimestamp()
       return message.channel.send(hata)
         }
@@ -95,7 +95,7 @@ exports.run = async(client, message, args) => {
   .setDescription(`**${kisi} Kullanıcısına <@&${mutel}> Rolü Verildi!**
   \`\`\`${isim} ${yaş} Olarak Kayıt Edildin!\`\`\`
   `)
-    .setFooter(`Komutu kullanan yetkili : ${message.author.username} - Gnarge 2020`)  
+    .setFooter(`Komutu kullanan yetkili : ${message.author.username} - Dragon Bot`)  
   .setThumbnail(client.user.avatarURL())
   message.channel.send(embed22)
   message.guild.members.cache.get(kisi.id).setNickname(`${isim} ${yaş}`)
@@ -112,12 +112,12 @@ exports.run = async(client, message, args) => {
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['e'],
+  aliases: ['e', 'kayıt-erkek'],
   permLevel: 0
 };
 
 exports.help = {
-  name: 'isim-erkek',
+  name: 'kayıt-erkek',
   description: 'Erkek rolü verirsiniz.',
   usage: 'erkek',
 };
