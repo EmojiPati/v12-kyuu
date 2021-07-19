@@ -29,7 +29,7 @@ exports.run = async (client, message, args) => {
       });
     } else {
       const finalcode = new Discord.MessageEmbed()
-        .setColor('RANDOM')
+        .setColor('#00AA00')
         .setTitle(`${kullaniciadi} İçin Bilgiler..`)
         .setImage(`https://api.rexulec.com/cr/${kullaniciadi}`)
       message.channel.send(finalcode);
@@ -45,7 +45,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'Craftrise Bilgi',
+  name: 'Craftrise-stats',
   description: 'İstediğiniz kişinin Craftrise istatisliklerini gösterir.',
   usage: 'craftrise <Kullanıcı Adı>',
 };
