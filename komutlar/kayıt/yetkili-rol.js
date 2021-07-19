@@ -6,7 +6,7 @@ exports.run = async (client, message, args) => {
       let prefix = await require('quick.db').fetch(`prefix.${message.guild.id}`) || ayarlar.prefix
 //EMİRHAN SARAÇ
 
-    if (!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('Bu komutu kullanabilmek için "Sunucuyu Yönet" Yetkisine Sahip Olmalısın!')  
+    if (!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send(`Bu komutu kullanabilmek için \`Sunucuyu Yönet\` Yetkisine Sahip Olmalısın!`)  
 
    let rol = message.mentions.roles.first() || message.guild.roles.cache.get(args.join(' '))
   let newRole;

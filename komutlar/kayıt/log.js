@@ -1,20 +1,20 @@
 const Discord = require('discord.js')
 const db = require('quick.db')
-const { attention, igne, no, yes2, user, mention } = require('../../emoji.json')
+const { attention, igne, no2, yes2, user, mention } = require('../../emoji.json')
 exports.run = async (client, message, args) => { 
 
-  if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`<:blurplecross:857907152760078387>  **Bu komutu kullanabilmek için** "\`Yönetici\`" **yetkisine sahip olmalısın.**`);
+  if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`${attention} **Bu komutu kullanabilmek için** "\`Yönetici\`" **yetkisine sahip olmalısın.**`);
 let logka = message.mentions.channels.first();
 let logkanal = await db.fetch(`kayıtlog_${message.guild.id}`)  
   if (args[0] === "sıfırla" || args[0] === "kapat") {
-    if(!logkanal) return message.channel.send(`<:blurpleigne:857930551314874408>  **Kayıt Log Kanalı Zaten ayarlı değil**`);
+    if(!logkanal) return message.channel.send(`${no2} **Kayıt Log Kanalı Zaten ayarlı değil**`);
     db.delete(`kayıtlog_${message.guild.id}`)
-   message.channel.send(`<:blurpleyes:857917858025439242>  **Kayıt Log Kanalı başarıyla sıfırlandı.**`);
+   message.channel.send(`${yes2} **Kayıt Log Kanalı başarıyla sıfırlandı.**`);
     return
   } 
-if (!logka) return message.channel.send(`<:blurpleigne:857930551314874408>  **Bir kayıt log kanalı belirtmelisin.**`);
+if (!logka) return message.channel.send(`${igne} **Bir kayıt log kanalı belirtmelisin.**`);
 db.set(`kayıtlog_${message.guild.id}`, logka.id)
-message.channel.send(`**<:blurpleyes:857917858025439242> Kayıt log kanalı başarıyla ${logka} olarak ayarlandı.**`);
+message.channel.send(`**${yes2} Kayıt log kanalı başarıyla ${logka} olarak ayarlandı.**`);
  message.react('607634966959882250')
 };
 exports.conf = {

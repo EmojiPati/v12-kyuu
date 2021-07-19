@@ -6,7 +6,7 @@ exports.run = async (client, message, params, args) => {
    	          const ayarlar = require('../../ayarlar.json')
 				    let prefix = await require('quick.db').fetch(`prefix.${message.guild.id}`) || ayarlar.prefix
 
-                    if (!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('Bu komutu kullanabilmek için "Sunucuyu Yönet" Yetkisine Sahip Olmalısın!')  
+                    if (!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send(`${attention} Bu komutu kullanabilmek için \`Sunucuyu Yönet\` Yetkisine Sahip Olmalısın!`)  
 //EMİRHAN SARAÇ
 
     db.delete(`isimerkekRol.${message.guild.id}`)
@@ -16,7 +16,7 @@ exports.run = async (client, message, params, args) => {
 
     const embed = new Discord.MessageEmbed()
     .setAuthor(`Başarılı!`, message.author.avatarURL())
-    .setDescription(`Tüm ayarlar kapatıldı!`)
+    .setDescription(`${yes2} Tüm ayarlar kapatıldı!`)
     .setTimestamp()
     .setColor("0x36393E")
     //EMİRHAN SARAÇ

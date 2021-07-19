@@ -1,18 +1,18 @@
 const Discord = require('discord.js');
 const db = require('quick.db');
-const { attention, igne, no, yes2, user, mention } = require('../../emoji.json')
+const { attention, igne, no2, yes2, user, mention } = require('../../emoji.json')
 
 exports.run = async (client, message, params, args) => {
    	          const ayarlar = require('../../ayarlar.json')
 				    let prefix = await require('quick.db').fetch(`prefix.${message.guild.id}`) || ayarlar.prefix
 
-                    if (!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('Bu komutu kullanabilmek için "Sunucuyu Yönet" Yetkisine Sahip Olmalısın!')  
+                    if (!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send(`${attention} Bu komutu kullanabilmek için \`Sunucuyu Yönet\` Yetkisine Sahip Olmalısın!`)  
                     let özellik = await db.fetch(`isimkayıtsızRol.${message.guild.id}`);
                     if(!özellik) {
                        const hata = new Discord.MessageEmbed()
           //EMİRHAN SARAÇ
              .setAuthor('HATA', message.author.avatarURL())
-                       .setDescription(`Kayıtsız rolü zaten ayarlanmamış bu yüzden kapatamazsın!`) 
+                       .setDescription(`${no2} Kayıtsız rolü zaten ayarlanmamış bu yüzden kapatamazsın!`) 
                        .setColor('0x36393E')
                        .setTimestamp()
                        return message.channel.send(hata)
@@ -22,7 +22,7 @@ exports.run = async (client, message, params, args) => {
 
     const embed = new Discord.MessageEmbed()
     .setAuthor(`Başarılı!`, message.author.avatarURL())
-    .setDescription(`Kayıtsız rolü başarıyla verilerden silindi!`)
+    .setDescription(`${yes2} Kayıtsız rolü başarıyla verilerden silindi!`)
     .setTimestamp()
     .setColor("0x36393E")
     //EMİRHAN SARAÇ
