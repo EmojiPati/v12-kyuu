@@ -34,12 +34,12 @@ exports.run = async (client, message, params, args) => {
 
 exports.conf = {
   kategori: 'ayarlar',
- aliases: [],
+ aliases: ['kayıt-erkek-rol-kapat'],
  permLevel: 0
 };
 
 exports.help = {
- name: 'isim-erkek-role-kapat',
+ name: 'kayıt-erkek-role-kapat',
  description: 'Sayaçı kapatırsınız.',
  usage: 'sayaç'
 };//EMİRHAN SARAÇ

@@ -36,13 +36,13 @@ exports.run = async(client, message, args) => {
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: [],
+  aliases: ['kayıt-erkek-rol'],
   permLevel: 0
 };//EMİRHAN SARAÇ
 
 
 exports.help = {
-  name: 'isim-erkek-role',
+  name: 'kayıt-erkek-role',
   description: 'Kişi susturulunca verilecek rolü ayarlarsınız.',
   usage: 'mute-rol',
 };//EMİRHAN SARAÇ

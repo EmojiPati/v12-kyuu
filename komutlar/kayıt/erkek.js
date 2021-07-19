@@ -112,7 +112,7 @@ exports.run = async(client, message, args) => {
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['e', 'kayıt-erkek'],
+  aliases: ['e', 'erkek'],
   permLevel: 0
 };
 
