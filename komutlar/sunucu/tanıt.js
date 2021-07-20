@@ -4,7 +4,7 @@ exports.run = async(client, message, args) => {
   
   
   if (talkedRecently.has(message.author.id)) {
-        message.channel.send("Yavaş Ol Bakalım, Sunucu tanıt komutunu 12 saatde 1 kullanabilirsin!");
+        message.channel.send("Yavaş Ol Bakalım, Sunucu tanıt komutunu 24 saatde 1 kullanabilirsin!");
 } else {
 message.channel.createInvite({maxAge: 0}).then((invite) => {
     const embed = new discord.MessageEmbed()
