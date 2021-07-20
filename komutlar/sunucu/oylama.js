@@ -9,7 +9,7 @@ exports.run = async (client, message, args) => {
      .addField(`Yazı Yazman Gerek`);
    if (!question) return message.channel.send(embedd).then(m => m.delete(5000)); 
        const embed = new Discord.MessageEmbed()
-       .setColor("#ffffff")
+       .setColor("0x36393E")
        .setThumbnail(client.user.avatarURL)
        .setTimestamp()
        .setFooter('Dragon', client.user.avatarURL)
