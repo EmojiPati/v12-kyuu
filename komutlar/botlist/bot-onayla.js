@@ -27,7 +27,9 @@ let westralogkanal = await db.fetch(`botlistlog.${message.guild.id}`, kanal3.id)
     .setDescription(`${yes} <@${sahip}> adlı kişinin <@${botisim}> adlı botu onaylandı. Onaylayan yetkili: ${message.author}`)
 		client.channels.cache.get(log).send(westrabumbeyyyy);
 		message.channel.send(`${yes2} Botu onayladınız.`).then(x => x.delete({timeout: 3000}))
+  var role1 = sahip.guild.roles.cache.find(role1 => role1.name === botrol);
         sahip.roles.add(developer);
+  var role2 = botisim.guild.roles.cache.find(role2 => role2.name === botrol);
         botisim.roles.add(botrol)
 };
 
