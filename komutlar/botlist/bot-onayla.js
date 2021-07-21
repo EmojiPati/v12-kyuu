@@ -29,7 +29,7 @@ let westralogkanal = await db.fetch(`botlistlog.${message.guild.id}`, kanal3.id)
 		message.channel.send(`${yes2} Botu onayladınız.`).then(x => x.delete({timeout: 3000}))
   var role1 = message.guild.roles.cache.find(role1 => role1.name === developer);
         sahip.roles.add(developer);
-  var role2 = member.guild.roles.cache.find(role2 => role2.name === botrol);
+  var role2 = message.guild.roles.cache.find(role2 => role2.name === botrol);
         botisim.roles.add(botrol)
 };
 
