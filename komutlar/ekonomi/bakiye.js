@@ -1,14 +1,15 @@
-const Discord = require('discord.js')
-const db = require('quick.db')
-exports.run = async (client, message, args) => { 
+const Discord = require("discord.js");
+const db = require("quick.db");
 
-let para = db.get(`para.${message.guild.id}_${user.id}`)
-let user = message.mention.members.first();
-let banka = db.get(`banka.${message.guild.id}_${user.id}`)
+module.exports.run = async (bot, message, args, utils) => {
+  let user = message.mentions.members.first() || message.author;
 
-if(para === null) para = 0;
-if(banka === null) banka = 0
+  let para = db.fetch(`para.${message.guild.id}_${user.id}`)
 
+  if (para === null) para = 0;
+
+  let banka = await db.fetch(`banka.${message.guild.id}_${user.id}`)
+  if (banka === null) banka = 0;
 let embed = new Discord.MessageEmbed()
 .setColor('0x36393E')
 .setDescription(`💸 ${user} Adlı Kullanıcının Bakiyesi`)
