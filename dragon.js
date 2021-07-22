@@ -99,8 +99,6 @@ client.unload = command => {
 client.login(process.env.TOKEN);
 
 //-----------------------KOMUTLAR-----------------------\
-db.set("deneme", "çalışıyor")
-console.log(db.get("deneme"))
 //////////////////////////////
 client.on('message', async msg => {
 ayarlar.prefix 
