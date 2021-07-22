@@ -18,6 +18,7 @@ let westralogkanal = await db.fetch(`botlistlog.${message.guild.id}`, kanal3.id)
     let sahip = message.guild.members.cache.get(args[1]);
 	let log = westralogkanal //  Bot Eklendi / Onaylandı / Rededildi Kanalı 
 	if (!botisim) return message.channel.send(`${igne} Botun ID'sini yazmalısın.`).then(x => x.delete({timeout: 3000}))
+  	if (!sahip) return message.channel.send(`${igne} Bot sahibinin ID'sini yazmalısın.`).then(x => x.delete({timeout: 3000}))
   message.delete()
    const westrabumbeyyyy = new Discord.MessageEmbed()
     .setColor(`0x36393E`)
