@@ -24,7 +24,8 @@
     "canvas": "^2.8.0",
     "humanize-duration": "^3.27.0",
     "snekfetch": "^4.0.4",
-    "quickmongo": "^3.0.2"
+    "quickmongo": "^3.0.2",
+    "zaman": "^1.0.3"
   },
   "engines": {
     "node": "12.x"

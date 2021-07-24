@@ -1,4 +1,4 @@
-const ms = require('ms');
+const zaman = require('zaman');
 
 exports.run = async (client, message, args) => {
     let giveawayChannel = ''
@@ -42,7 +42,7 @@ exports.run = async (client, message, args) => {
                 status = 1
                 return
             }else
-            if(isNaN(ms(collected.first().content.toLowerCase()))){
+            if(isNaN(zaman(collected.first().content.toLowerCase()))){
                 message.channel.send('<:blurpleno:857917856041271336> Geçerli bir süre belirtmelisiniz!');
                 status = 1
                 return
@@ -105,7 +105,7 @@ exports.run = async (client, message, args) => {
     async function part5(){
         client.giveawaysManager.start(giveawayChannel, {
             // The giveaway duration
-            time: ms(giveawayDuration),
+            time: zaman(giveawayDuration),
             // The giveaway prize
             prize: giveawayPrize,
             // The giveaway winner count
@@ -125,10 +125,10 @@ exports.run = async (client, message, args) => {
                 winners: "kazanan(lar)",
                 endedAt: "Şu tarihte sona erdi:",
                 units: {
-                    seconds: "saniye",
-                    minutes: "dakika",
-                    hours: "saat",
-                    days: "gün",
+                    saniye: "saniye",
+                    dakika: "dakika",
+                    saat: "saat",
+                    gün: "gün",
                     pluralS: false // Not needed, because units end with a S so it will automatically removed if the unit value is lower than 2
                 }
             }

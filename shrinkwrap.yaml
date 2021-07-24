@@ -17,6 +17,7 @@ dependencies:
   quickmongo: 3.0.2
   request: 2.88.2
   snekfetch: 4.0.4
+  zaman: 1.0.3
 packages:
   /@discordjs/collection/0.1.6:
     dev: false
@@ -1781,6 +1782,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==
+  /zaman/1.0.3:
+    dev: false
+    resolution:
+      integrity: sha512-EmzelbfdxrPbHuCLf7F/2ZKaHoUinObzmc0QLht+6yhxH0PIzUngrnATCxYos867e5277s/dwAtENXWwUm46vQ==
 registry: 'https://registry.npmjs.org/'
 shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
@@ -1803,3 +1808,4 @@ specifiers:
   quickmongo: ^3.0.2
   request: ^2.88.2
   snekfetch: ^4.0.4
+  zaman: ^1.0.3
