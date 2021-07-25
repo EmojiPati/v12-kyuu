@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const db = require('quick.db')
-const link = require('../../emoji.json')
+const {link} = require('../../emoji.json')
 exports.run = async (client, msg, args) => { 
   
     const embed = new Discord.MessageEmbed()
