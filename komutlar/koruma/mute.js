@@ -41,7 +41,7 @@ if (db.has(`log_${message.guild.id}`) === false) return message.channel.send(`${
     let durum = await db.get(`durum.${user.id}.mute`)
     if (durum) return message.channel.send(embed.setDescription(`${attention} ${user} Adlı kullanıcının aktif bir **CHAT-MUTE** cezası bulunmakta.`))
 
-    user.roles.add(ayar.muteRol)
+    user.roles.add(mutelirol)
     message.react(yes2)
     message.channel.send(embed.setFooter(`${mention} Üyenin ceza puanı: ${puan}`).setDescription(`${yes2} ${user} Adlı kullanıcı ${message.author} tarafından \`${reason}\` sebebiyle  \`${sure}\` boyunca metin kanallarında susturuldu. Ceza ID: \`#${cezaID}\``)).then(x => x.delete({ timeout: 7000 }) && message.delete({ timeout: 6999 }))
 
@@ -53,7 +53,7 @@ if (db.has(`log_${message.guild.id}`) === false) return message.channel.send(`${
 
 
 
-    client.channels.cache.get(ayar.muteLog).send(embed.setDescription(`
+    client.channels.cache.get(modlog).send(embed.setDescription(`
    ${muteli} ${user} Adlı kullanıcı metin kanallarında susturuldu.
     
     \`${staff}\` Yetkili: ${message.author} (\`${message.author.id}\`)
@@ -64,9 +64,9 @@ if (db.has(`log_${message.guild.id}`) === false) return message.channel.send(`${
     setTimeout(async() => {
         let data = await db.get(`durum.${user.id}.mute`)
         if (!data) return;
-        if (!user.roles.cache.has(ayar.muteRol)) return;
-        user.roles.remove(ayar.muteRol)
-        let log = client.channels.cache.get(ayar.muteLog)
+        if (!user.roles.cache.has(mutelirol)) return;
+        user.roles.remove(mutelirol)
+        let log = client.channels.cache.get(modlog)
         if (log) log.send(embed.setDescription(`${mutesiz} ${user} Adlı kullanıcının metin kanallarındaki susturulması bitti.`))
         db.delete(`durum.${user.id}.mute`)
     }, ms(args[1]))
