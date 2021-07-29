@@ -41,5 +41,9 @@
     "dbl": "<:dbl:866994495312625674>",
     "tac": "<:blurpleowner:857917797707415552>",
     "hashtag": "<:blurplehashtag:857907159063986178>",
-    "onaylı": "<:blurpleverified:857907153276502017>"
+    "onaylı": "<:blurpleverified:857907153276502017>",
+    "muteli": "<:blurplemuted:857907169218789427>",
+    "mutesiz": "<:blurpleunmuted:857907165712351235>",
+    "staff": "<:blurplestaff:857907168707215382>",
+    "search": "<:blurplesearch:857907164013264906>"
 }
