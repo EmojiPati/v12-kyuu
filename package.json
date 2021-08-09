@@ -38,7 +38,8 @@
     "snekfetch": "^4.0.4",
     "node-fetch": "^2.6.1",
     "js-beautify": "^1.14.0",
-    "beautify": "^0.0.8"
+    "beautify": "^0.0.8",
+    "zaman": "^1.0.3"
   },
   "engines": {
     "node": "14.x"
