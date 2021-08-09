@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link href="https://bootswatch.com/4/litera/bootstrap.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.min.js" integrity="sha256-zG8v+NWiZxmjNi+CvUYnZwKtHzFtdO8cAKUIdB8+U9I=" crossorigin="anonymous"></script>
+	
+  <link rel="stylesheet" href="/public/dashboard.css" />
+	<script src="https://cdn.datatables.net/v/bs4/dt-1.10.16/cr-1.4.1/r-2.2.0/datatables.min.js"></script>
+	<link rel='icon' href='<%= bot.user.avatarURL %>'>
+	<title><%= bot.user.username %></title>
+
+</head>
+
+  <br>
+	<div class="nav-breadcrumb" style="width: 100%; margin-bottom: 40px;">
+		<div class="container">
+			<ol class="breadcrumb" style="width: 100%; background-color:#226BE8; color: #000000;">
+				<li class="breadcrumb-item"><a href="/" style="color: #000000;">Ana Sayfa</a></li>
+				<%
+					pathArray = path.split("/").slice(1);
+					pathArray = pathArray.map(p => {
+						if(bot.guilds.has(p)) return bot.guilds.get(p).name;
+						if(bot.users.has(p)) return bot.users.get(p).tag;
+						return p.toProperCase().replace("Commands", "Komutlar").replace("Stats", "İstatistikler").replace("Members", "Üyeler").replace("Manage", "Ayarlar").replace("Dashboard", "Yönetim Paneli").replace("Istatistikler", "İstatistikler").replace('User', 'Kullanıcı Ayarları');
+					});
+					let builtPath = "";
+					for(let i = 0; i < pathArray.length; i++) {
+						builtPath += "/"+path.split("/").slice(1)[i]; %>
+						<li class="breadcrumb-item<% if((i+1) === pathArray.length) {%> active" style="color: #fff;"><%= pathArray[i] %><% } else { %>">
+							<a href="<%= builtPath %>" style="color: #000000;"><%= pathArray[i] %></a>
+						<% } %></li>
+					<% } %>
+			</ol>
+		</div>
+	</div>
+  
+<div class="con  cbrtainer">

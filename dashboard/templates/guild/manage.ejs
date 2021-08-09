@@ -1,0 +1,86 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<%- include('../blocks/header', {bot, user, path}) %>
+<div class="container">
+	<div class="row justify-content-md-center">
+		<h2 style="color: #fff;">Sunucu Yönetimi</h2>
+	</div>
+	<div class="row">
+		<div class="col col-4">
+			<%- include('../blocks/guild-card', {guild}) %>
+		</div>
+		<div class="col">
+			<%- include('../blocks/guild-nav.ejs', {active: "manage", guild}) %>
+			<form method="post">
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item" style="padding: 0; background-color: #525656;">
+                        
+            <div class="input-group mb-2 mr-sm-2 mb-sm-0" style="width: 100%; margin: 0 !important;">
+              <div class="input-group-addon" style="width: 150px; text-align: center; margin: 5.5px; color: #ffffff; font-size: 15px;">Otomatik Rol</div>
+              <% if (bot.ayar.has(`otoR_${guild.id}`) === false) { %>
+								<input type="text" class="form-control" style="text-align: left; border:2px solid #456879; border-radius:10px;" name="otorol" id="otorol"
+									placeholder="Lütfen ayarlamak istediğiniz rolü yazınız!">
+              <% } %>
+              
+							<% if(bot.ayar.has(`otoR_${guild.id}`) === true) { %>
+								<input type="text" class="form-control" style="text-align: left; border:2px solid #456879; border-radius:10px;" name="otorol" id="otorol" value="<%= guild.roles.get(bot.ayar.fetch(`otoR_${guild.id}`)).name %>"
+									placeholder="Lütfen ayarlamak istediğiniz rolü yazınız!">
+              <% } %>
+						</div>
+            
+            <div class="input-group mb-2 mr-sm-2 mb-sm-0" style="width: 100%; margin: 0 !important;">
+              <div class="input-group-addon" style="width: 150px; text-align: center; margin: 5.5px; color: #ffffff; font-size: 15px;">Otorol Kanalı</div>
+              <% if (bot.ayar.has(`otoK_${guild.id}`) === false) { %>
+								<input type="text" class="form-control" style="text-align: left; border:2px solid #456879; border-radius:10px;" name="otoKanal" id="otoKanal"
+									placeholder="Lütfen ayarlamak istediğiniz kanalı yazınız!">
+              <% } %>
+              
+							<% if(bot.ayar.has(`otoK_${guild.id}`) === true) { %>
+								<input type="text" class="form-control" style="text-align: left; border:2px solid #456879; border-radius:10px;" name="otoKanal" id="otoKanal" value="<%= bot.channels.get(bot.ayar.fetch(`otoK_${guild.id}`).replace("<#", "").replace(">", "")).name %>"
+									placeholder="Lütfen ayarlamak istediğiniz kanalı yazınız!">
+              <% } %>
+						</div>
+            
+            <div class="input-group mb-2 mr-sm-2 mb-sm-0" style="width: 100%; margin: 0 !important;">
+              <div class="input-group-addon" style="width: 150px; text-align: center; margin: 5.5px; color: #ffffff; font-size: 15px;">Sayaç Sayısı</div>
+              <% if (bot.ayar.has(`sayac_${guild.id}`) === false) { %>
+								<input type="number" class="form-control" style="text-align: left; border:2px solid #456879; border-radius:10px;" name="sayac" id="sayac"
+									placeholder="Lütfen ayarlamak istediğiniz sayıyı yazınız!">
+              <% } %>
+              
+							<% if(bot.ayar.has(`sayac_${guild.id}`) === true) { %>
+								<input type="number" class="form-control" style="text-align: left; border:2px solid #456879; border-radius:10px;" name="sayac" id="sayac" value="<%= bot.ayar.fetch(`sayac_${guild.id}`) %>"
+									placeholder="Lütfen ayarlamak istediğiniz sayıyı yazınız!">
+              <% } %>
+						</div>
+                        
+            <div class="input-group mb-2 mr-sm-2 mb-sm-0" style="width: 100%; margin: 0 !important;">
+              <div class="input-group-addon" style="width: 150px; text-align: center; margin: 5.5px; color: #ffffff; font-size: 15px;">Sayaç Kanalı</div>
+              <% if (bot.ayar.has(`sayacK_${guild.id}`) === false) { %>
+								<input type="text" class="form-control" style="text-align: left; border:2px solid #456879; border-radius:10px;" name="sayacKanal" id="sayacKanal"
+									placeholder="Lütfen ayarlamak istediğiniz kanalı yazınız!">
+              <% } %>
+              
+							<% if(bot.ayar.has(`sayacK_${guild.id}`) === true) { %>
+								<input type="text" class="form-control" style="text-align: left; border:2px solid #456879; border-radius:10px;" name="sayacKanal" id="sayacKanal" value="<%= bot.channels.get(bot.ayar.fetch(`sKanal_${guild.id}`).replace("<#", "").replace(">", "")).name %>"
+									placeholder="Lütfen ayarlamak istediğiniz kanalı yazınız!">
+              <% } %>
+						</div>
+            
+          </li> 
+        </ul>
+          
+				<div style="width: 100%; text-align: right; margin-top: 20px;">
+					<a class="btn btn-danger" data-toggle="modal" data-target="#settingsResetModal" role="button" style="color: #ffffff;">Ayarları Sıfırla<i class="fa fa-fw fa-cogs" aria-hidden="true"></i></a>
+					<button type="submit" class="btn btn-primary">Değişiklikleri Kaydet<i class="fa fa-fw fa-save" aria-hidden="true"></i></button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<% include ../blocks/guild-modals %>
+<script type="text/javascript">
+	var ts = parseInt($('#guildCreate').text());
+	$('#guildCreate').html(`<strong>Created:</strong>: ${moment(ts).format('MMMM Do YYYY (h:mm a)')}`);
+</script>
+<% include ../blocks/footer %>

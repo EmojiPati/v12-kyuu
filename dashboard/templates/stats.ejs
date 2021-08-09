@@ -1,0 +1,42 @@
+<%- include('blocks/header', {bot, user, path}) %>
+<br>
+<center><h3 style="color:#fff">İSTATİSTİKLER</h3></center>
+
+<div class="container">
+<nav class="navbar navbar-dark indigo">
+  <form class="form-inline">
+<button class="btn btn-outline-success" type="button">Sunucu Sayısı: <%= stats.servers %></button>
+  </form>
+  </nav>
+<nav class="navbar navbar-dark indigo">
+  <form class="form-inline">
+    <button class="btn btn-outline-success" type="button">Aktif Kalma Süresi: <%= stats.uptime %></button>
+  </form>
+</nav>
+<nav class="navbar navbar-dark indigo">
+  <form class="form-inline">
+    <button class="btn btn-outline-success" type="button">Kullanıcı Sayısı: <%= stats.members %></button>
+  </form>
+</nav>
+<nav class="navbar navbar-dark indigo">
+  <form class="form-inline">
+    <button class="btn btn-outline-success" type="button">Hafıza Kullanımı: <%= Math.round(stats.memoryUsage) %> MB</button>
+  </form>
+</nav>
+<nav class="navbar navbar-dark indigo">
+  <form class="form-inline">
+    <button class="btn btn-outline-success" type="button">Kanal Sayısı: <%= stats.channels %></button>
+  </form>
+</nav>
+<nav class="navbar navbar-dark indigo">
+  <form class="form-inline">
+    <button class="btn btn-outline-success" type="button">Node.JS Sürümü: <%= stats.nVersion %></button>
+  </form>
+</nav>
+<nav class="navbar navbar-dark indigo">
+  <form class="form-inline">
+    <button class="btn btn-outline-success" type="button">Discord.JS Sürümü: <%= stats.dVersion %></button>
+  </form>
+</nav>
+</div>
+<% include ./blocks/footer %>
