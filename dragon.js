@@ -6,7 +6,16 @@ const fs = require('fs');
 const db = require('quick.db')
 const moment = require('moment');
 require('./util/eventLoader')(client);
+require("./modules/functions.js")(client);
+  require("./modules/dashboard.js")(client); 
+client.ayar = db;
 
+client.ayarlar = {
+  prefix: "d!",
+  sahip: "852596827713962066",
+  yardimci: "793854348449939477"
+  
+};
 var prefix = ayarlar.prefix;
 
 const log = message => {

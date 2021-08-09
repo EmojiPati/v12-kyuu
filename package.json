@@ -25,7 +25,8 @@
     "humanize-duration": "^3.27.0",
     "snekfetch": "^4.0.4",
     "quickmongo": "^3.0.2",
-    "zaman": "^1.0.3"
+    "zaman": "^1.0.3",
+    "passport": "^0.4.1"
   },
   "engines": {
     "node": "12.x"
@@ -39,4 +40,4 @@
     "glitch",
     "express"
   ]
-}
+}ex
