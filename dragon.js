@@ -7,7 +7,7 @@ const db = require('quick.db')
 const moment = require('moment');
 require('./util/eventLoader')(client);
 require("./modules/functions.js")(client);
-  require("./modules/dashboard.js")(client); 
+
 client.ayar = db;
 
 client.ayarlar = {
@@ -21,7 +21,7 @@ var prefix = ayarlar.prefix;
 const log = message => {
   console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] ${message}`);
 };
-
+require("./modules/dashboard.js")(client); 
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
    fs.readdir("./komutlar/", (err, files) => {

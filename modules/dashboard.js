@@ -52,7 +52,7 @@ module.exports = (client) => {
 
 
   passport.use(new Strategy({
-    clientID: client.user.id,
+    clientID: '825659553370734632',
     clientSecret: '6DrzyHHRcUAgULS1TlAM7TGX0gom2mR-',
     callbackURL: 'https://catkin-ornament.glitch.me/callback',
     scope: ["identify", "guilds"]
